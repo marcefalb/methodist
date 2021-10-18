@@ -1,0 +1,22 @@
+.header {
+  height: 70px;
+  width: 100%;
+
+  background-color: var(--main);
+}
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100%;
+
+  padding: 0;
+}
+.header__logo,
+.header__logo svg {
+  width: 170px;
+  height: 50px;
+
+  overflow: hidden;
+}

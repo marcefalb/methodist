@@ -1,5 +1,6 @@
 import React from 'react';
-import {ReactComponent as IcLogo} from '../assets/icons/ic_logo.svg'
+import {ReactComponent as IcLogo} from '../../assets/icons/ic_logo.svg'
+import './Header.css'
 
 const Header = () => {
   return (

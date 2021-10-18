@@ -1,9 +1,10 @@
 import React from 'react';
-import {ReactComponent as IcLogo} from '../assets/icons/ic_logo.svg'
-import {ReactComponent as IcFb} from '../assets/icons/ic_footer-facebook.svg'
-import {ReactComponent as IcInst} from '../assets/icons/ic_footer-inst.svg'
-import {ReactComponent as IcYt} from '../assets/icons/ic_footer-youtube.svg'
-import {ReactComponent as IcWa} from '../assets/icons/ic_footer-whatsapp.svg'
+import {ReactComponent as IcLogo} from '../../assets/icons/ic_logo.svg'
+import {ReactComponent as IcFb} from '../../assets/icons/ic_footer-facebook.svg'
+import {ReactComponent as IcInst} from '../../assets/icons/ic_footer-inst.svg'
+import {ReactComponent as IcYt} from '../../assets/icons/ic_footer-youtube.svg'
+import {ReactComponent as IcWa} from '../../assets/icons/ic_footer-whatsapp.svg'
+import './Footer.css'
 
 const Footer = () => {
   return (

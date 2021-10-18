@@ -1,0 +1,20 @@
+.btn-next__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  margin-top: auto;
+}
+.btn-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  background-color: inherit;
+  cursor: pointer;
+}
+.btn-next span {
+  color: var(--secondary-light);
+  font-size: 24px;
+}
