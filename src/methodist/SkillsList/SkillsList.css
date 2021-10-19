@@ -1,0 +1,44 @@
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-top: 20px;
+}
+.skills__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+.skills__input {
+  display: flex;
+  align-items: center;
+
+  height: 60px;
+
+  border: 1px solid var(--border-line) !important;
+}
+.skills__input input {
+  width: 100%;
+  height: 100%;
+  padding: 19px;
+  font-size: 18px;
+}
+.skills__input input::placeholder {
+  opacity: .3;
+}
+.skills__add-skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  width: 62px;
+
+  border-left: 1px solid var(--border-line) !important;
+  cursor: pointer;
+  background-color: inherit;
+}

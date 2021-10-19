@@ -1,15 +1,10 @@
 import React from 'react';
-// import store from "../../../store/store";
+import store from "../../../store/store";
 import {observer} from "mobx-react-lite"
 import Sel from 'react-select'
 import './Select.css'
 
 const Select = observer(({name, title}) => {
-  const options = [
-    { value: 'Designer', label: 'Дизайнер' },
-    { value: 'Developer', label: 'Разработчик' },
-    { value: 'Analytic', label: 'Аналитик' }
-  ]
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -65,11 +60,11 @@ const Select = observer(({name, title}) => {
   }
   return (
     <div className="select">
-      <span className="select__title">{title}</span>
+      <span className="select__title title">{title}</span>
       <Sel
         name={name}
-        defaultValue={options[1]}
-        options={options}
+        defaultValue={store.options[1]}
+        options={store.options}
         styles={customStyles}
       />
     </div>

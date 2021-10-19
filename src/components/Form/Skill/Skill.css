@@ -1,0 +1,16 @@
+.skills__item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 3px 7px;
+
+  background-color: rgba(72, 76, 81, 0.1);
+  border-radius: 16px;
+
+  font-size: 18px;
+  font-weight: 300;
+}
+.skills__item svg {
+  cursor: pointer;
+}
