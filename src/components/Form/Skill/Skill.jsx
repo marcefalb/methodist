@@ -7,7 +7,7 @@ const Skill = ({skill}) => {
   return (
     <li className="skills__item" key={skill.id}>
       <span>{skill.label}</span>
-      <IcClose onClick={() => {skills.delSkill(skill.id)}}/>
+      <IcClose onClick={() => {skills.removeSkill(skill.id)}}/>
     </li>
   );
 };

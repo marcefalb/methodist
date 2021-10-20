@@ -5,8 +5,8 @@ import store from "../../store/store";
 
 const BtnNext = () => {
   return (
-    <div className={store.isContinue ? 'btn-next_hidden' : 'btn-next__container'}>
-      <button className="btn-next" onClick={() => store.toContinue()}>
+    <div className='btn-next__container'>
+      <button className="btn-next" onClick={() => store.setIsContinue()}>
         <span>Далее</span>
         <IcArrowRight />
       </button>

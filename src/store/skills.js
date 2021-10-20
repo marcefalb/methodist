@@ -1,7 +1,8 @@
 import {makeAutoObservable, observable} from "mobx";
 
 class Skills {
-  skillsList = observable.map()
+  // professionalSkills = observable.array()
+  // personalSkills = observable.array()
   demoSkills = observable.array([
     { id: '0', label: 'Работа в команде' },
     { id: '1', label: 'Ответственность' },
@@ -17,24 +18,24 @@ class Skills {
     makeAutoObservable(this)
   }
 
-
-  addSkill(skill) {
-    this.nextObjId = this.demoSkills.length + 1
-    this.demoSkills.push({id: this.nextObjId, label: skill})
-    this.inputValue = ''
+  addSkill(skill, event) {
+    if ((event.key === 'Enter' || event.type === 'click') && skill) {
+      this.nextObjId = this.demoSkills.length + 1
+      this.demoSkills.push({id: this.nextObjId, label: skill})
+      this.inputValue = ''
+    }
   }
 
-  delSkill(skillId) {
-    this.demoSkills.remove(skillId)
+  removeSkill(skillId) {
+    this.demoSkills.forEach(skill => {
+      if (skill.id === skillId)
+        this.demoSkills.remove(skill)
+    })
   }
 
   setValue(value) {
     this.inputValue = value
   }
-
-  // get allSkills() {
-  //   return values(this.demoSkills)
-  // }
 }
 
 export default new Skills()

@@ -11,12 +11,19 @@ const Methodist = observer(() => {
       <div className="wrapper main__wrapper">
         <h1>Заявка на курс</h1>
         <div className="main__content">
-          <Select name={'speciality'} title={'Специальность'}/>
-          <Select name={'industry'} title={'Направление'}/>
-          <BtnNext />
-          <div className={store.isContinue ? undefined : 'to-continue_hidden'}>
-            <SkillsList />
-          </div>
+          <Select
+            name={'speciality'}
+            title={'Специальность'}
+          />
+          <Select
+            name={'industry'}
+            title={'Направление'}
+          />
+          {(!store.isContinue && (
+            <BtnNext onClick={() => store.setIsContinue()}/>
+          )) || (
+            <SkillsList/>
+          )}
         </div>
       </div>
     </main>

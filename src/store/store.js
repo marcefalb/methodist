@@ -16,7 +16,7 @@ class Store {
     makeAutoObservable(this)
   }
 
-  toContinue() {
+  setIsContinue() {
     this.isContinue = true
   }
 
