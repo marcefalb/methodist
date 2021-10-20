@@ -10,17 +10,18 @@ class Store {
     { value: 'System administrator', label: 'Системный администратор' },
     { value: 'Analytic', label: 'Аналитик' }
   ]
+  isContinue = false
 
   constructor() {
     makeAutoObservable(this)
   }
 
-  get selectsList() {
-    return values(this.selects)
+  toContinue() {
+    this.isContinue = true
   }
 
-  toContinue() {
-
+  get selectsList() {
+    return values(this.selects)
   }
 }
 

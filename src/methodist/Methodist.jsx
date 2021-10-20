@@ -13,8 +13,10 @@ const Methodist = observer(() => {
         <div className="main__content">
           <Select name={'speciality'} title={'Специальность'}/>
           <Select name={'industry'} title={'Направление'}/>
-          <BtnNext onClick={store.toContinue()}/>
-          <SkillsList />
+          <BtnNext />
+          <div className={store.isContinue ? undefined : 'to-continue_hidden'}>
+            <SkillsList />
+          </div>
         </div>
       </div>
     </main>

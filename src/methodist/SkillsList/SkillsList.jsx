@@ -3,23 +3,23 @@ import Skill from "../../components/Form/Skill/Skill";
 import {ReactComponent as IcAddSkill} from "../../assets/icons/ic_add-skill.svg";
 import './SkillsList.css'
 import {observer} from "mobx-react-lite";
-import skills from "../../store/skills";
+import Skills from "../../store/skills";
 
 const SkillsList = observer(() => {
   return (
     <div className="skills">
       <span className="skills__title title">Личностные качества</span>
       <ul className="skills__list">
-        {skills.demoSkills.map((el, index) => {
+        {Skills.demoSkills.map(el => {
             return (
-              <Skill skill={el} key={index} />
+              <Skill skill={el}/>
             )
           }
         )}
       </ul>
       <div className="skills__input">
-        <input value={skills.inputValue} onChange={event => {skills.setValue(event.target.value)}} type="text" placeholder="Навык, например “Работа в команде”"/>
-        <button className="skills__add-skill" onClick={() => {skills.addSkill(skills.inputValue)}}>
+        <input value={Skills.inputValue} onChange={event => {Skills.setValue(event.target.value)}} type="text" placeholder="Навык, например “Работа в команде”"/>
+        <button className="skills__add-skill" onClick={() => {Skills.addSkill(Skills.inputValue)}}>
           <IcAddSkill />
         </button>
       </div>

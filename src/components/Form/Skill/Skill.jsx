@@ -3,12 +3,11 @@ import {ReactComponent as IcClose} from "../../../assets/icons/ic_close.svg";
 import './Skill.css'
 import skills from "../../../store/skills";
 
-const Skill = ({skill, key}) => {
-  console.log(key)
+const Skill = ({skill}) => {
   return (
-    <li className="skills__item" key={key}>
-      <span>{skill}</span>
-      <IcClose onClick={event => {skills.delSkill(event.target.key)}}/>
+    <li className="skills__item" key={skill.id}>
+      <span>{skill.label}</span>
+      <IcClose onClick={() => {skills.delSkill(skill.id)}}/>
     </li>
   );
 };
