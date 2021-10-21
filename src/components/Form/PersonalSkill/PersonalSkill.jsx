@@ -1,9 +1,9 @@
 import React from 'react';
 import {ReactComponent as IcClose} from "../../../assets/icons/ic_close.svg";
-import './Skill.css'
+import './PersonalSkill.css'
 import skills from "../../../store/skills";
 
-const Skill = ({skill}) => {
+const PersonalSkill = ({skill}) => {
   return (
     <li className="skills__item" key={skill.id}>
       <span>{skill.label}</span>
@@ -12,4 +12,4 @@ const Skill = ({skill}) => {
   );
 };
 
-export default Skill;
+export default PersonalSkill;

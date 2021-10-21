@@ -1,9 +1,10 @@
 import React from 'react';
 import Select from "../components/Form/Select/Select";
 import BtnNext from "./BtnNext/BtnNext";
-import SkillsList from "./SkillsList/SkillsList";
+import PersonalSkillsList from "./PersonalSkillsList/PersonalSkillsList";
 import {observer} from "mobx-react-lite";
 import store from "../store/store";
+import ProfessionalSkillsList from "./ProfessionalSkillsList/ProfessionalSkillsList";
 
 const Methodist = observer(() => {
   return (
@@ -22,7 +23,10 @@ const Methodist = observer(() => {
           {(!store.isContinue && (
             <BtnNext onClick={() => store.setIsContinue()}/>
           )) || (
-            <SkillsList/>
+            <div className="skills">
+              <PersonalSkillsList/>
+              <ProfessionalSkillsList />
+            </div>
           )}
         </div>
       </div>

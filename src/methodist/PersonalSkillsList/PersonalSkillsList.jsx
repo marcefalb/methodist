@@ -1,18 +1,18 @@
 import React from 'react';
-import Skill from "../../components/Form/Skill/Skill";
+import PersonalSkill from "../../components/Form/PersonalSkill/PersonalSkill";
 import {ReactComponent as IcAddSkill} from "../../assets/icons/ic_add-skill.svg";
-import './SkillsList.css'
+import './PersonalSkillsList.css'
 import {observer} from "mobx-react-lite";
 import skills from "../../store/skills";
 
-const SkillsList = observer(() => {
+const PersonalSkillsList = observer(() => {
   return (
     <div className="skills">
       <span className="skills__title title">Личностные качества</span>
       <ul className="skills__list">
         {skills.demoSkills.map(el => {
             return (
-              <Skill skill={el}/>
+              <PersonalSkill skill={el}/>
             )
           }
         )}
@@ -42,4 +42,4 @@ const SkillsList = observer(() => {
   );
 });
 
-export default SkillsList;
+export default PersonalSkillsList;
