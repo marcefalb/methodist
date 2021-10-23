@@ -8,6 +8,7 @@ h1 {
   color: var(--main);
   font-size: 36px;
   font-weight: 900;
+  font-family: 'Intro', Serif;
 }
 .App {
   display: flex;
@@ -55,4 +56,11 @@ h1 {
 }
 .title {
   font-size: 20px;
+  font-family: 'Intro', Serif;
+}
+.skills {
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--border-line);
 }

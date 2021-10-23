@@ -1,44 +1,62 @@
-.skills {
+.personal-skills {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-
-  margin-top: 20px;
 }
-.skills__list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-
-  margin-top: 20px;
+.personal-skills__title {
+  padding: 20px;
 }
-.skills__input {
+.personal-skills__title:first-child {
+  border-bottom: 1px solid var(--border-line) !important;
+}
+.personal-skills__input {
   display: flex;
   align-items: center;
 
   height: 60px;
-
-  border: 1px solid var(--border-line) !important;
-}
-.skills__input input {
   width: 100%;
-  height: 100%;
-  padding: 19px;
-  font-size: 18px;
+
+  padding-left: 20px;
+
+  border-bottom: 1px solid var(--border-line) !important;
+  cursor: pointer;
 }
-.skills__input input::placeholder {
-  opacity: .3;
+.personal-skills__input input {
+  width: 100%;
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 20px;
 }
-.skills__add-skill {
+.personal-skills__search {
+  padding: 20px;
+}
+.personal-skills__search svg {
+  width: 20px;
+  height: 20px;
+  background-color: inherit;
+}
+.personal-skills__recommended-list {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 15px;
+  column-gap: 20px;
 
-  height: 100%;
-  width: 62px;
+  padding: 0 20px 20px 40px;
+}
+.personal-skills__apply-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 15px;
+  column-gap: 20px;
 
-  border-left: 1px solid var(--border-line) !important;
-  cursor: pointer;
-  background-color: inherit;
+  padding: 20px 20px 20px 40px;
+
+  border-top: 1px solid var(--border-line) !important;
+}
+.personal-skills__apply-list li {
+  background-color: var(--secondary) !important;
+}
+.personal-skills__apply-list span {
+  color: #fff;
 }

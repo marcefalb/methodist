@@ -1,17 +1,19 @@
 .skills__item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 22px;
 
-  padding: 5px 10px;
+  padding: 10px 20px;
 
-  background-color: rgba(72, 76, 81, 0.1);
-  border-radius: 16px;
+  background-color: #f8f8f8;
+  color: #5b5b5b;
+  border-radius: 5px;
 
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
 }
 .skills__item svg {
   cursor: pointer;
-  width: 10px;
+  width: 15px;
 }

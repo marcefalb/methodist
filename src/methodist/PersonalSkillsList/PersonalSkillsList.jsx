@@ -1,23 +1,15 @@
 import React from 'react';
 import PersonalSkill from "../../components/Form/PersonalSkill/PersonalSkill";
-import {ReactComponent as IcAddSkill} from "../../assets/icons/ic_add-skill.svg";
+import {ReactComponent as IcSearch} from "../../assets/icons/ic_search.svg";
 import './PersonalSkillsList.css'
 import {observer} from "mobx-react-lite";
 import skills from "../../store/skills";
 
 const PersonalSkillsList = observer(() => {
   return (
-    <div className="skills">
-      <span className="skills__title title">Личностные качества</span>
-      <ul className="skills__list">
-        {skills.demoSkills.map(el => {
-            return (
-              <PersonalSkill skill={el}/>
-            )
-          }
-        )}
-      </ul>
-      <div className="skills__input">
+    <div className="personal-skills">
+      <span className="personal-skills__title title">Личностные качества</span>
+      <div className="personal-skills__input">
         <input
           value={skills.inputValue}
           onKeyDown={event => {
@@ -29,15 +21,27 @@ const PersonalSkillsList = observer(() => {
           type="text"
           placeholder="Навык, например “Работа в команде”"
         />
-        <button
-          className="skills__add-skill"
-          onClick={(event) => {
-            skills.addSkill(skills.inputValue, event)
-          }}
-        >
-          <IcAddSkill />
-        </button>
+        <div className="personal-skills__search">
+          <IcSearch />
+        </div>
       </div>
+      <span className="personal-skills__title title">Рекомендуемые навыки</span>
+      <ul className="personal-skills__recommended-list">
+        {skills.demoSkills.map(el => {
+            return (
+              <PersonalSkill skill={el}/>
+            )
+          }
+        )}
+      </ul>
+      <ul className="personal-skills__apply-list">
+        {skills.demoSkills.map(el => {
+            return (
+              <PersonalSkill skill={el}/>
+            )
+          }
+        )}
+      </ul>
     </div>
   );
 });
