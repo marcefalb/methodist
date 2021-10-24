@@ -27,17 +27,17 @@ const PersonalSkillsList = observer(() => {
       </div>
       <span className="personal-skills__title title">Рекомендуемые навыки</span>
       <ul className="personal-skills__recommended-list">
-        {skills.demoSkills.map(el => {
+        {skills.recommendedPersonalSkills.map(el => {
             return (
-              <PersonalSkill skill={el}/>
+              <PersonalSkill skill={el} skillType='recommended'/>
             )
           }
         )}
       </ul>
       <ul className="personal-skills__apply-list">
-        {skills.demoSkills.map(el => {
+        {skills.selectedPersonalSkills.map(el => {
             return (
-              <PersonalSkill skill={el}/>
+              <PersonalSkill skill={el} skillType='selected'/>
             )
           }
         )}

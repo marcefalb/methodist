@@ -42,6 +42,8 @@
   column-gap: 20px;
 
   padding: 0 20px 20px 40px;
+
+  border-bottom: 1px solid var(--border-line) !important;
 }
 .personal-skills__apply-list {
   display: flex;
@@ -52,11 +54,11 @@
 
   padding: 20px 20px 20px 40px;
 
-  border-top: 1px solid var(--border-line) !important;
+  border-bottom: 1px solid var(--border-line) !important;
 }
-.personal-skills__apply-list li {
-  background-color: var(--secondary) !important;
+.skills__item_selected {
+  background-color: var(--secondary);
 }
-.personal-skills__apply-list span {
+.skills__item_selected span {
   color: #fff;
 }

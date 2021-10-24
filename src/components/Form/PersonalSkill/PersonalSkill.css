@@ -1,4 +1,4 @@
-.skills__item {
+.personal-skills__item {
   display: flex;
   align-items: center;
   gap: 22px;
@@ -13,7 +13,6 @@
   line-height: 20px;
   font-weight: 400;
 }
-.skills__item svg {
+.personal-skills__item svg {
   cursor: pointer;
-  width: 15px;
 }
