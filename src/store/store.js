@@ -1,7 +1,8 @@
 import {makeAutoObservable, observable, values} from "mobx";
+import fetchSpecialities from "../API/fetchSpecialities";
 
 class Store {
-  selects = observable.map()
+  specialitiesSelect = observable.array()
   options = [
     { value: 'Designer', label: 'Дизайнер' },
     { value: 'Developer', label: 'Разработчик' },
@@ -14,14 +15,23 @@ class Store {
 
   constructor() {
     makeAutoObservable(this)
+
+    this.fetchToSpecialities()
+  }
+
+  async fetchToSpecialities() {
+    const response = await fetchSpecialities.fetchToSpecialities()
+    response.data.data.forEach(item => {
+      this.specialitiesSelect.push({id: item.id, value: item.name})
+    })
   }
 
   setIsContinue() {
     this.isContinue = true
   }
 
-  get selectsList() {
-    return values(this.selects)
+  get specialitiesList() {
+    return values(this.specialitiesSelect)
   }
 }
 

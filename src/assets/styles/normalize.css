@@ -45,8 +45,7 @@
   vertical-align: baseline;
 }
 *:focus,
-*:active,
-*:hover {
+*:active {
   border: none;
   outline: none;
 }

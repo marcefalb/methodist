@@ -15,6 +15,7 @@ const Methodist = observer(() => {
           <Select
             name={'speciality'}
             title={'Специальность'}
+            select={store.options}
           />
           <Select
             name={'industry'}

@@ -20,28 +20,27 @@ class Skills {
     { id: '5', label: 'Аналитическое мышление' },
   ])
   professionalSkills = observable.array([
-    { id: '1', label: 'Технология металлобработки на токарных станках', subskills: [
+    { id: '1', label: 'Технология металлобработки на токарных станках', isActive: false, subskills: [
         { id: '1', label: 'Точение по наружному диаметру: черной и чистовой проход' },
         { id: '2', label: 'Образование канавок различной формы и глубины' },
         { id: '3', label: 'Точение, подрезка торцевой поверхности, а также отрезная операция' },
       ] },
-    { id: '2', label: 'Технология работ на токарно-револьверных станках', subskills: [
+    { id: '2', label: 'Технология работ на токарно-револьверных станках', isActive: false, subskills: [
         { id: '1', label: 'Точение по наружному диаметру: черной и чистовой проход' },
         { id: '2', label: 'Образование канавок различной формы и глубины' },
         { id: '3', label: 'Точение, подрезка торцевой поверхности, а также отрезная операция' },
       ] },
-    { id: '3', label: 'Токарная обработка заготовок, деталей, изделий и инструментов', subskills: [
+    { id: '3', label: 'Токарная обработка заготовок, деталей, изделий и инструментов', isActive: false, subskills: [
         { id: '1', label: 'Точение по наружному диаметру: черной и чистовой проход' },
         { id: '2', label: 'Образование канавок различной формы и глубины' },
         { id: '3', label: 'Точение, подрезка торцевой поверхности, а также отрезная операция' },
       ] },
-    { id: '4', label: 'Способы установки деталей', subskills: [
+    { id: '4', label: 'Способы установки деталей', isActive: false, subskills: [
         { id: '1', label: 'Точение по наружному диаметру: черной и чистовой проход' },
         { id: '2', label: 'Образование канавок различной формы и глубины' },
         { id: '3', label: 'Точение, подрезка торцевой поверхности, а также отрезная операция' },
       ] },
   ])
-
   inputValue = ''
 
   constructor() {
@@ -62,6 +61,16 @@ class Skills {
     })
   }
 
+  removeProfessionalSkill(parentSkillId, skillId) {
+    this.professionalSkills.forEach(parentSkill => {
+      if (parentSkillId === parentSkill.id)
+        parentSkill.subskills.forEach(skill => {
+          if (skillId === skill.id)
+            parentSkill.subskills.remove(skill)
+        })
+    })
+  }
+
   toggleSkill(skillId, skill, skillType, event) {
     if (skillType === 'recommended') {
       this.addSkill(skill, event, this.selectedPersonalSkills)
@@ -71,6 +80,13 @@ class Skills {
       this.addSkill(skill, event, this.recommendedPersonalSkills)
       this.removeSkill(skillId, this.selectedPersonalSkills)
     }
+  }
+
+  setIsActive(skillObjId) {
+    this.professionalSkills.forEach(skill => {
+      if (skill.id === skillObjId)
+        skill.isActive = !skill.isActive
+    })
   }
 
   setValue(value) {
