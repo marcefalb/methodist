@@ -4,7 +4,7 @@ import AsyncSelect from 'react-select'
 
 import './Select.css'
 
-const Select = observer(({options, name, title}) => {
+const Select = observer(({options, name, title, onChange, onSelect, isDisabled}) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -45,8 +45,8 @@ const Select = observer(({options, name, title}) => {
     option: (provided, state) => ({
       ...provided,
       height: 60,
-      padding: 20,
-      fontSize: 18,
+      padding: 18,
+      fontSize: 20,
       cursor: 'pointer',
       borderBottom: '1px solid #777777',
       backgroundColor: state.isSelected ?
@@ -60,25 +60,38 @@ const Select = observer(({options, name, title}) => {
         '#fff'
         : 'var(--main)'
     }),
+    input: (provided) => ({
+      ...provided,
+      fontSize: 20
+    }),
   }
-  const loadingMessage = name => {
+  const noOptionsMessage = name => {
     if (name === 'speciality')
       return 'По данному запросу специальностей не найдено'
-    else if (name === 'industry')
+    else if (name === 'direction')
       return 'По данному запросу направлений не найдено'
   } 
+  const placeholder = name => {
+    if (name === 'speciality')
+      return 'Например: Токарь'
+    else if (name === 'direction')
+      return 'Выбрать...'
+  }
+  const optionsList = options.map(option => {
+    return { label: option.name, value: option.id };
+  });
   return (
     <div className="select">
       <span className="select__title title">{title}</span>
       <AsyncSelect
         name={name}
-        options={options}
+        options={optionsList}
+        // noOptionsMessage={noOptionsMessage(name)}
         styles={customStyles}
-        placeholder={'Дизайнер'}
-        loadingMessage={loadingMessage(name)}
-        // onChange={() => {
-        //   store.setIsShowBtn()}
-        // }
+        placeholder={placeholder(name)}
+        onChange={onChange}
+        onSelect={onSelect}
+        isDisabled={isDisabled}
       />
     </div>
   );

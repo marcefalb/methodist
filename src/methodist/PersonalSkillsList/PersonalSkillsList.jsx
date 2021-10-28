@@ -1,9 +1,11 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
+
 import PersonalSkill from "../../components/Form/PersonalSkill/PersonalSkill";
+import Select from "../../components/Form/Select/Select";
+import skills from "../../store/skills";
 import { ReactComponent as IcSearch } from "../../assets/icons/ic_search.svg";
 import "./PersonalSkillsList.css";
-import { observer } from "mobx-react-lite";
-import skills from "../../store/skills";
 
 const PersonalSkillsList = observer(() => {
   return (
@@ -21,6 +23,15 @@ const PersonalSkillsList = observer(() => {
           type="text"
           placeholder="Навык, например “Работа в команде”"
         />
+        {/* <Select
+          name={'skill'}
+          title={''}
+          options={store.specialitiesList}
+          onChange={(event) => {
+            store.setIsDisabled()
+            store.fetchToDirections(event.value)
+          }}
+        /> */}
         <div className="personal-skills__search">
           <IcSearch />
         </div>
@@ -31,11 +42,13 @@ const PersonalSkillsList = observer(() => {
           return <PersonalSkill skill={el} skillType="recommended" />;
         })}
       </ul>
-      <ul className="personal-skills__apply-list">
-        {skills.selectedPersonalSkills.map((el) => {
-          return <PersonalSkill skill={el} skillType="selected" />;
-        })}
-      </ul>
+      {skills.selectedPersonalSkills.length !== 0 && (
+        <ul className="personal-skills__apply-list">
+          {skills.selectedPersonalSkills.map((el) => {
+            return <PersonalSkill skill={el} skillType="selected" />;
+          })}
+        </ul>
+      )}
     </div>
   );
 });

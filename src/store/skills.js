@@ -13,12 +13,7 @@ class Skills {
     { id: '8', label: 'Аккуратность' },
     { id: '9', label: 'Работа в условиях многозадачности' }
   ])
-  selectedPersonalSkills = observable.array([
-    { id: '2', label: 'Стрессоустойчивость' },
-    { id: '3', label: 'Инициативность' },
-    { id: '4', label: 'Коммуникабельность' },
-    { id: '5', label: 'Аналитическое мышление' },
-  ])
+  selectedPersonalSkills = observable.array()
   professionalSkills = observable.array([
     { id: '1', label: 'Технология металлобработки на токарных станках', isActive: false, subskills: [
         { id: '1', label: 'Точение по наружному диаметру: черной и чистовой проход' },

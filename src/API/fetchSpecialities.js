@@ -1,8 +1,7 @@
 import axios from "axios";
 
 class FetchSpecialities {
-
-  async fetchToSpecialities(name) {
+  async fetchToSpecialities() {
     return (
       await axios.get('http://jn.mgok.moscow/public/api/specialities')
       .catch(error => {

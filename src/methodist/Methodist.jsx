@@ -17,11 +17,19 @@ const Methodist = observer(() => {
             name={'speciality'}
             title={'Специальность'}
             options={store.specialitiesList}
+            onChange={(event) => {
+              store.setIsDisabled()
+              store.fetchToDirections(event.value)
+            }}
           />
           <Select
-            name={'industry'}
+            name={'direction'}
             title={'Направление'}
-            options={store.specialitiesList}
+            options={store.directionsList}
+            onChange={() => {
+              store.setIsShowBtn()
+            }}
+            isDisabled={store.isDisabled}
           />
           {(!store.isContinue && (
             <BtnNext onClick={() => store.setIsContinue()} isShow={store.isShowBtn} />

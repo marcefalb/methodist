@@ -1,18 +1,14 @@
-import {makeAutoObservable, observable, values} from "mobx";
+import {makeAutoObservable, observable, toJS} from "mobx";
 import fetchSpecialities from "../API/fetchSpecialities";
+import fetchDirections from "../API/fetchDirections";
 
 class Store {
   specialitiesSelect = observable.array()
-  options = [
-    { value: 'Designer', label: 'Дизайнер' },
-    { value: 'Developer', label: 'Разработчик' },
-    { value: 'Frontend-dev', label: 'Фронтенд разработчик' },
-    { value: 'Backend-dev', label: 'Бэкенд разработчик' },
-    { value: 'System administrator', label: 'Системный администратор' },
-    { value: 'Analytic', label: 'Аналитик' }
-  ]
+  directionsSelect = observable.array()
+  currentSpecialityId = 1
   isContinue = false
   isShowBtn = false
+  isDisabled = true
 
   constructor() {
     makeAutoObservable(this)
@@ -22,10 +18,16 @@ class Store {
 
   async fetchToSpecialities() {
     const response = await fetchSpecialities.fetchToSpecialities()
-    response.data.data.forEach(item => {
-      this.specialitiesSelect.push(item)
+    response.data.data.forEach(speciality => {
+      this.specialitiesSelect.push(speciality)
     })
-    console.log(this.specialitiesList)
+  }
+  async fetchToDirections(currentSpecialityId) {
+    this.directionsSelect.clear()
+    const response = await fetchDirections.fetchToDirections(currentSpecialityId)
+    response.data.data.forEach(direction => {
+      this.directionsSelect.push(direction)
+    })
   }
 
   setIsContinue() {
@@ -36,8 +38,16 @@ class Store {
     this.isShowBtn = true
   }
 
+  setIsDisabled() {
+    this.isDisabled = false
+  }
+
   get specialitiesList() {
-    return values(this.specialitiesSelect)
+    return toJS(this.specialitiesSelect)
+  }
+
+  get directionsList() {
+    return toJS(this.directionsSelect)
   }
 }
 
