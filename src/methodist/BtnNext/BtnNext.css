@@ -6,13 +6,20 @@
   margin-top: auto;
 }
 .btn-next {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 20px;
 
   background-color: inherit;
   cursor: pointer;
+  opacity: 0;
+
+  transition: opacity .3s;
+}
+.btn-next_active {
+  display: flex;
+  opacity: 1;
 }
 .btn-next span {
   color: var(--secondary-light);

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import PersonalSkill from "../../components/Form/PersonalSkill/PersonalSkill";
-import {ReactComponent as IcSearch} from "../../assets/icons/ic_search.svg";
-import './PersonalSkillsList.css'
-import {observer} from "mobx-react-lite";
+import { ReactComponent as IcSearch } from "../../assets/icons/ic_search.svg";
+import "./PersonalSkillsList.css";
+import { observer } from "mobx-react-lite";
 import skills from "../../store/skills";
 
 const PersonalSkillsList = observer(() => {
@@ -12,11 +12,11 @@ const PersonalSkillsList = observer(() => {
       <div className="personal-skills__input">
         <input
           value={skills.inputValue}
-          onKeyDown={event => {
-            skills.addSkill(skills.inputValue, event)
+          onKeyDown={(event) => {
+            skills.addSkill(skills.inputValue, event);
           }}
-          onChange={event => {
-            skills.setValue(event.target.value)
+          onChange={(event) => {
+            skills.setValue(event.target.value);
           }}
           type="text"
           placeholder="Навык, например “Работа в команде”"
@@ -27,20 +27,14 @@ const PersonalSkillsList = observer(() => {
       </div>
       <span className="personal-skills__title title">Рекомендуемые навыки</span>
       <ul className="personal-skills__recommended-list">
-        {skills.recommendedPersonalSkills.map(el => {
-            return (
-              <PersonalSkill skill={el} skillType='recommended'/>
-            )
-          }
-        )}
+        {skills.recommendedPersonalSkills.map((el) => {
+          return <PersonalSkill skill={el} skillType="recommended" />;
+        })}
       </ul>
       <ul className="personal-skills__apply-list">
-        {skills.selectedPersonalSkills.map(el => {
-            return (
-              <PersonalSkill skill={el} skillType='selected'/>
-            )
-          }
-        )}
+        {skills.selectedPersonalSkills.map((el) => {
+          return <PersonalSkill skill={el} skillType="selected" />;
+        })}
       </ul>
     </div>
   );

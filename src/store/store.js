@@ -12,6 +12,7 @@ class Store {
     { value: 'Analytic', label: 'Аналитик' }
   ]
   isContinue = false
+  isShowBtn = false
 
   constructor() {
     makeAutoObservable(this)
@@ -22,12 +23,17 @@ class Store {
   async fetchToSpecialities() {
     const response = await fetchSpecialities.fetchToSpecialities()
     response.data.data.forEach(item => {
-      this.specialitiesSelect.push({id: item.id, value: item.name})
+      this.specialitiesSelect.push(item)
     })
+    console.log(this.specialitiesList)
   }
 
   setIsContinue() {
     this.isContinue = true
+  }
+  
+  setIsShowBtn() {
+    this.isShowBtn = true
   }
 
   get specialitiesList() {

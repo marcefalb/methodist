@@ -1,10 +1,10 @@
 import React from 'react';
 import {observer} from "mobx-react-lite"
-import Sel from 'react-select'
+import AsyncSelect from 'react-select'
+
 import './Select.css'
 
-const Select = observer(({select, name, title}) => {
-  console.log(select)
+const Select = observer(({options, name, title}) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -36,7 +36,10 @@ const Select = observer(({select, name, title}) => {
     }),
     singleValue: (provided) => ({
       ...provided,
-      opacity: .5,
+      fontSize: 20,
+    }),
+    placeholder: (provided) => ({
+      ...provided,
       fontSize: 20,
     }),
     option: (provided, state) => ({
@@ -56,15 +59,26 @@ const Select = observer(({select, name, title}) => {
         : state.isFocused ?
         '#fff'
         : 'var(--main)'
-    })
+    }),
   }
+  const loadingMessage = name => {
+    if (name === 'speciality')
+      return 'По данному запросу специальностей не найдено'
+    else if (name === 'industry')
+      return 'По данному запросу направлений не найдено'
+  } 
   return (
     <div className="select">
       <span className="select__title title">{title}</span>
-      <Sel
+      <AsyncSelect
         name={name}
-        options={select}
+        options={options}
         styles={customStyles}
+        placeholder={'Дизайнер'}
+        loadingMessage={loadingMessage(name)}
+        // onChange={() => {
+        //   store.setIsShowBtn()}
+        // }
       />
     </div>
   );
