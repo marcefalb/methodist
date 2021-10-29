@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import PersonalSkill from "../../components/Form/PersonalSkill/PersonalSkill";
-import Select from "../../components/Form/Select/Select";
+// import Select from "../../components/Form/Select/Select";
 import skills from "../../store/skills";
 import { ReactComponent as IcSearch } from "../../assets/icons/ic_search.svg";
 import "./PersonalSkillsList.css";

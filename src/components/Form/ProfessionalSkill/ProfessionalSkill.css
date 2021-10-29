@@ -64,3 +64,15 @@
   color: #fff;
   background-color: var(--secondary);
 }
+.professional-skills__add-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+  margin-top: 20px;
+}
+.professional-skills__add-btn span {
+  color: var(--secondary-light);
+  font-size: 14px;
+  margin-bottom: 2px;
+}

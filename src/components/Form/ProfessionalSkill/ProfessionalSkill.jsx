@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactComponent as IcDropdownDown } from "../../../assets/icons/ic_dropdown-indicator_down.svg";
 import { ReactComponent as IcDropdownTop } from "../../../assets/icons/ic_dropdown-indicator_top.svg";
+import { ReactComponent as IcPlus } from "../../../assets/icons/ic_plus.svg";
 import "./ProfessionalSkill.css";
 import { observer } from "mobx-react-lite";
 import skills from "../../../store/skills";
@@ -45,6 +46,10 @@ const ProfessionalSkill = observer(({ skillObj }) => {
                 </li>
               );
             })}
+            <li className="professional-skills__add-btn">
+              <IcPlus color="#fff"/>
+              <span>добавить еще</span>
+            </li>
           </ul>
         </div>
       )}
