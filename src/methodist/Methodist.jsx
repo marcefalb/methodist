@@ -4,6 +4,7 @@ import {observer} from "mobx-react-lite";
 import Select from "../components/Form/Select/Select";
 import BtnNext from "./BtnNext/BtnNext";
 import PersonalSkillsList from "./PersonalSkillsList/PersonalSkillsList";
+import FormButtons from "./FormButtons/FormButtons";
 import store from "../store/store";
 import ProfessionalSkillsList from "./ProfessionalSkillsList/ProfessionalSkillsList";
 
@@ -37,6 +38,7 @@ const Methodist = observer(() => {
             <div className="skills">
               <PersonalSkillsList/>
               <ProfessionalSkillsList />
+              <FormButtons />
             </div>
           )}
         </div>

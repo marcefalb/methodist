@@ -1,13 +1,14 @@
 :root {
   --main: #484C51;
   --secondary: #2183AA;
-  --border-line: #A0A6B1;
   --secondary-light: #7AB5CC;
+  --border-line: #A0A6B1;
+  --border-line-light: #e5e5e5;
 }
 h1 {
   color: var(--main);
   font-size: 36px;
-  font-weight: 900;
+  font-weight: 700;
   font-family: 'Intro', Serif;
 }
 .App {
@@ -51,6 +52,9 @@ h1 {
   gap: 40px;
 
   padding: 0 20px;
+
+  transition: height 1s;
+  transition-duration: .3s;
 }
 .title {
   font-size: 20px;

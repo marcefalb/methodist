@@ -2,7 +2,7 @@ import {makeAutoObservable, observable} from "mobx";
 
 class Skills {
   recommendedPersonalSkills = observable.array([
-    { id: '0', label: 'Работа в команде' },
+    { id: '0', name: 'Работа в команде' },
     { id: '1', label: 'Ответственность' },
     { id: '2', label: 'Стрессоустойчивость' },
     { id: '3', label: 'Инициативность' },
@@ -36,7 +36,6 @@ class Skills {
         { id: '3', label: 'Точение, подрезка торцевой поверхности, а также отрезная операция' },
       ] },
   ])
-  inputValue = ''
 
   constructor() {
     makeAutoObservable(this)

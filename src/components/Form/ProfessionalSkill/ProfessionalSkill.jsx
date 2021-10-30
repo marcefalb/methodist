@@ -46,9 +46,11 @@ const ProfessionalSkill = observer(({ skillObj }) => {
                 </li>
               );
             })}
-            <li className="professional-skills__add-btn">
-              <IcPlus color="#fff"/>
-              <span>добавить еще</span>
+            <li>
+              <button className="professional-skills__add-btn">
+                <IcPlus />
+                <span>добавить еще</span>
+              </button>
             </li>
           </ul>
         </div>

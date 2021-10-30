@@ -1,8 +1,10 @@
 import React from 'react';
-import './ProfessionalSkillsList.css'
-import skills from "../../store/skills";
-import ProfessionalSkill from "../../components/Form/ProfessionalSkill/ProfessionalSkill";
 import {observer} from "mobx-react-lite";
+
+import { ReactComponent as IcPlus } from "../../assets/icons/ic_plus.svg";
+import ProfessionalSkill from "../../components/Form/ProfessionalSkill/ProfessionalSkill";
+import skills from "../../store/skills";
+import './ProfessionalSkillsList.css'
 
 const ProfessionalSkillsList = observer(() => {
   return (
@@ -15,6 +17,12 @@ const ProfessionalSkillsList = observer(() => {
             )
           }
         )}
+        <li>
+          <button className="professional-skills__add-btn">
+            <IcPlus />
+            <span>добавить еще</span>
+          </button>
+        </li>
       </ul>
     </div>
   );

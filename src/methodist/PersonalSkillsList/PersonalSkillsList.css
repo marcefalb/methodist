@@ -5,34 +5,16 @@
 .personal-skills__title {
   padding: 20px;
 }
-.personal-skills__title:first-child {
-  border-bottom: 1px solid var(--border-line) !important;
-}
-.personal-skills__input {
+.personal-skills__search {
   display: flex;
   align-items: center;
+  justify-content: center;
 
-  height: 60px;
-  width: 100%;
-
-  padding-left: 20px;
-
+  height: 100%;
+  width: 60px;
+}
+.personal-skills__title:first-child {
   border-bottom: 1px solid var(--border-line) !important;
-  cursor: pointer;
-}
-.personal-skills__input input {
-  width: 100%;
-  margin-left: 20px;
-  cursor: pointer;
-  font-size: 20px;
-}
-.personal-skills__search {
-  padding: 20px;
-}
-.personal-skills__search svg {
-  width: 20px;
-  height: 20px;
-  background-color: inherit;
 }
 .personal-skills__recommended-list {
   display: flex;

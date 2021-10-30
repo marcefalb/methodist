@@ -2,16 +2,18 @@ import React from 'react';
 import {observer} from "mobx-react-lite"
 import AsyncSelect from 'react-select'
 
-import './Select.css'
+import { ReactComponent as IcSearch } from "../../../assets/icons/ic_search.svg";
+import './SkillsSelect.css'
 
-const Select = observer(({options, name, title, onChange, isDisabled}) => {
+const Select = observer(({options, onChange}) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
       height: 60,
       borderRadius: 0,
-      border: '1px solid #C9CACB !important',
-      paddingLeft: 10,
+      border: 'none',
+      borderBottom: '1px solid var(--border-line) !important',
+      paddingLeft: 30,
       cursor: 'pointer',
       boxShadow: 'none'
     }),
@@ -28,7 +30,7 @@ const Select = observer(({options, name, title, onChange, isDisabled}) => {
       borderRadius: 0,
       margin: 0,
       padding: 0,
-      border: '1px solid #777777'
+      // border: '1px solid #777777'
     }),
     menuList: (provided) => ({
       ...provided,
@@ -46,6 +48,7 @@ const Select = observer(({options, name, title, onChange, isDisabled}) => {
       ...provided,
       height: 60,
       padding: 18,
+      paddingLeft: 40,
       fontSize: 20,
       cursor: 'pointer',
       borderBottom: '1px solid #777777',
@@ -71,32 +74,27 @@ const Select = observer(({options, name, title, onChange, isDisabled}) => {
       fontSize: 20,
     }),
   }
-  const noOptionsMessage = selectName => {
-    if (selectName === 'speciality')
-      return 'По данному запросу специальностей не найдено'
-    else if (selectName === 'direction')
-      return 'По данному запросу направлений не найдено'
-  } 
-  const placeholder = selectName => {
-    if (selectName === 'speciality')
-      return 'Токарь'
-    else if (selectName === 'direction')
-      return 'Выбрать...'
+  const DropdownIndicator = () => {
+    return (
+      <div className="personal-skills__search">
+        <IcSearch />
+      </div>
+    );
   }
   const optionsList = options.map(option => {
     return { label: option.name, value: option.id };
   });
   return (
     <div className="select">
-      <span className="select__title title">{title}</span>
       <AsyncSelect
-        name={name}
+        name={'skill'}
+        placeholder={"Навык, например “Работа в команде”"}
+        noOptionsMessage={() => "Навыков по данному запросу не найдено"}
         options={optionsList}
-        noOptionsMessage={() => noOptionsMessage(name)}
         styles={customStyles}
-        placeholder={placeholder(name)}
+        dropdownIndicator={() => <IcSearch />}
+        components={{ DropdownIndicator }}
         onChange={onChange}
-        isDisabled={isDisabled}
       />
     </div>
   );
