@@ -5,7 +5,7 @@ import fetchDirections from "../API/fetchDirections";
 class Store {
   specialitiesSelect = observable.array()
   directionsSelect = observable.array()
-  currentSpecialityId = 1
+  selectedDirectionValue = null
   isContinue = false
   isShowBtn = false
   isDisabled = true
@@ -26,6 +26,7 @@ class Store {
   async fetchToDirections(currentSpecialityId) {
     this.directionsSelect.clear()
     const response = await fetchDirections.fetchToDirections(currentSpecialityId)
+    this.setSelectedDirectionValue(null)
     if (!response) return null
     response.data.data.forEach(direction => {
       this.directionsSelect.push(direction)
@@ -42,6 +43,10 @@ class Store {
 
   setIsDisabled() {
     this.isDisabled = false
+  }
+
+  setSelectedDirectionValue(option) {
+    this.selectedDirectionValue = option
   }
 
   get specialitiesList() {

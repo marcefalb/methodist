@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
 
-  margin-right:40px;
+  margin-right: 40px;
 
   cursor: pointer;
 
@@ -23,11 +23,16 @@
   border-bottom: 1px solid var(--border-line-light) !important;
 }
 .professional-skills__accordion-body {
+  max-height: 1000px;
   padding: 15px 0 15px 35px;
   border-bottom: 1px solid var(--border-line-light) !important;
+  overflow: hidden;
+  transition: max-height 1s ease-in-out, padding .3s;
 }
-.professional-skills__accordion-body {
-  border-bottom: 1px solid var(--border-line-light) !important;
+.professional-skills__accordion-body[aria-expanded="true"] {
+  padding: 0 0 0 35px;
+  max-height: 0px;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), padding .3s;
 }
 .professional-skills__accordion-list {
   display: flex;

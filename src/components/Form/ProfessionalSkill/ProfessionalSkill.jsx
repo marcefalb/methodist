@@ -1,12 +1,16 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
+
 import { ReactComponent as IcDropdownDown } from "../../../assets/icons/ic_dropdown-indicator_down.svg";
 import { ReactComponent as IcDropdownTop } from "../../../assets/icons/ic_dropdown-indicator_top.svg";
 import { ReactComponent as IcPlus } from "../../../assets/icons/ic_plus.svg";
 import "./ProfessionalSkill.css";
-import { observer } from "mobx-react-lite";
+import "../Modal/Modal"
 import skills from "../../../store/skills";
+import Button from "../Button/Button";
 
 const ProfessionalSkill = observer(({ skillObj }) => {
+  console.log(skillObj.isActive);
   return (
     <li className="professional-skills__item">
       <div
@@ -19,42 +23,44 @@ const ProfessionalSkill = observer(({ skillObj }) => {
           {(skillObj.isActive && <IcDropdownTop />) || <IcDropdownDown />}
         </div>
         <span className="professional-skills__label">{skillObj.label}</span>
-        <button
-          className="professional-skills__btn"
+        <Button
+          text="Удалить"
+          theme="outlined"
+          width="100px"
+          height="25px"
+          fontSize="16px"
           onClick={() => {
             skills.removeSkill(skillObj.id, skills.professionalSkills);
           }}
-        >
-          Удалить
-        </button>
+        />
       </div>
-      {skillObj.isActive && (
-        <div className="professional-skills__accordion-body">
-          <ul className="professional-skills__accordion-list">
-            {skillObj.subskills.map((subskill) => {
-              return (
-                <li className="professional-skills__accordion-item">
-                  <span>{subskill.label}</span>
-                  <button
-                    className="professional-skills__btn"
-                    onClick={() => {
-                      skills.removeProfessionalSkill(skillObj.id, subskill.id);
-                    }}
-                  >
-                    Удалить
-                  </button>
-                </li>
-              );
-            })}
-            <li>
-              <button className="professional-skills__add-btn">
-                <IcPlus />
-                <span>добавить еще</span>
-              </button>
-            </li>
-          </ul>
-        </div>
-      )}
+      <div className="professional-skills__accordion-body" aria-expanded={!skillObj.isActive}>
+        <ul className="professional-skills__accordion-list">
+          {skillObj.subskills.map((subskill) => {
+            return (
+              <li className="professional-skills__accordion-item">
+                <span>{subskill.label}</span>
+                <Button
+                  text="Удалить"
+                  theme="outlined"
+                  width="100px"
+                  height="25px"
+                  fontSize="16px"
+                  onClick={() => {
+                    skills.removeProfessionalSkill(skillObj.id, subskill.id);
+                  }}
+                />
+              </li>
+            );
+          })}
+          <li>
+            <button className="professional-skills__add-btn">
+              <IcPlus />
+              <span>добавить еще</span>
+            </button>
+          </li>
+        </ul>
+      </div>
     </li>
   );
 });

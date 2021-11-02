@@ -1,11 +1,11 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
 
+import store from "../store/store";
 import Select from "../components/Form/Select/Select";
 import BtnNext from "./BtnNext/BtnNext";
-import PersonalSkillsList from "./PersonalSkillsList/PersonalSkillsList";
 import FormButtons from "./FormButtons/FormButtons";
-import store from "../store/store";
+import PersonalSkillsList from "./PersonalSkillsList/PersonalSkillsList";
 import ProfessionalSkillsList from "./ProfessionalSkillsList/ProfessionalSkillsList";
 
 const Methodist = observer(() => {
@@ -27,10 +27,12 @@ const Methodist = observer(() => {
             name={'direction'}
             title={'Направление'}
             options={store.directionsList}
-            onChange={() => {
+            onChange={(event) => {
               store.setIsShowBtn()
+              store.setSelectedDirectionValue(event)
             }}
             isDisabled={store.isDisabled}
+            selectValue={store.selectedDirectionValue}
           />
           {(!store.isContinue && (
             <BtnNext onClick={() => store.setIsContinue()} isShow={store.isShowBtn} />

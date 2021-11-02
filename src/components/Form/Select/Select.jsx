@@ -4,13 +4,13 @@ import AsyncSelect from 'react-select'
 
 import './Select.css'
 
-const Select = observer(({options, name, title, onChange, isDisabled}) => {
+const Select = observer(({options, name, title, onChange, isDisabled, selectValue}) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
       height: 60,
       borderRadius: 0,
-      border: '1px solid #C9CACB !important',
+      border: '1px solid var(--border-line) !important',
       paddingLeft: 10,
       cursor: 'pointer',
       boxShadow: 'none'
@@ -97,6 +97,7 @@ const Select = observer(({options, name, title, onChange, isDisabled}) => {
         placeholder={placeholder(name)}
         onChange={onChange}
         isDisabled={isDisabled}
+        value={selectValue}
       />
     </div>
   );

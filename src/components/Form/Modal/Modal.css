@@ -1,0 +1,32 @@
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(50, 50, 50, 0.25);
+}
+.modal__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 450px;
+  height: auto;
+
+  padding: 10px;
+
+  background: #fff;
+}
+.modal p {
+  color: #2d2d2d;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 15px;
+}

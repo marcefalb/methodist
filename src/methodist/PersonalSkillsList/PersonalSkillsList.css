@@ -38,9 +38,4 @@
 
   border-bottom: 1px solid var(--border-line) !important;
 }
-.skills__item_selected {
-  background-color: var(--secondary);
-}
-.skills__item_selected span {
-  color: #fff;
-}
+

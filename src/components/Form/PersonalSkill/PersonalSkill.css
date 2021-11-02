@@ -1,9 +1,7 @@
 .personal-skills__item {
   display: flex;
   align-items: center;
-  gap: 22px;
-
-  padding: 10px 20px;
+  gap: 10px;
 
   background-color: #f8f8f8;
   color: #5b5b5b;
@@ -13,6 +11,31 @@
   line-height: 20px;
   font-weight: 400;
 }
-.personal-skills__item svg {
+.personal-skills__item span {
+  padding: 10px 0 10px 20px;
+}
+.personal-skills__item button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  width: 40px;
+
+  background-color: inherit;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   cursor: pointer;
+}
+.personal-skills__item button:hover {
+  background-color: #eee;
+}
+.skills__item_selected {
+  background-color: var(--secondary);
+}
+.skills__item_selected span {
+  color: #fff;
+}
+.skills__item_selected button:hover {
+  background-color: var(--secondary-light);
 }

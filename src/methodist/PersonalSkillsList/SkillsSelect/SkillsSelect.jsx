@@ -5,7 +5,7 @@ import AsyncSelect from 'react-select'
 import { ReactComponent as IcSearch } from "../../../assets/icons/ic_search.svg";
 import './SkillsSelect.css'
 
-const Select = observer(({options, onChange}) => {
+const Select = observer(({options, onChange, defaultValue}) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -82,7 +82,7 @@ const Select = observer(({options, onChange}) => {
     );
   }
   const optionsList = options.map(option => {
-    return { label: option.name, value: option.id };
+    return { label: option.label, value: option.id };
   });
   return (
     <div className="select">
@@ -92,7 +92,6 @@ const Select = observer(({options, onChange}) => {
         noOptionsMessage={() => "Навыков по данному запросу не найдено"}
         options={optionsList}
         styles={customStyles}
-        dropdownIndicator={() => <IcSearch />}
         components={{ DropdownIndicator }}
         onChange={onChange}
       />

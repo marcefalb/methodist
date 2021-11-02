@@ -9,18 +9,18 @@ const PersonalSkill = ({skill, skillType}) => {
     return (
         <li className="personal-skills__item" key={skill.id}>
           <span>{skill.label}</span>
-            <IcPlus onClick={(event) => {
-              skills.toggleSkill(skill.id, skill.label, skillType, event)
-            }}/>
+          <button onClick={() => skills.toggleSkill(skill.id, skill.label, skillType)}>
+            <IcPlus />
+          </button>
         </li>
     );
   else
     return (
       <li className="personal-skills__item skills__item_selected" key={skill.id}>
         <span>{skill.label}</span>
-        <IcClose onClick={(event) => {
-          skills.toggleSkill(skill.id, skill.label, skillType, event)
-        }}/>
+        <button onClick={() => skills.toggleSkill(skill.id, skill.label, skillType)}>
+            <IcClose />
+        </button>
       </li>
     )
 };

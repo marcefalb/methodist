@@ -11,21 +11,10 @@ const PersonalSkillsList = observer(() => {
     <div className="personal-skills">
       <span className="personal-skills__title title">Личностные качества</span>
       <div className="personal-skills__select">
-        {/* <input
-          value={skills.inputValue}
-          onKeyDown={(event) => {
-            skills.addSkill(skills.inputValue, event);
-          }}
-          onChange={(event) => {
-            skills.setValue(event.target.value);
-          }}
-          type="text"
-          placeholder="Навык, например “Работа в команде”"
-        /> */}
         <SkillsSelect 
           options={skills.recommendedPersonalSkills}
           onChange={(event) => {
-            skills.addSkill(event.label, skills.selectedPersonalSkills)
+            skills.addSkill(event.label, skills.selectedPersonalSkills, 'default')
           }}
         />
       </div>
