@@ -6,6 +6,7 @@ import skills from "../../store/skills";
 import ProfessionalSkill from "../../components/Form/ProfessionalSkill/ProfessionalSkill";
 import './ProfessionalSkillsList.css'
 
+
 const ProfessionalSkillsList = observer(() => {
   return (
     <div className="professional-skills">

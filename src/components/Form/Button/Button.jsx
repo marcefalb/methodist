@@ -2,11 +2,12 @@ import React from 'react'
 
 import './Button.css'
 
-const Button = ({text, theme, width, height, fontSize, onClick}) => {
+const Button = ({text, theme, width, height, fontSize, borderRadius, onClick}) => {
   const customStyles = {
     minWidth: width,
     height: height,
     fontSize: fontSize,
+    borderRadius: borderRadius,
   }
   return (
     <button

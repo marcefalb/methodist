@@ -58,10 +58,12 @@ class Skills {
     makeAutoObservable(this)
 
     this.defaultValue = this.personalSkills[0]
+    // this.fetchToPersonalSkills()
   }
 
   async fetchToPersonalSkills() {
-    const response = await fetchPersonalSkills.fetchToPersonallSkills()
+    const response = await fetchPersonalSkills.fetchToPersonalSkills()
+    console.log(response)
     if (!response) return null
     response.data.data.forEach(skill => {
       const skillItem = new personalSkill(skill)
