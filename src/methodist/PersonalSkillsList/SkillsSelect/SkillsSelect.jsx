@@ -5,7 +5,7 @@ import AsyncSelect from 'react-select'
 import { ReactComponent as IcSearch } from "../../../assets/icons/ic_search.svg";
 import './SkillsSelect.css'
 
-const Select = observer(({options, onChange, defaultValue}) => {
+const Select = observer(({options, onChange, currentOption}) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -94,6 +94,7 @@ const Select = observer(({options, onChange, defaultValue}) => {
         styles={customStyles}
         components={{ DropdownIndicator }}
         onChange={onChange}
+        value={currentOption}
       />
     </div>
   );

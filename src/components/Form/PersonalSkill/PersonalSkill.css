@@ -27,9 +27,6 @@
   border-bottom-right-radius: 5px;
   cursor: pointer;
 }
-.personal-skills__item button:hover {
-  background-color: #eee;
-}
 .skills__item_selected {
   background-color: var(--secondary);
 }

@@ -31,7 +31,9 @@ const ProfessionalSkill = observer(({ skillObj }) => {
           height="25px"
           fontSize="16px"
           borderRadius="5px"
-          // onClick={Modal.handleOpen}
+          onClick={(event) => {
+            event.stopPropagation()
+          }}
         />
         <Modal 
           header={<IcAlert/>} 

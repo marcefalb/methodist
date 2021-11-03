@@ -11,23 +11,24 @@ const PersonalSkillsList = observer(() => {
     <div className="personal-skills">
       <span className="personal-skills__title title">Личностные качества</span>
       <div className="personal-skills__select">
-        <SkillsSelect 
-          options={skills.recommendedPersonalSkills}
+        <SkillsSelect
+          options={skills.personalSkillsList}
           onChange={(event) => {
-            skills.addSkill(event.label, skills.selectedPersonalSkills, 'default')
+            skills.addSkill(
+              event.label,
+              skills.selectedPersonalSkills,
+              "default"
+            );
+            skills.setCurrentOption(null);
           }}
+          currentOption={skills.currentOption}
         />
       </div>
-      <span className="personal-skills__title title">Рекомендуемые навыки</span>
-      <ul className="personal-skills__recommended-list">
-        {skills.recommendedPersonalSkills.map((el) => {
-          return <PersonalSkill skill={el} skillType="recommended" />;
-        })}
-      </ul>
-      {skills.selectedPersonalSkills.length !== 0 && (
+      {skills.selectedPersonalSkillsList.length !== 0 && (
         <ul className="personal-skills__apply-list">
-          {skills.selectedPersonalSkills.map((el) => {
-            return <PersonalSkill skill={el} skillType="selected" />;
+          {skills.selectedPersonalSkillsList.map((el) => {
+            console.log(el);
+            return <PersonalSkill skill={el} key={el.id} />;
           })}
         </ul>
       )}
