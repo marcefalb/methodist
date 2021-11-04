@@ -58,7 +58,8 @@ const Select = observer(({options, name, title, onChange, isDisabled, selectValu
         '#fff'
         : state.isFocused ?
         '#fff'
-        : 'var(--main)'
+        : 'var(--main)',
+      transition: 'all .2s'
     }),
     input: (provided) => ({
       ...provided,

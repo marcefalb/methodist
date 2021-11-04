@@ -29,6 +29,7 @@ class Skills {
         { id: '3', label: 'Точение, подрезка торцевой поверхности, а также отрезная операция' },
       ] },
   ])
+  additionalProfessionalSkills = observable.map()
   currentOption = null
 
   constructor() {
@@ -55,7 +56,7 @@ class Skills {
     })
   }
 
-  togglePersonalSkill(skillId, arrayFrom, arrayTo) {
+  toggleSkill(skillId, arrayFrom, arrayTo) {
     arrayFrom.forEach(skillItem => {
       if (skillItem.id === skillId) {
         arrayTo.set(skillItem.id, skillItem)
@@ -63,13 +64,6 @@ class Skills {
       }
     })
   }
-
-  // removeSkill(skill, array) {
-  //   array.forEach(item => {
-  //     if (item.id === skill.id)
-  //       array.remove(item)
-  //   })
-  // }
 
   removeProfessionalSkill(parentSkillId, skillId) {
     this.professionalSkills.forEach(parentSkill => {
@@ -80,17 +74,6 @@ class Skills {
         })
     })
   }
-
-  // toggleSkill(skillId, skill, skillType) {
-  //   if (skillType === 'recommended') {
-  //     this.addSkill(skill, this.selectedPersonalSkills)
-  //     this.removeSkill(skillId, this.recommendedPersonalSkills)
-  //   }
-  //   else {
-  //     this.addSkill(skill, this.recommendedPersonalSkills)
-  //     this.removeSkill(skillId, this.selectedPersonalSkills)
-  //   }
-  // }
 
   setIsActive(skillObjId) {
     this.professionalSkills.forEach(skill => {

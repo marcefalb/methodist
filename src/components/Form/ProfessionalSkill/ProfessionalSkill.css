@@ -34,6 +34,15 @@
   max-height: 0px;
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), padding .3s;
 }
+.professional-skills__dropdown-indicator {
+  margin: 0 0 3px 0;
+  transform: rotateX(0);
+  transition: margin .5s, transform .5s;
+}
+.professional-skills__dropdown-indicator[aria-expanded="true"] {
+  margin: 3px 0 0 0;
+  transform: rotateX(180deg);
+}
 .professional-skills__accordion-list {
   display: flex;
   flex-direction: column;

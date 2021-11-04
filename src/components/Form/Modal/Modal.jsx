@@ -1,31 +1,22 @@
-import {React, useState} from 'react';
+import { React, useState } from "react";
 import { observer } from "mobx-react-lite";
 
 import Button from "../Button/Button";
-import './Modal.css'
+import "./Modal.css";
 
-const Modal = observer(({header, text, onClick}) => {
-  const [isOpen, setIsOpen] = useState(false)
+const Modal = observer(({ header, text, onClick }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClose = () => setIsOpen(false)
-  const handleOpen = () => setIsOpen(true)
+  const handleClose = () => setIsOpen(false);
 
-  const customStyles = {
-    display: isOpen ? "flex" : "none"
-  }
-  
   return (
-    <div 
-      className="modal" 
-      style={customStyles}
-    >
-      <div className="modal__container">
-        <span className="modal__header">
-          {header}
-        </span>
-        <p className="modal__text">
-          {text}
-        </p>
+    <div className="modal" onClick={() => handleClose()}>
+      <div
+        className="modal__container"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <span className="modal__header">{header}</span>
+        <p className="modal__text">{text}</p>
         <div className="modal__btns">
           <Button
             text="Да"
@@ -44,13 +35,13 @@ const Modal = observer(({header, text, onClick}) => {
             height="50px"
             borderRadius="10px"
             onClick={() => {
-              handleClose()
+              handleClose();
             }}
           />
         </div>
       </div>
     </div>
-  )
-})
+  );
+});
 
 export default Modal;

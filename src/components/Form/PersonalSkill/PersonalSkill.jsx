@@ -8,7 +8,7 @@ const PersonalSkill = ({skill}, key) => {
     <li className="personal-skills__item skills__item_selected" key={key}>
       <span>{skill.name}</span>
       <button onClick={() => 
-          skills.togglePersonalSkill(skill.id, skills.selectedPersonalSkills, skills.personalSkills
+          skills.toggleSkill(skill.id, skills.selectedPersonalSkills, skills.personalSkills
         )}>
           <IcClose />
       </button>

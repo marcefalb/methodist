@@ -33,6 +33,9 @@
 .skills__item_selected span {
   color: #fff;
 }
+.skills__item_selected button {
+  transition: all .3s;
+}
 .skills__item_selected button:hover {
   background-color: var(--secondary-light);
 }

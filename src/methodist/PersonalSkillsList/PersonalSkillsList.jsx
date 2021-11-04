@@ -14,7 +14,7 @@ const PersonalSkillsList = observer(() => {
         <SkillsSelect
           options={skills.personalSkillsList}
           onChange={(event) => {
-            skills.togglePersonalSkill(
+            skills.toggleSkill(
               event.value,
               skills.personalSkills,
               skills.selectedPersonalSkills,

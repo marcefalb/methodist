@@ -61,7 +61,8 @@ const Select = observer(({options, onChange, currentOption}) => {
         '#fff'
         : state.isFocused ?
         '#fff'
-        : 'var(--main)'
+        : 'var(--main)',
+      transition: 'all .2s'
     }),
     input: (provided) => ({
       ...provided,
@@ -95,7 +96,7 @@ const Select = observer(({options, onChange, currentOption}) => {
         components={{ DropdownIndicator }}
         onChange={onChange}
         value={currentOption}
-        closeMenuOnSelect={false}
+        // closeMenuOnSelect={false}
       />
     </div>
   );
