@@ -14,10 +14,10 @@ const PersonalSkillsList = observer(() => {
         <SkillsSelect
           options={skills.personalSkillsList}
           onChange={(event) => {
-            skills.addSkill(
-              event.label,
+            skills.togglePersonalSkill(
+              event.value,
+              skills.personalSkills,
               skills.selectedPersonalSkills,
-              "default"
             );
             skills.setCurrentOption(null);
           }}
@@ -27,7 +27,6 @@ const PersonalSkillsList = observer(() => {
       {skills.selectedPersonalSkillsList.length !== 0 && (
         <ul className="personal-skills__apply-list">
           {skills.selectedPersonalSkillsList.map((el) => {
-            console.log(el);
             return <PersonalSkill skill={el} key={el.id} />;
           })}
         </ul>

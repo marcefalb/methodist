@@ -82,7 +82,7 @@ const Select = observer(({options, onChange, currentOption}) => {
     );
   }
   const optionsList = options.map(option => {
-    return { label: option.label, value: option.id };
+    return { label: option.name, value: option.id };
   });
   return (
     <div className="select">
@@ -95,6 +95,7 @@ const Select = observer(({options, onChange, currentOption}) => {
         components={{ DropdownIndicator }}
         onChange={onChange}
         value={currentOption}
+        closeMenuOnSelect={false}
       />
     </div>
   );

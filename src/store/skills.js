@@ -2,7 +2,6 @@ import {makeAutoObservable, observable, values} from "mobx";
 
 import fetchPersonalSkills from "../API/fetchPersonalSkills";
 import fetchProfessionalSkills from "../API/fetchProfessionalSkills";
-import personalSkill from './personalSkill'
 import professionalSkill from './professionalSkill'
 
 class Skills {
@@ -42,8 +41,8 @@ class Skills {
     const response = await fetchPersonalSkills.fetchToPersonalSkills()
     if (!response) return null
     response.data.data.forEach(skill => {
-      const skillItem = new personalSkill(skill)
-        this.personalSkills.set(skill.id, skillItem)
+      // const skillItem = new personalSkill(skill)
+        this.personalSkills.set(skill.id, skill)
     })
   }
 
@@ -52,21 +51,25 @@ class Skills {
     if (!response) return null
     response.data.data.forEach(skill => {
       const skillItem = new professionalSkill(skill)
-        this.professionalSkills.set(skill.id, skillItem)
+      this.professionalSkills.set(skill.id, skillItem)
     })
   }
 
-  addSkill(skill) {
-    this.selectedPersonalSkills.set(skill.id, skill)
-    this.removeSkill(skill, this.personalSkills)
-  }
-
-  removeSkill(skill, array) {
-    array.forEach(item => {
-      if (item.id === skill.id)
-        array.remove(item)
+  togglePersonalSkill(skillId, arrayFrom, arrayTo) {
+    arrayFrom.forEach(skillItem => {
+      if (skillItem.id === skillId) {
+        arrayTo.set(skillItem.id, skillItem)
+        arrayFrom.delete(skillItem.id)
+      }
     })
   }
+
+  // removeSkill(skill, array) {
+  //   array.forEach(item => {
+  //     if (item.id === skill.id)
+  //       array.remove(item)
+  //   })
+  // }
 
   removeProfessionalSkill(parentSkillId, skillId) {
     this.professionalSkills.forEach(parentSkill => {
@@ -78,16 +81,16 @@ class Skills {
     })
   }
 
-  toggleSkill(skillId, skill, skillType) {
-    if (skillType === 'recommended') {
-      this.addSkill(skill, this.selectedPersonalSkills)
-      this.removeSkill(skillId, this.recommendedPersonalSkills)
-    }
-    else {
-      this.addSkill(skill, this.recommendedPersonalSkills)
-      this.removeSkill(skillId, this.selectedPersonalSkills)
-    }
-  }
+  // toggleSkill(skillId, skill, skillType) {
+  //   if (skillType === 'recommended') {
+  //     this.addSkill(skill, this.selectedPersonalSkills)
+  //     this.removeSkill(skillId, this.recommendedPersonalSkills)
+  //   }
+  //   else {
+  //     this.addSkill(skill, this.recommendedPersonalSkills)
+  //     this.removeSkill(skillId, this.selectedPersonalSkills)
+  //   }
+  // }
 
   setIsActive(skillObjId) {
     this.professionalSkills.forEach(skill => {
