@@ -1,5 +1,5 @@
-import React from 'react';
-import {observer} from "mobx-react-lite";
+import React from "react";
+import { observer } from "mobx-react-lite";
 
 import store from "../store/store";
 import Select from "../components/Form/Select/Select";
@@ -9,36 +9,41 @@ import PersonalSkillsList from "./PersonalSkillsList/PersonalSkillsList";
 import ProfessionalSkillsList from "./ProfessionalSkillsList/ProfessionalSkillsList";
 
 const Methodist = observer(() => {
+  const specialityOnChange = (event) => {
+    store.setIsDisabled();
+    store.fetchToDirections(event.value);
+  };
+  const directionOnChange = (event) => {
+    store.setIsShowBtn();
+    store.setSelectedDirectionValue(event);
+  };
   return (
     <main className="main">
       <div className="wrapper main__wrapper">
         <h1>Заявка на курс</h1>
         <div className="main__content">
           <Select
-            name={'speciality'}
-            title={'Специальность'}
+            name={"speciality"}
+            title={"Специальность"}
             options={store.specialitiesList}
-            onChange={(event) => {
-              store.setIsDisabled()
-              store.fetchToDirections(event.value)
-            }}
+            onChange={(event) => specialityOnChange(event)}
           />
           <Select
-            name={'direction'}
-            title={'Направление'}
+            name={"direction"}
+            title={"Направление"}
             options={store.directionsList}
-            onChange={(event) => {
-              store.setIsShowBtn()
-              store.setSelectedDirectionValue(event)
-            }}
+            onChange={(event) => directionOnChange(event)}
             isDisabled={store.isDisabled}
             selectValue={store.selectedDirectionValue}
           />
           {(!store.isContinue && (
-            <BtnNext onClick={() => store.setIsContinue()} isShow={store.isShowBtn} />
+            <BtnNext
+              onClick={() => store.setIsContinue()}
+              isShow={store.isShowBtn}
+            />
           )) || (
             <div className="skills">
-              <PersonalSkillsList/>
+              <PersonalSkillsList />
               <ProfessionalSkillsList />
               <FormButtons />
             </div>

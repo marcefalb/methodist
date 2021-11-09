@@ -42,8 +42,7 @@ class Skills {
     const response = await fetchPersonalSkills.fetchToPersonalSkills()
     if (!response) return null
     response.data.data.forEach(skill => {
-      // const skillItem = new personalSkill(skill)
-        this.personalSkills.set(skill.id, skill)
+      this.personalSkills.set(skill.id, skill)
     })
   }
 
@@ -85,7 +84,7 @@ class Skills {
   setCurrentOption(option) {
     this.currentOption = option
   }
-
+  
   get selectedPersonalSkillsList() {
     return values(this.selectedPersonalSkills)
   }
