@@ -40,16 +40,19 @@ const ProfessionalSkill = observer(({ skillObj }) => {
           height="25px"
           fontSize="16px"
           borderRadius="5px"
-          onClick={(event) => deleteBtnOnClick(event)}
+          onClick={(event) => 
+            // deleteBtnOnClick(event)
+            skills.removeProfessionalSkill(skillObj.id, skills.professionalSkills)
+          }
         />
         {isOpen && (
           <Modal
             header={<IcAlert />}
             label={skillObj.label}
             onAcceptClick={() => {
-              skills.removeSkill(skillObj.id, skills.professionalSkills);
+              skills.removeProfessionalSkill(skillObj.id, skills.professionalSkills);
             }}
-            onDeleteClick={() => {
+            onCancelClick={() => {
               setIsOpen(false);
             }}
           />
@@ -62,14 +65,39 @@ const ProfessionalSkill = observer(({ skillObj }) => {
         <ul className="professional-skills__accordion-list">
           {skillObj.subskills.map((subskill) => {
             return (
-              <ProfessionalSubskill
-                key={subskill.id}
-                subskill={subskill}
-                onClick={skills.removeProfessionalSkill(
-                  skillObj.id,
-                  subskill.id
+              // <ProfessionalSubskill
+              //   key={subskill.id}
+              //   subskill={subskill}
+              //   onAcceptClick={skills.removeProfessionalSkill(
+              //     skillObj.id,
+              //     subskill.id
+              //   )}
+              // />
+              <li className="professional-skills__accordion-item">
+                <span>{subskill.label}</span>
+                <Button
+                  text="Удалить"
+                  theme="outlined"
+                  width="100px"
+                  height="25px"
+                  fontSize="16px"
+                  borderRadius="5px"
+                  onClick={() => {
+                    // setIsOpen(true);
+                    skills.removeProfessionalSubskill(skillObj.id, subskill.id);
+                  }}
+                />
+                {isOpen && (
+                  <Modal
+                    header={<IcAlert />}
+                    label={subskill.label}
+                    onAcceptClick={() =>
+                      skills.removeProfessionalSubskill(skillObj.id, subskill.id)
+                    }
+                    onCancelClick={() => setIsOpen(false)}
+                  />
                 )}
-              />
+              </li>
             );
           })}
           <li>

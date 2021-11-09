@@ -5,9 +5,8 @@ import { ReactComponent as IcAlert } from "../../../../assets/icons/ic_alert.svg
 import Button from "../../Button/Button";
 import Modal from "../../Modal/Modal";
 
-const ProfessionalSubskill = observer((subskill, onClick) => {
+const ProfessionalSubskill = observer((subskill, onAcceptClick) => {
   const [isOpen, setIsOpen] = useState(false)
-  console.log(subskill);
   return (
     <li className="professional-skills__accordion-item">
       <span>{subskill.label}</span>
@@ -23,7 +22,8 @@ const ProfessionalSubskill = observer((subskill, onClick) => {
       {isOpen && (<Modal
         header={<IcAlert />}
         label={subskill.label}
-        onClick={onClick}
+        onAcceptClick={onAcceptClick}
+        onCancelClick={() => setIsOpen(false)}
       />)}
     </li>
   )

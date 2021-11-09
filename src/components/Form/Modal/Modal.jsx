@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import Button from "../Button/Button";
 import "./Modal.css";
 
-const Modal = observer(({ header, label, onAcceptClick, onDeleteClick }) => {
+const Modal = observer(({ header, label, onAcceptClick, onCancelClick }) => {
   return (
     <div className="modal">
       <div
@@ -32,7 +32,7 @@ const Modal = observer(({ header, label, onAcceptClick, onDeleteClick }) => {
             width="200px"
             height="50px"
             borderRadius="10px"
-            onClick={onDeleteClick}
+            onClick={onCancelClick}
           />
         </div>
       </div>
