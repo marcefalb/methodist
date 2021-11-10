@@ -3,7 +3,7 @@ import axios from "axios";
 class FetchDirections {
   async fetchToDirections(specialityId) {
     return (
-      await axios.get(`https://elmetod-backend.herokuapp.com/public/api/specialities/${specialityId}/directions`)
+      await axios.get(`http://jn.mgok.moscow/api/specialities/${specialityId}/directions`)
       .catch(error => {
         if (error.res) {
           console.log(error.res);
