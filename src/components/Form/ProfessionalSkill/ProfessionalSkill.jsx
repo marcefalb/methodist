@@ -11,7 +11,7 @@ import ProfessionalSubskill from "./ProfessionalSubskill/ProfessionalSubskill";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 
-const ProfessionalSkill = observer(({ skillObj }) => {
+const ProfessionalSkill = observer(({ skillObj }, key) => {
   const [isOpen, setIsOpen] = useState(false);
   const deleteBtnOnClick = (event) => {
     event.stopPropagation();
@@ -19,7 +19,7 @@ const ProfessionalSkill = observer(({ skillObj }) => {
   };
 
   return (
-    <li className="professional-skills__item">
+    <li className="professional-skills__item" key={key}>
       <div
         className="professional-skills__accordion-header"
         onClick={() => {
@@ -46,9 +46,13 @@ const ProfessionalSkill = observer(({ skillObj }) => {
           <Modal
             header={<IcAlert />}
             label={skillObj.label}
-            onAcceptClick={() => {
-              skills.removeProfessionalSkill(skillObj.id, skills.professionalSkills);
-            }}
+            onAcceptClick={() =>
+              skills.toggleSkill(
+                skillObj.id,
+                skills.professionalSkills,
+                skills.additionalProfessionalSkills
+              )
+            }
             onCancelClick={() => {
               setIsOpen(false);
             }}
@@ -60,23 +64,57 @@ const ProfessionalSkill = observer(({ skillObj }) => {
         aria-expanded={!skillObj.isActive}
       >
         <ul className="professional-skills__accordion-list">
-          {skillObj.subskills && skillObj.subskillsList.map((subskill) => {
-            return (
-              <ProfessionalSubskill
-                subskill={subskill}
-                onAcceptClick={skills.removeProfessionalSkill(
-                  skillObj.id,
-                  subskill.id
-                )}
-              />
-            );
-          })}
-          <li className="professional-skills__additional">
-            <div className="professional-skills__additional-header">
-              <IcPlus />
-              <span>добавить недостающее</span>
-            </div>
-          </li>
+          {(skillObj.subskills.size !== 0 &&
+            skillObj.subskillsList.map((subskill) => {
+              return (
+                <ProfessionalSubskill
+                  subskill={subskill}
+                  onAcceptClick={() =>
+                    skills.toggleSkill(
+                      subskill.id,
+                      skillObj.subskills,
+                      skillObj.additionalSubskills
+                    )
+                  }
+                  key={subskill.id}
+                />
+              );
+            })) || (
+            <li className="professional-skills__accordion-item">
+              <span>Компетенции отсутствуют</span>
+            </li>
+          )}
+          {skillObj.additionalSubskills.size !== 0 && (
+            <li className="professional-skills__additional">
+              <div className="professional-skills__additional-header">
+                <IcPlus />
+                <span>добавить недостающее</span>
+              </div>
+              <div
+                className="professional-skills__additional-body"
+                // aria-expanded={!skillObj.additionalIsActive}
+                aria-expanded={false}
+              >
+                <ul className="professional-skills__additional-list">
+                  {skillObj.additionalSubskillsList.map(subskill => {
+                    return (
+                      <ProfessionalSubskill
+                      subskill={subskill}
+                      onAcceptClick={() =>
+                        skills.toggleSkill(
+                          subskill.id,
+                          skillObj.subskills,
+                          skillObj.additionalSubskills
+                        )
+                      }
+                      key={subskill.id}
+                    />
+                    )
+                  })}
+                </ul>
+              </div>
+            </li>
+          )}
         </ul>
       </div>
     </li>

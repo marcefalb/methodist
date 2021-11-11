@@ -14,14 +14,16 @@ const ProfessionalSkillsList = observer(() => {
       </span>
       <ul className="professional-skills__list">
         {skills.professionalSkillsList.map((el) => {
-          return <ProfessionalSkill skillObj={el} />;
+          return <ProfessionalSkill skillObj={el} key={el.id} />;
         })}
-        <li>
-          <button className="professional-skills__add-btn">
-            <IcPlus />
-            <span>добавить недостающее</span>
-          </button>
-        </li>
+        {skills.additionalProfessionalSkills.size !== 0 && (
+          <li>
+            <button className="professional-skills__add-btn">
+              <IcPlus />
+              <span>добавить недостающее</span>
+            </button>
+          </li>
+        )}
       </ul>
     </div>
   );

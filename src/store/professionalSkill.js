@@ -6,6 +6,7 @@ class professionalSkill {
   id = 1
   label = ''
   isActive = false
+  additionalIsActive = false
   subskills = observable.map()
   additionalSubskills = observable.map()
   
@@ -14,14 +15,12 @@ class professionalSkill {
 
     this.id = skill?.id
     this.label = skill?.name
-    // console.log(skill.professional_qualities_group_id)
     this.fetchToProfessionalSubskills(skill.id)
   }
 
   
   async fetchToProfessionalSubskills(professionalSkillId) {
     const response = await fetchProfessionalSubskills.fetchToProfessionalSubskills(professionalSkillId)
-    console.log(response.data.data)
     if (!response) return null
     response.data.data.forEach(skill => {
       this.subskills.set(skill.id, skill)
@@ -30,6 +29,10 @@ class professionalSkill {
 
   setIsActive() {
     this.isActive = !this.isActive
+  }
+  
+  setAdditionalIsActive() {
+    this.additionalIsActive = !this.additionalIsActive
   }
 
   get subskillsList() {

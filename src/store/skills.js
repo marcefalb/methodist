@@ -27,7 +27,6 @@ class Skills {
 
   async fetchToProfessionalSkills(directionId) {
     const response = await fetchProfessionalSkills.fetchToProfessionalSkills(directionId)
-    console.log(response.data.data)
     if (!response) return null
     response.data.data.forEach(skill => {
       const skillItem = new professionalSkill(skill)
@@ -64,7 +63,14 @@ class Skills {
   setIsActive(skillObjId) {
     this.professionalSkills.forEach(skill => {
       if (skill.id === skillObjId)
-        skill.isActive = !skill.isActive
+        skill.setIsActive()
+    })
+  }
+  
+  setAdditionalIsActive(skillObjId) {
+    this.professionalSkills.forEach(skill => {
+      if (skill.id === skillObjId)
+        skill.setAdditionalIsActive()
     })
   }
 
