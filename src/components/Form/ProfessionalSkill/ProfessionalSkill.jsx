@@ -40,10 +40,7 @@ const ProfessionalSkill = observer(({ skillObj }) => {
           height="25px"
           fontSize="16px"
           borderRadius="5px"
-          onClick={(event) => 
-            // deleteBtnOnClick(event)
-            skills.removeProfessionalSkill(skillObj.id, skills.professionalSkills)
-          }
+          onClick={(event) => deleteBtnOnClick(event)}
         />
         {isOpen && (
           <Modal
@@ -63,48 +60,22 @@ const ProfessionalSkill = observer(({ skillObj }) => {
         aria-expanded={!skillObj.isActive}
       >
         <ul className="professional-skills__accordion-list">
-          {skillObj.subskills.map((subskill) => {
+          {skillObj.subskills && skillObj.subskillsList.map((subskill) => {
             return (
-              // <ProfessionalSubskill
-              //   key={subskill.id}
-              //   subskill={subskill}
-              //   onAcceptClick={skills.removeProfessionalSkill(
-              //     skillObj.id,
-              //     subskill.id
-              //   )}
-              // />
-              <li className="professional-skills__accordion-item">
-                <span>{subskill.label}</span>
-                <Button
-                  text="Удалить"
-                  theme="outlined"
-                  width="100px"
-                  height="25px"
-                  fontSize="16px"
-                  borderRadius="5px"
-                  onClick={() => {
-                    // setIsOpen(true);
-                    skills.removeProfessionalSubskill(skillObj.id, subskill.id);
-                  }}
-                />
-                {isOpen && (
-                  <Modal
-                    header={<IcAlert />}
-                    label={subskill.label}
-                    onAcceptClick={() =>
-                      skills.removeProfessionalSubskill(skillObj.id, subskill.id)
-                    }
-                    onCancelClick={() => setIsOpen(false)}
-                  />
+              <ProfessionalSubskill
+                subskill={subskill}
+                onAcceptClick={skills.removeProfessionalSkill(
+                  skillObj.id,
+                  subskill.id
                 )}
-              </li>
+              />
             );
           })}
-          <li>
-            <button className="professional-skills__add-btn">
+          <li className="professional-skills__additional">
+            <div className="professional-skills__additional-header">
               <IcPlus />
-              <span>добавить еще</span>
-            </button>
+              <span>добавить недостающее</span>
+            </div>
           </li>
         </ul>
       </div>

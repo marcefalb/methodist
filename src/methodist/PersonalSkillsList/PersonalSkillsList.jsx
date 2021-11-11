@@ -9,7 +9,7 @@ import "./PersonalSkillsList.css";
 const PersonalSkillsList = observer(() => {
   return (
     <div className="personal-skills">
-      <span className="personal-skills__title title">Личностные качества</span>
+      <span className="personal-skills__title title">Личностные компетенции</span>
       <div className="personal-skills__select">
         <SkillsSelect
           options={skills.personalSkillsList}

@@ -2,6 +2,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import store from "../store/store";
+import skills from "../store/skills";
 import Select from "../components/Form/Select/Select";
 import BtnNext from "./BtnNext/BtnNext";
 import FormButtons from "./FormButtons/FormButtons";
@@ -15,12 +16,14 @@ const Methodist = observer(() => {
   };
   const directionOnChange = (event) => {
     store.setIsShowBtn();
-    store.setSelectedDirectionValue(event);
+    store.setSelectedDirectionValue(event)
+    skills.professionalSkills.clear()
+    skills.fetchToProfessionalSkills(event.value)
   };
   return (
     <main className="main">
       <div className="wrapper main__wrapper">
-        <h1>Заявка на курс</h1>
+        <h1>Образовательная программа подготовки специалистов</h1>
         <div className="main__content">
           <Select
             name={"speciality"}
@@ -30,7 +33,7 @@ const Methodist = observer(() => {
           />
           <Select
             name={"direction"}
-            title={"Направление"}
+            title={"Компетенция "}
             options={store.directionsList}
             onChange={(event) => directionOnChange(event)}
             isDisabled={store.isDisabled}

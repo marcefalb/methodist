@@ -1,9 +1,9 @@
 import axios from "axios";
 
 class FetchProfessionalSkills {
-  async fetchToProfessionalSkills(directionId) {
+  async fetchToProfessionalSubskills(skillGroupId) {
     return (
-      await axios.get(`http://jn.mgok.moscow/public/api/directions/${directionId}/professional_qualities_groups`)
+      await axios.get(`http://jn.mgok.moscow/public/api/professional_qualities_groups/${skillGroupId}/professional_qualities`)
       .catch(error => {
         if (error.res) {
           console.log(error.res);

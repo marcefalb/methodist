@@ -7,8 +7,9 @@ import Modal from "../../Modal/Modal";
 
 const ProfessionalSubskill = observer((subskill, onAcceptClick) => {
   const [isOpen, setIsOpen] = useState(false)
+  console.log(subskill);
   return (
-    <li className="professional-skills__accordion-item">
+    <li className="professional-skills__accordion-item" key={subskill.id}>
       <span>{subskill.label}</span>
       <Button
         text="Удалить"
