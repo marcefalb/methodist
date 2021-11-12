@@ -10,7 +10,7 @@ const ProfessionalSkillsList = observer(() => {
   return (
     <div className="professional-skills">
       <span className="professional-skills__title title">
-        Профессиональные качества
+        Профессиональные компетенции
       </span>
       <ul className="professional-skills__list">
         {skills.professionalSkills.map((el) => {

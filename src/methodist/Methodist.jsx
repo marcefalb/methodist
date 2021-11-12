@@ -20,7 +20,7 @@ const Methodist = observer(() => {
   return (
     <main className="main">
       <div className="wrapper main__wrapper">
-        <h1>Заявка на курс</h1>
+        <h1>Образовательная программа подготовки специалистов</h1>
         <div className="main__content">
           <Select
             name={"speciality"}
@@ -30,7 +30,7 @@ const Methodist = observer(() => {
           />
           <Select
             name={"direction"}
-            title={"Направление"}
+            title={"Компетенция"}
             options={store.directionsList}
             onChange={(event) => directionOnChange(event)}
             isDisabled={store.isDisabled}

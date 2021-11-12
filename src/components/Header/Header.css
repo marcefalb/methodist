@@ -2,7 +2,7 @@
   height: 70px;
   width: 100%;
 
-  background-color: var(--main);
+  background-color: var(--secondary);
 }
 .header__wrapper {
   display: flex;
