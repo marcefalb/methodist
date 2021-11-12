@@ -56,7 +56,7 @@ class Skills {
   async fetchToPersonalSkills() {
     const response = await fetchPersonalSkills.fetchToPersonalSkills()
     if (!response) return null
-    response.data.data.forEach(skill => {
+    response.data.personal_qualities.forEach(skill => {
       this.personalSkills.set(skill.id, skill)
     })
   }
@@ -64,7 +64,7 @@ class Skills {
   async fetchToProfessionalSkills() {
     const response = await fetchProfessionalSkills.fetchToProfessionalSkills()
     if (!response) return null
-    response.data.data.forEach(skill => {
+    response.data.professional_qualities_groups.forEach(skill => {
       const skillItem = new professionalSkill(skill)
       this.professionalSkills.set(skill.id, skillItem)
     })
