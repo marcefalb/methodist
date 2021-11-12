@@ -46,7 +46,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <span className="footer__copyrights">Copyright &#169; 2021. АРЧК. All rights reserved.</span>
+        <span className="footer__copyrights">Copyright &#169; 2021. МГОК. All rights reserved.</span>
       </div>
     </footer>
   );
