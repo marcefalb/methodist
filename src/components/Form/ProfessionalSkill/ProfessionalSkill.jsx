@@ -15,7 +15,12 @@ const ProfessionalSkill = observer(({ skillObj }, key) => {
   const [isOpen, setIsOpen] = useState(false);
   const deleteBtnOnClick = (event) => {
     event.stopPropagation();
+    document.documentElement.style.overflow = "hidden"
     setIsOpen(true);
+  };
+  const cancelBtnOnClick = () => {
+    document.documentElement.style.overflow = "auto"
+    setIsOpen(false);
   };
 
   return (
@@ -53,9 +58,7 @@ const ProfessionalSkill = observer(({ skillObj }, key) => {
                 skills.additionalProfessionalSkills
               )
             }
-            onCancelClick={() => {
-              setIsOpen(false);
-            }}
+            onCancelClick={() => cancelBtnOnClick()}
           />
         )}
       </div>
@@ -86,14 +89,13 @@ const ProfessionalSkill = observer(({ skillObj }, key) => {
           )}
           {skillObj.additionalSubskills.size !== 0 && (
             <li className="professional-skills__additional">
-              <div className="professional-skills__additional-header">
+              <div className="professional-skills__additional-header" onClick={() => skills.setAdditionalIsActive(skillObj.id)}>
                 <IcPlus />
                 <span>добавить недостающее</span>
               </div>
               <div
                 className="professional-skills__additional-body"
-                // aria-expanded={!skillObj.additionalIsActive}
-                aria-expanded={false}
+                aria-expanded={!skillObj.additionalIsActive}
               >
                 <ul className="professional-skills__additional-list">
                   {skillObj.additionalSubskillsList.map(subskill => {

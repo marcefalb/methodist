@@ -8,7 +8,7 @@ const FormButtons = observer(() => {
   return (
     <div className="form-buttons">
       <Button
-        text="Удалить"
+        text="Сформировать"
         theme="outlined"
         width="235px"
         height="50px"

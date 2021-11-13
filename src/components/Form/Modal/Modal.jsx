@@ -6,7 +6,7 @@ import "./Modal.css";
 
 const Modal = observer(({ header, label, onAcceptClick, onCancelClick }) => {
   return (
-    <div className="modal">
+    <div className="modal" onClick={(event) => event.stopPropagation()}>
       <div
         className="modal__container"
         onClick={(event) => event.stopPropagation()}

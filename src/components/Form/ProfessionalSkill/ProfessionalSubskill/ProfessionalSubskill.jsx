@@ -7,10 +7,15 @@ import Modal from "../../Modal/Modal";
 
 const ProfessionalSubskill = observer(({ subskill, onAcceptClick }, key) => {
   const [isOpen, setIsOpen] = useState(false);
-  const deleteBtnOnClick = (event) => {
-    event.stopPropagation();
+  const deleteBtnOnClick = () => {
+    document.documentElement.style.overflow = "hidden"
     setIsOpen(true);
   };
+  const cancelBtnOnClick = () => {
+    document.documentElement.style.overflow = "auto"
+    setIsOpen(false);
+  };
+
   return (
     <li className="professional-skills__accordion-item" key={key}>
       <span>{subskill.name}</span>
@@ -21,8 +26,8 @@ const ProfessionalSubskill = observer(({ subskill, onAcceptClick }, key) => {
         height="25px"
         fontSize="16px"
         borderRadius="5px"
-        onClick={(event) => {
-          deleteBtnOnClick(event)
+        onClick={() => {
+          deleteBtnOnClick()
         }}
       />
       {isOpen && (
@@ -30,7 +35,7 @@ const ProfessionalSubskill = observer(({ subskill, onAcceptClick }, key) => {
           header={<IcAlert />}
           label={subskill.name}
           onAcceptClick={onAcceptClick}
-          onCancelClick={() => setIsOpen(false)}
+          onCancelClick={() => cancelBtnOnClick()}
         />
       )}
     </li>

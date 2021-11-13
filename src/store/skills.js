@@ -9,6 +9,7 @@ class Skills {
   selectedPersonalSkills = observable.map()
   professionalSkills = observable.map()
   additionalProfessionalSkills = observable.map()
+  isMainAdditionalActive = false
   currentOption = null
 
   constructor() {
@@ -72,6 +73,10 @@ class Skills {
       if (skill.id === skillObjId)
         skill.setAdditionalIsActive()
     })
+  }
+
+  setMainAdditionalIsActive() {
+    this.isMainAdditionalActive = !this.isMainAdditionalActive
   }
 
   setCurrentOption(option) {
