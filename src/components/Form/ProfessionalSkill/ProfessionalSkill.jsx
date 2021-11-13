@@ -103,8 +103,8 @@ const ProfessionalSkill = observer(({ skillObj }, key) => {
                       onAcceptClick={() =>
                         skills.toggleSkill(
                           subskill.id,
-                          skillObj.subskills,
-                          skillObj.additionalSubskills
+                          skillObj.additionalSubskills,
+                          skillObj.subskills
                         )
                       }
                       key={subskill.id}

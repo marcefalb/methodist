@@ -16,14 +16,27 @@ const ProfessionalSkillsList = observer(() => {
         {skills.professionalSkillsList.map((el) => {
           return <ProfessionalSkill skillObj={el} key={el.id} />;
         })}
-        {skills.additionalProfessionalSkills.size !== 0 && (
-          <li>
-            <button className="professional-skills__add-btn">
-              <IcPlus />
-              <span>добавить недостающее</span>
-            </button>
-          </li>
-        )}
+        {skills.professionalAdditionalSkillsList.size !== 0 && (
+            <li className="professional-skills__additional">
+              <div className="professional-skills__additional-header">
+                <IcPlus />
+                <span>добавить недостающее</span>
+              </div>
+              <div
+                className="professional-skills__additional-body"
+                // aria-expanded={!skillObj.additionalIsActive}
+                aria-expanded={false}
+              >
+                <ul className="professional-skills__additional-list">
+                  {skills.professionalAdditionalSkillsList.map(skill => {
+                    return (
+                      <ProfessionalSkill skillObj={skill} key={skill.id} />
+                    )
+                  })}
+                </ul>
+              </div>
+            </li>
+          )}
       </ul>
     </div>
   );

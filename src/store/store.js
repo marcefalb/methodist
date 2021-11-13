@@ -19,7 +19,7 @@ class Store {
   async fetchToSpecialities() {
     const response = await fetchSpecialities.fetchToSpecialities()
     if (!response) return null
-    response.data.data.forEach(speciality => {
+    response.data.specialities.forEach(speciality => {
       this.specialitiesSelect.push(speciality)
     })
   }
@@ -28,7 +28,7 @@ class Store {
     const response = await fetchDirections.fetchToDirections(currentSpecialityId)
     this.setSelectedDirectionValue(null)
     if (!response) return null
-    response.data.data.forEach(direction => {
+    response.data.directions.forEach(direction => {
       this.directionsSelect.push(direction)
     })
   }

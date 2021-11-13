@@ -2,21 +2,59 @@
   height: 70px;
   width: 100%;
 
-  background-color: var(--main);
+  background-color: var(--secondary);
 }
 .header__wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   height: 100%;
 
-  padding: 0;
+  padding: 0 !important;
 }
 .header__logo,
 .header__logo svg {
-  width: 170px;
-  height: 50px;
+  width: 125px;
+  height: 30px;
 
   overflow: hidden;
+}
+.header__nav,
+.header__nav-list {
+  height: 100%;
+}
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+
+  margin: 5px 0 0 70px;
+}
+.header__nav-item a {
+  font-family: 'Intro', sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+.header__account,
+.header__account-list {
+  height: 100%;
+}
+.header__account {
+  margin-left: auto;
+}
+.header__account-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17.5px;
+}
+.header__account-link,
+.header__account-item {
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+.header__account-user {
+  margin-top: 2px;
 }

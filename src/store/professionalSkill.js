@@ -22,7 +22,7 @@ class professionalSkill {
   async fetchToProfessionalSubskills(professionalSkillId) {
     const response = await fetchProfessionalSubskills.fetchToProfessionalSubskills(professionalSkillId)
     if (!response) return null
-    response.data.data.forEach(skill => {
+    response.data.professional_qualities.forEach(skill => {
       this.subskills.set(skill.id, skill)
     })
   }
