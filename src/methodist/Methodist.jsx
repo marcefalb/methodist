@@ -13,6 +13,7 @@ const Methodist = observer(() => {
   const specialityOnChange = (event) => {
     store.setIsDisabled();
     store.fetchToDirections(event.value);
+    skills.professionalSkills.clear()
   };
   const directionOnChange = (event) => {
     store.setIsShowBtn();

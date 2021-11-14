@@ -18,10 +18,6 @@ const ProfessionalSkillsList = observer(() => {
         })}
         {skills.additionalProfessionalSkills.size !== 0 && (
             <li className="professional-skills__additional">
-              <div className="professional-skills__additional-header" onClick={() => skills.setMainAdditionalIsActive()}>
-                <IcPlus />
-                <span>добавить недостающее</span>
-              </div>
               <div
                 className="professional-skills__additional-body"
                 aria-expanded={!skills.isMainAdditionalActive}
@@ -33,6 +29,10 @@ const ProfessionalSkillsList = observer(() => {
                     )
                   })}
                 </ul>
+              </div>
+              <div className="professional-skills__additional-header" onClick={() => skills.setMainAdditionalIsActive()}>
+                <IcPlus />
+                <span>добавить недостающее</span>
               </div>
             </li>
           )}

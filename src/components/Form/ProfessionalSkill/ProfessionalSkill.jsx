@@ -22,6 +22,15 @@ const ProfessionalSkill = observer(({ skillObj }, key) => {
     document.documentElement.style.overflow = "auto"
     setIsOpen(false);
   };
+  const acceptBtnOnClick = () => {
+    document.documentElement.style.overflow = "auto"
+    skills.toggleSkill(
+      skillObj.id,
+      skills.professionalSkills,
+      skills.additionalProfessionalSkills
+    )
+  };
+
 
   return (
     <li className="professional-skills__item" key={key}>
@@ -51,13 +60,7 @@ const ProfessionalSkill = observer(({ skillObj }, key) => {
           <Modal
             header={<IcAlert />}
             label={skillObj.label}
-            onAcceptClick={() =>
-              skills.toggleSkill(
-                skillObj.id,
-                skills.professionalSkills,
-                skills.additionalProfessionalSkills
-              )
-            }
+            onAcceptClick={() => acceptBtnOnClick()}
             onCancelClick={() => cancelBtnOnClick()}
           />
         )}
@@ -89,10 +92,6 @@ const ProfessionalSkill = observer(({ skillObj }, key) => {
           )}
           {skillObj.additionalSubskills.size !== 0 && (
             <li className="professional-skills__additional">
-              <div className="professional-skills__additional-header" onClick={() => skills.setAdditionalIsActive(skillObj.id)}>
-                <IcPlus />
-                <span>добавить недостающее</span>
-              </div>
               <div
                 className="professional-skills__additional-body"
                 aria-expanded={!skillObj.additionalIsActive}
@@ -114,6 +113,10 @@ const ProfessionalSkill = observer(({ skillObj }, key) => {
                     )
                   })}
                 </ul>
+              </div>
+              <div className="professional-skills__additional-header" onClick={() => skills.setAdditionalIsActive(skillObj.id)}>
+                <IcPlus />
+                <span>добавить недостающее</span>
               </div>
             </li>
           )}
