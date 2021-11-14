@@ -1,7 +1,7 @@
 import React from 'react';
 import {ReactComponent as IcLogo} from '../../assets/icons/ic_logo.svg'
 import {ReactComponent as IcFb} from '../../assets/icons/ic_footer-FB.svg'
-import {ReactComponent as IcInst} from '../../assets/icons/ic_footer-INST.svg'
+import {ReactComponent as IcInst} from '../../assets/icons/ic_footer-inst.svg'
 import {ReactComponent as IcYt} from '../../assets/icons/ic_footer-YT.svg'
 import './Footer.css'
 
@@ -55,7 +55,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <span className="footer__copyrights">Copyright &#169; 2021. МГОК. All rights reserved.</span>
+
+        <span className="footer__copyrights">Copyright © 2021. МГОК. All rights reserved.</span>
       </div>
     </footer>
   );

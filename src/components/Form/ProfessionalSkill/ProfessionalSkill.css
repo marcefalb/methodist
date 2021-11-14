@@ -109,11 +109,11 @@
   background-color: inherit;
   cursor: pointer;
 }
-.professional-skills__add-btn span {
-  color: var(--secondary);
+.professional-skills__additional-header span {
+  color: var(--secondary-light);
   font-size: 14px;
   margin-bottom: 2px;
 }
-.professional-skills__add-btn svg path {
-  stroke: var(--secondary);
+.professional-skills__additional-header svg path {
+  stroke: var(--secondary-light);
 }

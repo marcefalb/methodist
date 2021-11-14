@@ -1,0 +1,22 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  cursor: pointer;
+
+  transition: all .3s;
+}
+.btn-default {
+  background-color: var(--secondary);
+  color: #fff;
+}
+.btn-outlined {
+  background-color: inherit;
+  color: var(--secondary);
+  border: 1px solid var(--secondary) !important;
+}
+.btn-outlined:hover {
+  background-color: var(--secondary);
+  color: #fff;
+}

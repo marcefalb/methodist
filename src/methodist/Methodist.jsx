@@ -34,7 +34,7 @@ const Methodist = observer(() => {
           />
           <Select
             name={"direction"}
-            title={"Компетенция"}
+            title={"Компетенция "}
             options={store.directionsList}
             onChange={(event) => directionOnChange(event)}
             isDisabled={store.isDisabled}
