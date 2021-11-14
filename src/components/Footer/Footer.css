@@ -1,17 +1,11 @@
 .footer {
   width: 100%;
 
-<<<<<<< HEAD
-  background-color: var(--secondary);
-}
-.footer * {
   font-family: "Intro", sans-serif;
   color: #fff;
-=======
   padding: 60px 0 30px 0;
 
   background-color: var(--secondary);
->>>>>>> e7ff982b1d84f7e3499c4261d2ecbaa54f81ebfc
 }
 .footer__wrapper {
   display: flex;
@@ -60,12 +54,6 @@
   font-size: 18px;
 }
 .footer__copyrights {
-<<<<<<< HEAD
   margin-top: 30px;
   font-size: 16px;
-=======
-  margin-top: 50px;
-  color: #fff;
-  text-align: center;
->>>>>>> e7ff982b1d84f7e3499c4261d2ecbaa54f81ebfc
 }

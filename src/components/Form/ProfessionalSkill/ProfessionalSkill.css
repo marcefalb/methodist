@@ -109,15 +109,6 @@
   background-color: inherit;
   cursor: pointer;
 }
-<<<<<<< HEAD
-.professional-skills__additional-header span {
-  color: var(--secondary-light);
-  font-size: 14px;
-  margin-bottom: 2px;
-}
-.professional-skills__additional-header svg path {
-  stroke: var(--secondary-light);
-=======
 .professional-skills__add-btn span {
   color: var(--secondary);
   font-size: 14px;
@@ -125,5 +116,4 @@
 }
 .professional-skills__add-btn svg path {
   stroke: var(--secondary);
->>>>>>> e7ff982b1d84f7e3499c4261d2ecbaa54f81ebfc
 }
