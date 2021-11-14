@@ -55,8 +55,12 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+<<<<<<< HEAD
 
         <span className="footer__copyrights">Copyright © 2021. МГОК. All rights reserved.</span>
+=======
+        <span className="footer__copyrights">Copyright &#169; 2021. МГОК. All rights reserved.</span>
+>>>>>>> e7ff982b1d84f7e3499c4261d2ecbaa54f81ebfc
       </div>
     </footer>
   );

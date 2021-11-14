@@ -15,9 +15,9 @@
 
   padding: 10px 30px;
 
-  background-color: var(--secondary);
-  color: #fff;
-  border: 1px solid var(--secondary) !important;
+  background-color: inherit;
+  color: var(--secondary);
+  border: 2px solid var(--secondary) !important;
   border-radius: 10px;
   font-size: 24px;
   cursor: pointer;

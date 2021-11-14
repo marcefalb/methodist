@@ -7,6 +7,7 @@ import "./FormButtons.css";
 const FormButtons = observer(() => {
   return (
     <div className="form-buttons">
+<<<<<<< HEAD
       <Button
         text="Сформировать"
         theme="outlined"
@@ -15,6 +16,9 @@ const FormButtons = observer(() => {
         fontSize="24px"
         borderRadius="10px"
       />
+=======
+      <button className="form-buttons__save">Сформировать</button>
+>>>>>>> e7ff982b1d84f7e3499c4261d2ecbaa54f81ebfc
     </div>
   );
 });
