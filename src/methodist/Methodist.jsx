@@ -1,10 +1,13 @@
-import React from "react";
+import {React, useState} from "react";
 import { observer } from "mobx-react-lite";
 
 import { ReactComponent as IcArrow } from "../assets/icons/ic_arrow-right.svg";
+import { ReactComponent as IcRestart } from "../assets/icons/ic_restart.svg";
+import { ReactComponent as IcAlert } from "../assets/icons/ic_alert.svg";
 import store from "../store/store";
 import skills from "../store/skills";
 import Select from "../components/Form/Select/Select";
+import Modal from "../components/Form/Modal/Modal";
 import BtnNext from "./BtnNext/BtnNext";
 import EducationPlan from "./EducationPlan/EducationPlan";
 import ContactsForm from "./ContactsForm/ContactsForm";
@@ -26,6 +29,11 @@ const Methodist = observer(() => {
     skills.professionalSkills.clear()
     skills.fetchToProfessionalSkills(event.value)
   };
+  const onClick = () => {
+    document.documentElement.style.overflow = "auto";
+    setIsOpen(false);
+  };
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <main className="main">
       {!store.isSend && (<div className="wrapper main__wrapper">
@@ -77,6 +85,27 @@ const Methodist = observer(() => {
       </div>
       ) || (
         <div className="main__table-wrapper">
+          <div className="main__table-tools">
+            <a className="main__table-btn" href="/">
+              <IcRestart />
+              <span>Вернуться</span>
+            </a>
+            <button className="main__table-btn" onClick={() => {
+              document.documentElement.style.overflow = "hidden";
+              setIsOpen(true)
+            }}>
+              <IcAlert />
+              <span>Помощь</span>
+            </button>
+            {isOpen && (
+              <Modal
+                header="Возникли вопросы?"
+                label="Свяжитесь с нами по почте: mgok@edu.mos.ru"
+                onClick={() => onClick()}
+                isHelp={true}
+              />
+            )}
+          </div>
           <h2>Предварительный РУП</h2>
           <Table />
         </div>

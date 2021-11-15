@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import Button from "../Button/Button";
 import "./Modal.css";
 
-const Modal = observer(({ header, label, onAcceptClick, onCancelClick }) => {
+const Modal = observer(({ header, label, onAcceptClick, onCancelClick, onClick, isHelp }) => {
   return (
     <div className="modal" onClick={(event) => event.stopPropagation()}>
       <div
@@ -13,9 +13,9 @@ const Modal = observer(({ header, label, onAcceptClick, onCancelClick }) => {
       >
         <span className="modal__header">{header}</span>
         <p className="modal__text">
-          Вы уверены, что хотите удалить предмет "{label}" ?
+          {!isHelp ? "Вы уверены, что хотите удалить предмет " + label + "?" : label}
         </p>
-        <div className="modal__btns">
+        {!isHelp && (<div className="modal__btns">
           <Button
             text="Да"
             theme="default"
@@ -35,6 +35,17 @@ const Modal = observer(({ header, label, onAcceptClick, onCancelClick }) => {
             onClick={onCancelClick}
           />
         </div>
+        ) || (
+          <Button
+            text="Понятно"
+            theme="default"
+            fontSize="24px"
+            width="250px"
+            height="50px"
+            borderRadius="10px"
+            onClick={onClick}
+          />
+        )}
       </div>
     </div>
   );

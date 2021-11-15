@@ -111,3 +111,27 @@ h1 {
 
   border: 1px solid var(--border-line);
 }
+.main__table-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+
+  width: 100%;
+}
+.main__table-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  cursor: pointer;
+  background-color: inherit;
+}
+.main__table-btn span {
+  font-size: 18px;
+  color: var(--secondary)
+}
+.main__table-btn svg {
+  width: 24px;
+  height: 24px;
+}
