@@ -1,9 +1,9 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { ReactComponent as IcPlus } from "../../assets/icons/ic_plus.svg";
 import skills from "../../store/skills";
 import ProfessionalSkill from "../../components/Form/ProfessionalSkill/ProfessionalSkill";
+import AdditionalSkills from "../../components/Form/Additional/Additional";
 import "./ProfessionalSkillsList.css";
 
 const ProfessionalSkillsList = observer(() => {
@@ -17,25 +17,13 @@ const ProfessionalSkillsList = observer(() => {
           return <ProfessionalSkill skillObj={el} key={el.id} />;
         })}
         {skills.additionalProfessionalSkills.size !== 0 && (
-            <li className="professional-skills__additional">
-              <div
-                className="professional-skills__additional-body"
-                aria-expanded={!skills.isMainAdditionalActive}
-              >
-                <ul className="professional-skills__additional-list">
-                  {skills.professionalAdditionalSkillsList.map(skill => {
-                    return (
-                      <ProfessionalSkill skillObj={skill} key={skill.id} />
-                    )
-                  })}
-                </ul>
-              </div>
-              <div className="professional-skills__additional-header" onClick={() => skills.setMainAdditionalIsActive()}>
-                <IcPlus />
-                <span>добавить недостающее</span>
-              </div>
-            </li>
-          )}
+          <AdditionalSkills
+            ariaExpanded={skills.isMainAdditionalActive}
+            arrayMap={skills.professionalAdditionalSkillsList}
+            setIsActiveFunc={skills.setMainAdditionalIsActive()
+          }
+        />
+        )}
       </ul>
     </div>
   );

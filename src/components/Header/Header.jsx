@@ -10,44 +10,44 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__wrapper wrapper">
-        <a href="/" className="header__logo">
+        <a href="https://" className="header__logo">
           <IcLogo />
         </a>
         <nav className="header__nav">
           <ul className="header__nav-list">
             <li className="header__nav-item">
-              <a href="#">Обучение</a>
+              <a href="https://">Обучение</a>
             </li>
             <li className="header__nav-item">
-              <a href="#">Вакансии</a>
+              <a href="https://">Вакансии</a>
             </li>
             <li className="header__nav-item">
-              <a href="#">Резюме</a>
+              <a href="https://">Резюме</a>
             </li>
             <li className="header__nav-item">
-              <a href="#">О нас</a>
+              <a href="https://">О нас</a>
             </li>
           </ul>
         </nav>
         <div className="header__account">
           <ul className="header__account-list">
             <li className="header__account-item">
-              <a href="#" className="header__account-link">
+              <a href="https://" className="header__account-link">
               <IcLike />
               </a>
             </li>
             <li className="header__account-item">
-              <a href="#" className="header__account-link">
+              <a href="https://" className="header__account-link">
               <IcBell />
               </a>
             </li>
             <li className="header__account-item">
-              <a href="#" className="header__account-link">
+              <a href="https://" className="header__account-link">
                 <IcComment />
               </a>
             </li>
             <li className="header__account-item">
-              <a href="#" className="header__account-link">
+              <a href="https://" className="header__account-link">
                 <IcUser className="header__account-user" />
               </a>
             </li>

@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import Button from "../../components/Form/Button/Button";
 import "./FormButtons.css";
 
-const FormButtons = observer(() => {
+const FormButtons = observer(({onClick}) => {
   return (
     <div className="form-buttons">
       <Button
@@ -14,6 +14,7 @@ const FormButtons = observer(() => {
         height="50px"
         fontSize="24px"
         borderRadius="10px"
+        onClick={onClick}
       />
     </div>
   );

@@ -5,6 +5,7 @@ import store from "../store/store";
 import skills from "../store/skills";
 import Select from "../components/Form/Select/Select";
 import BtnNext from "./BtnNext/BtnNext";
+import EducationPlan from "./EducationPlan/EducationPlan";
 import FormButtons from "./FormButtons/FormButtons";
 import PersonalSkillsList from "./PersonalSkillsList/PersonalSkillsList";
 import ProfessionalSkillsList from "./ProfessionalSkillsList/ProfessionalSkillsList";
@@ -49,9 +50,12 @@ const Methodist = observer(() => {
             <div className="skills">
               <PersonalSkillsList />
               <ProfessionalSkillsList />
-              <FormButtons />
+              <FormButtons onClick={() => store.setIsFormed()}/>
             </div>
           )}
+          {(store.isFormed && (
+            <EducationPlan />
+          ))}
         </div>
       </div>
     </main>

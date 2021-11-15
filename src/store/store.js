@@ -9,6 +9,7 @@ class Store {
   isContinue = false
   isShowBtn = false
   isDisabled = true
+  isFormed = false
 
   constructor() {
     makeAutoObservable(this)
@@ -35,6 +36,10 @@ class Store {
 
   setIsContinue() {
     this.isContinue = true
+  }
+
+  setIsFormed() {
+    this.isFormed = true
   }
   
   setIsShowBtn() {

@@ -10,23 +10,23 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__wrapper">
         <div className="footer_top">
-          <a href="/" className="footer__logo">
+          <a href="https://" className="footer__logo">
             <IcLogo/>
           </a>
 
           <ul className="footer__mess">
             <li className="footer__mess-item">
-              <a href="#">
+              <a href="https://">
                 <IcInst/>
               </a>
             </li>
             <li className="footer__mess-item">
-              <a href="#">
+              <a href="https://">
                 <IcFb/>
               </a>
             </li>
             <li className="footer__mess-item">
-              <a href="#">
+              <a href="https://">
                 <IcYt/>
               </a>
             </li>
@@ -42,16 +42,16 @@ const Footer = () => {
         <div className="footer_bottom">
           <ul className="footer__links">
             <li className="footer__link-item">
-              <a href="#">Обучение</a>
+              <a href="https://">Обучение</a>
             </li>
             <li className="footer__link-item">
-              <a href="#">Вакансии</a>
+              <a href="https://">Вакансии</a>
             </li>
             <li className="footer__link-item">
-              <a href="#">Резюме</a>
+              <a href="https://">Резюме</a>
             </li>
             <li className="footer__link-item">
-              <a href="#">О нас</a>
+              <a href="https://">О нас</a>
             </li>
           </ul>
         </div>
