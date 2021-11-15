@@ -5,7 +5,9 @@ import fetchDirections from "../API/fetchDirections";
 class Store {
   specialitiesSelect = observable.array()
   directionsSelect = observable.array()
+  selectedSpecialityValue = null
   selectedDirectionValue = null
+  currentSliderValue = 60
   isContinue = false
   isShowBtn = false
   isDisabled = true
@@ -57,6 +59,15 @@ class Store {
 
   setSelectedDirectionValue(option) {
     this.selectedDirectionValue = option
+  }
+
+  setSelectedSpecialityValue(option) {
+    this.selectedSpecialityValue = option
+  }
+
+  setCurrentSliderValue(sliderValue) {
+    this.currentSliderValue = sliderValue
+    console.log(this.currentSliderValue)
   }
 
   get specialitiesList() {

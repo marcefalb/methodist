@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__wrapper wrapper">
-        <a href="https://" className="header__logo">
+        <a href="/" className="header__logo">
           <IcLogo />
         </a>
         <nav className="header__nav">

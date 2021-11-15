@@ -1,29 +1,39 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
-import { styled } from '@mui/material/styles';
+import React from "react";
+import Box from "@mui/material/Box";
+import Slider from "@mui/material/Slider";
+import { styled } from "@mui/material/styles";
+import { observer } from "mobx-react-lite";
+import store from "../../../store/store";
 
-const EducationSlider = () => {
+const EducationSlider = observer(({ onChange }) => {
   function valuetext(value) {
     return `${value} ч.`;
   }
-  
+
   const marks = [
     {
       value: 0,
-      label: '0 ч.',
+      label: "0 ч.",
     },
     {
-      value: 35,
-      label: '60 ч.',
+      value: 20,
+      label: "124 ч.",
     },
     {
-      value: 70,
-      label: '120 ч.',
+      value: 40,
+      label: "248 ч.",
+    },
+    {
+      value: 60,
+      label: "372 ч.",
+    },
+    {
+      value: 80,
+      label: "496 ч.",
     },
     {
       value: 100,
-      label: '180 ч.',
+      label: "620 ч.",
     },
   ];
 
@@ -32,44 +42,44 @@ const EducationSlider = () => {
   }
 
   const PlanSlider = styled(Slider)(({ theme }) => ({
-    color: '#597E9D',
-    '& .MuiSlider-thumb': {
+    color: "#597E9D",
+    "& .MuiSlider-thumb": {
       height: 40,
       width: 40,
-      backgroundColor: 'var(--secondary)',
-      border: '4px solid #fff',
-      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-      '&:after': {
-        position: 'relative',
+      backgroundColor: "var(--secondary)",
+      border: "4px solid #fff",
+      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+      "&:after": {
+        position: "relative",
         left: 80,
         top: 10,
         height: 25,
         width: 20,
-        borderLeft: '2px solid #f0f0f0',
-        backgroundColor: '#fff',
-      }
+        borderLeft: "2px solid #f0f0f0",
+        backgroundColor: "#fff",
+      },
     },
-    '& .MuiSlider-markLabel': {
+    "& .MuiSlider-markLabel": {
       fontSize: 14,
-      fontWeight: 'normal',
-      transform: 'translate(-90px, 10px)',
+      fontWeight: "normal",
+      transform: "translate(-90px, 10px)",
     },
-    '& .MuiSlider-track': {
-      backgroundColor: 'var(--secondary)',
+    "& .MuiSlider-track": {
+      backgroundColor: "var(--secondary)",
       width: 8,
     },
-    '& .MuiSlider-rail': {
+    "& .MuiSlider-rail": {
       opacity: 1,
-      backgroundColor: 'var(--secondary)',
+      backgroundColor: "var(--secondary)",
       width: 8,
     },
-    '& .MuiSlider-mark': {
-      backgroundColor: '#484C51',
+    "& .MuiSlider-mark": {
+      backgroundColor: "#484C51",
       height: 2,
       width: 30,
-      '&.MuiSlider-markActive': {
+      "&.MuiSlider-markActive": {
         opacity: 1,
-        backgroundColor: '#484C51',
+        backgroundColor: "#484C51",
       },
     },
   }));
@@ -77,16 +87,17 @@ const EducationSlider = () => {
   return (
     <Box sx={{ height: 430 }}>
       <PlanSlider
-        getAriaLabel={() => 'Plan'}
+        getAriaLabel={() => "Plan"}
         orientation="vertical"
         getAriaValueText={valuetext}
         valueLabelFormat={valueLabelFormat}
-        defaultValue={70}
+        defaultValue={60}
         marks={marks}
         step={null}
+        onChange={onChange}
       />
     </Box>
-  )
-};
+  );
+});
 
-export default EducationSlider
+export default EducationSlider;

@@ -5,7 +5,7 @@ import { ReactComponent as IcAlert } from "../../../../assets/icons/ic_alert.svg
 import Button from "../../Button/Button";
 import Modal from "../../Modal/Modal";
 
-const ProfessionalSubskill = observer(({ subskill, onAcceptClick }, key) => {
+const ProfessionalSubskill = observer(({ subskill, onAcceptClick, isAdditional }, key) => {
   const [isOpen, setIsOpen] = useState(false);
   const deleteBtnOnClick = () => {
     document.documentElement.style.overflow = "hidden"
@@ -20,8 +20,8 @@ const ProfessionalSubskill = observer(({ subskill, onAcceptClick }, key) => {
     <li className="professional-skills__accordion-item" key={key}>
       <span>{subskill.name}</span>
       <Button
-        text="Удалить"
-        theme="outlined"
+        text={isAdditional ? "Удалить" : "Добавить"}
+        theme={isAdditional ? "outlined" : "default"}
         width="100px"
         height="25px"
         fontSize="16px"

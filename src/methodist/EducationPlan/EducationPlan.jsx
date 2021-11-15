@@ -1,17 +1,20 @@
-import React from 'react';
+import React from "react";
+import { observer } from "mobx-react-lite";
 
-import Button from '../../components/Form/Button/Button'
-import EducationSlider from './EducationSlider/EducationSlider'
-import './EducationPlan.css';
-import store from '../../store/store'
+import Button from "../../components/Form/Button/Button";
+import EducationSlider from "./EducationSlider/EducationSlider";
+import "./EducationPlan.css";
+import store from "../../store/store";
 
-const EducationPlan = () => {
+const EducationPlan = observer(() => {
   return (
     <div className="education-plan">
       <span className="title">Подходящий план</span>
       <div className="education-plan__plan">
         <div className="education-plan__slider">
-          <EducationSlider />
+          <EducationSlider
+            onChange={(event) => store.setCurrentSliderValue(event.target.value)}
+          />
           <hr className="education-plan__line" />
         </div>
         <div className="education-plan__info">
@@ -19,16 +22,20 @@ const EducationPlan = () => {
             <div className="education-plan__hours_top">
               Ваши <span>120ч.</span> <p>&#8776; 1 месяц*</p>
             </div>
-            <div className="education-plan__hours_bottom">
-            включают в себя:
-            </div>
+            <div className="education-plan__hours_bottom">включают в себя:</div>
           </div>
           <div className="education-plan__summary">
-            <p>Подготовка индивидуального плана обучения на основе ваших желаемых часов</p>
+            <p>
+              Подготовка индивидуального плана обучения на основе ваших желаемых
+              часов
+            </p>
             <ul className="education-plan__list">
               <li>Общепрофессиональный цикл</li>
               <li>Включение адаптационных дисциплин</li>
-              <li>70 процентов от общего объема времени, отведенного на указанную дисциплину</li>
+              <li>
+                70 процентов от общего объема времени, отведенного на указанную
+                дисциплину
+              </li>
             </ul>
           </div>
         </div>
@@ -45,7 +52,7 @@ const EducationPlan = () => {
         />
       </div>
     </div>
-  )
-};
+  );
+});
 
-export default EducationPlan
+export default EducationPlan;

@@ -15,6 +15,7 @@ import ProfessionalSkillsList from "./ProfessionalSkillsList/ProfessionalSkillsL
 const Methodist = observer(() => {
   const specialityOnChange = (event) => {
     store.setIsDisabled();
+    store.setSelectedSpecialityValue(event.label)
     store.fetchToDirections(event.value);
     skills.professionalSkills.clear()
   };

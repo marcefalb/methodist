@@ -76,6 +76,7 @@ const ProfessionalSkill = observer(({ skillObj, isAdditional }, key) => {
               return (
                 <ProfessionalSubskill
                   subskill={subskill}
+                  isAdditional={true}
                   onAcceptClick={() => {
                     document.documentElement.style.overflow = "auto";
                     skills.toggleSkill(
