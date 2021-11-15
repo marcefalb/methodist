@@ -13,8 +13,8 @@ const EducationPlan = observer(() => {
       <div className="education-plan__plan">
         <div className="education-plan__slider">
           <EducationSlider
-            value={store.currentSliderValue}
-            onChange={(event) => store.setCurrentSliderValue(event.target.value)}
+            sliderValue={store.currentSliderValue}
+            onChange={(value) => store.setCurrentSliderValue(value)}
           />
           <hr className="education-plan__line" />
         </div>
