@@ -21,7 +21,7 @@ const EducationSlider = observer(({ onChange, sliderValue }) => {
     },
     {
       value: 40,
-      label: "248 ч.",
+      label: "256 ч.",
     },
     {
       value: 60,
