@@ -11,6 +11,7 @@ import ContactsForm from "./ContactsForm/ContactsForm";
 import FormButtons from "./FormButtons/FormButtons";
 import PersonalSkillsList from "./PersonalSkillsList/PersonalSkillsList";
 import ProfessionalSkillsList from "./ProfessionalSkillsList/ProfessionalSkillsList";
+import Table from "./Table/Table"
 
 const Methodist = observer(() => {
   const specialityOnChange = (event) => {
@@ -27,14 +28,14 @@ const Methodist = observer(() => {
   };
   return (
     <main className="main">
-      <div className="wrapper main__wrapper">
+      {!store.isSend && (<div className="wrapper main__wrapper">
         <div className="main__header">
           {store.isNext && (<button className="main__header-btn" onClick={() => store.setIsNext()}>
             <IcArrow />
             <span>Вернуться</span>
           </button>
           )}
-          <h1>Образовательная программа подготовки специалистов</h1>
+          <h1>Запрос на специалиста</h1>
         </div>
         {!store.isNext && (
           <div className="main__content">
@@ -74,6 +75,12 @@ const Methodist = observer(() => {
           </div>
         )}
       </div>
+      ) || (
+        <div className="main__table-wrapper">
+          <h2>Предварительный РУП</h2>
+          <Table />
+        </div>
+      )}
     </main>
   );
 });

@@ -13,6 +13,7 @@ class Store {
   isDisabled = true
   isFormed = false
   isNext = false
+  isSend = false
 
   constructor() {
     makeAutoObservable(this)
@@ -55,6 +56,9 @@ class Store {
 
   setIsNext() {
     this.isNext = !this.isNext
+  }
+  setIsSend() {
+    this.isSend = true
   }
 
   setSelectedDirectionValue(option) {

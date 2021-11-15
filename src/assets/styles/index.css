@@ -47,6 +47,22 @@ h1 {
   background-color: #fff;
   border-radius: 10px;
 }
+.main__table-wrapper {
+  max-width: 1200px;
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.main__table-wrapper h2 {
+  font-size: 26px;
+  font-weight: bold;
+  font-family: 'Intro', serif;
+  text-align: center;
+  margin: 30px 0;
+}
 .main__header {
   display: flex;
   align-items: center;
