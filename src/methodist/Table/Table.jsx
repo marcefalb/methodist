@@ -19,7 +19,7 @@ const Table = observer(() => {
   const getValueByPercent = percent => Math.ceil((hours * percent))
 
   const percents = store.selectedSpecialityValue === 'Токарь' ? tokar : frezer
-  const hours = 256
+  const hours = store.currentSliderValue
 
   return (
     <div className='table__wrapper'>

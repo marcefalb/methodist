@@ -21,7 +21,7 @@ const EducationPlan = observer(() => {
         <div className="education-plan__info">
           <div className="education-plan__hours">
             <div className="education-plan__hours_top">
-              Ваши <span>{store.currentSliderValue * 6.2 !== 248 ? store.currentSliderValue * 6.2 : 256}</span> <p>&#8776; {store.currentSliderValue / 20} месяц(а)*</p>
+              Ваши <span>{store.currentSliderValue} ч.</span> <p>&#8776; {Math.round(store.currentSliderValue / 124)} месяц(а)*</p>
             </div>
             <div className="education-plan__hours_bottom">включают в себя:</div>
           </div>

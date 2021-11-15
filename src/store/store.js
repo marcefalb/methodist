@@ -7,7 +7,7 @@ class Store {
   directionsSelect = observable.array()
   selectedSpecialityValue = null
   selectedDirectionValue = null
-  currentSliderValue = 60
+  currentSliderValue = 256
   isContinue = false
   isShowBtn = false
   isDisabled = true

@@ -16,23 +16,23 @@ const EducationSlider = observer(({ onChange, sliderValue }) => {
       label: "0 ч.",
     },
     {
-      value: 20,
+      value: 124,
       label: "124 ч.",
     },
     {
-      value: 40,
+      value: 256,
       label: "256 ч.",
     },
     {
-      value: 60,
+      value: 372,
       label: "372 ч.",
     },
     {
-      value: 80,
+      value: 496,
       label: "496 ч.",
     },
     {
-      value: 100,
+      value: 620,
       label: "620 ч.",
     },
   ];
@@ -87,6 +87,7 @@ const EducationSlider = observer(({ onChange, sliderValue }) => {
   return (
     <Box sx={{ height: 430 }}>
       <PlanSlider
+        max={620}
         getAriaLabel={() => "Plan"}
         orientation="vertical"
         getAriaValueText={valuetext}
