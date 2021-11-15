@@ -13,6 +13,7 @@ const EducationPlan = observer(() => {
       <div className="education-plan__plan">
         <div className="education-plan__slider">
           <EducationSlider
+            value={store.currentSliderValue}
             onChange={(event) => store.setCurrentSliderValue(event.target.value)}
           />
           <hr className="education-plan__line" />
@@ -20,7 +21,7 @@ const EducationPlan = observer(() => {
         <div className="education-plan__info">
           <div className="education-plan__hours">
             <div className="education-plan__hours_top">
-              Ваши <span>120ч.</span> <p>&#8776; 1 месяц*</p>
+              Ваши <span>{store.currentSliderValue * 6.2}</span> <p>&#8776; {store.currentSliderValue / 20} месяц(а)*</p>
             </div>
             <div className="education-plan__hours_bottom">включают в себя:</div>
           </div>

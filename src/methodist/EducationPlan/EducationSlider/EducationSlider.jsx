@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 import { observer } from "mobx-react-lite";
 import store from "../../../store/store";
 
-const EducationSlider = observer(({ onChange }) => {
+const EducationSlider = observer(({ onChange, value }) => {
   function valuetext(value) {
     return `${value} ч.`;
   }
@@ -91,8 +91,8 @@ const EducationSlider = observer(({ onChange }) => {
         orientation="vertical"
         getAriaValueText={valuetext}
         valueLabelFormat={valueLabelFormat}
-        defaultValue={60}
         marks={marks}
+        value={value}
         step={null}
         onChange={onChange}
       />

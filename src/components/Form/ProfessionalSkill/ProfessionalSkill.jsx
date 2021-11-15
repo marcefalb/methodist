@@ -25,11 +25,18 @@ const ProfessionalSkill = observer(({ skillObj, isAdditional }, key) => {
   const acceptBtnOnClick = () => {
     document.documentElement.style.overflow = "auto";
     setIsOpen(false);
+    if (isAdditional) 
     skills.toggleSkill(
       skillObj.id,
-      skills.professionalSkills,
-      skills.additionalProfessionalSkills
+      skills.additionalProfessionalSkills,
+      skills.professionalSkills
     );
+    else 
+      skills.toggleSkill(
+        skillObj.id,
+        skills.professionalSkills,
+        skills.additionalProfessionalSkills
+      );
     if (skillObj.additionalIsActive) skills.setAdditionalIsActive(skillObj.id);
   };
 
