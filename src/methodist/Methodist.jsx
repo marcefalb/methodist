@@ -6,6 +6,7 @@ import skills from "../store/skills";
 import Select from "../components/Form/Select/Select";
 import BtnNext from "./BtnNext/BtnNext";
 import EducationPlan from "./EducationPlan/EducationPlan";
+import ContactsForm from "./ContactsForm/ContactsForm";
 import FormButtons from "./FormButtons/FormButtons";
 import PersonalSkillsList from "./PersonalSkillsList/PersonalSkillsList";
 import ProfessionalSkillsList from "./ProfessionalSkillsList/ProfessionalSkillsList";
@@ -26,37 +27,43 @@ const Methodist = observer(() => {
     <main className="main">
       <div className="wrapper main__wrapper">
         <h1>Образовательная программа подготовки специалистов</h1>
-        <div className="main__content">
-          <Select
-            name={"speciality"}
-            title={"Специальность"}
-            options={store.specialitiesList}
-            onChange={(event) => specialityOnChange(event)}
-          />
-          <Select
-            name={"direction"}
-            title={"Компетенция "}
-            options={store.directionsList}
-            onChange={(event) => directionOnChange(event)}
-            isDisabled={store.isDisabled}
-            selectValue={store.selectedDirectionValue}
-          />
-          {(!store.isContinue && (
-            <BtnNext
-              onClick={() => store.setIsContinue()}
-              isShow={store.isShowBtn}
+        {!store.isNext && (
+          <div className="main__content">
+            <Select
+              name={"speciality"}
+              title={"Специальность"}
+              options={store.specialitiesList}
+              onChange={(event) => specialityOnChange(event)}
             />
-          )) || (
-            <div className="skills">
-              <PersonalSkillsList />
-              <ProfessionalSkillsList />
-              <FormButtons onClick={() => store.setIsFormed()}/>
-            </div>
-          )}
-          {(store.isFormed && (
-            <EducationPlan />
-          ))}
-        </div>
+            <Select
+              name={"direction"}
+              title={"Компетенция "}
+              options={store.directionsList}
+              onChange={(event) => directionOnChange(event)}
+              isDisabled={store.isDisabled}
+              selectValue={store.selectedDirectionValue}
+            />
+            {(!store.isContinue && (
+              <BtnNext
+                onClick={() => store.setIsContinue()}
+                isShow={store.isShowBtn}
+              />
+            )) || (
+              <div className="skills">
+                <PersonalSkillsList />
+                <ProfessionalSkillsList />
+                <FormButtons onClick={() => store.setIsFormed()}/>
+              </div>
+            )}
+            {(store.isFormed && (
+              <EducationPlan />
+            ))}
+          </div>
+        ) || (
+          <div className="main__content">
+            <ContactsForm />
+          </div>
+        )}
       </div>
     </main>
   );

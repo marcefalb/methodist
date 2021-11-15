@@ -10,6 +10,7 @@ class Store {
   isShowBtn = false
   isDisabled = true
   isFormed = false
+  isNext = false
 
   constructor() {
     makeAutoObservable(this)
@@ -48,6 +49,10 @@ class Store {
 
   setIsDisabled() {
     this.isDisabled = false
+  }
+
+  setIsNext() {
+    this.isNext = true
   }
 
   setSelectedDirectionValue(option) {

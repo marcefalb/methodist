@@ -18,11 +18,8 @@ const ProfessionalSkillsList = observer(() => {
         })}
         {skills.additionalProfessionalSkills.size !== 0 && (
           <AdditionalSkills
-            ariaExpanded={skills.isMainAdditionalActive}
             arrayMap={skills.professionalAdditionalSkillsList}
-            setIsActiveFunc={skills.setMainAdditionalIsActive()
-          }
-        />
+          />
         )}
       </ul>
     </div>

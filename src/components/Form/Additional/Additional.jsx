@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import { observer } from "mobx-react-lite";
 import { ReactComponent as IcPlus } from "../../../assets/icons/ic_plus.svg";
 
@@ -6,7 +6,9 @@ import skills from "../../../store/skills";
 import ProfessionalSkill from "../ProfessionalSkill/ProfessionalSkill";
 import ProfessionalSubskill from "../ProfessionalSkill/ProfessionalSubskill/ProfessionalSubskill";
 
-const Additional = observer(({ ariaExpanded, arrayMap, setIsActiveFunc, parentSkill}) => { 
+const Additional = observer(({ arrayMap, parentSkill}) => { 
+  const [ariaExpanded, setAriaExpanded] = useState(false)
+
   return (
     <li className="professional-skills__additional">
       <div
@@ -15,7 +17,7 @@ const Additional = observer(({ ariaExpanded, arrayMap, setIsActiveFunc, parentSk
       >
         <ul className="professional-skills__additional-list">
           {arrayMap.map(skill => {
-            if (skill.subskills) return <ProfessionalSkill skillObj={skill} key={skill.id} />
+            if (skill.subskills) return <ProfessionalSkill skillObj={skill} key={skill.id} isAdditional={true} />
             else return (
               <ProfessionalSubskill
               subskill={skill}
@@ -35,7 +37,7 @@ const Additional = observer(({ ariaExpanded, arrayMap, setIsActiveFunc, parentSk
       </div>
       <div
         className="professional-skills__additional-header"
-        onClick={() => setIsActiveFunc}
+        onClick={() => setAriaExpanded(!ariaExpanded)}
       >
         <IcPlus />
         <span>добавить недостающее</span>

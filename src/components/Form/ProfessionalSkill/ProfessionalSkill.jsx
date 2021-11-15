@@ -94,9 +94,7 @@ const ProfessionalSkill = observer(({ skillObj, isAdditional }, key) => {
           )}
           {skillObj.additionalSubskills.size !== 0 && (
             <AdditionalSkills
-              ariaExpanded={skillObj.additionalIsActive}
               arrayMap={skillObj.additionalSubskillsList}
-              setIsActiveFunc={skills.setAdditionalIsActive(skillObj.id)}
               parentSkill={skillObj}
             />
           )}

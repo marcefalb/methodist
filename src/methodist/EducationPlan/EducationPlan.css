@@ -1,18 +1,17 @@
 .education-plan {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 80px;
 }
 .education-plan__plan {
   display: flex;
-  gap: 50px;
 }
 .education-plan__info {
   display: flex;
   flex-direction: column;
   gap: 20px;
 
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .education-plan__hours {
   display: flex;
@@ -72,6 +71,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
   width: 300px;
+}
+.education-plan__line {
+  background-color: #f0f0f0;
+  height: 430px;
+  width: 2px;
 }

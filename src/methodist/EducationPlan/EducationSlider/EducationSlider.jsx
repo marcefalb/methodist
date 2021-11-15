@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import { styled } from '@mui/material/styles';
 
 const EducationSlider = () => {
   function valuetext(value) {
@@ -30,9 +31,52 @@ const EducationSlider = () => {
     return marks.findIndex((mark) => mark.value === value) + 1;
   }
 
+  const PlanSlider = styled(Slider)(({ theme }) => ({
+    color: '#597E9D',
+    '& .MuiSlider-thumb': {
+      height: 40,
+      width: 40,
+      backgroundColor: '#597E9D',
+      border: '4px solid #fff',
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      '&:after': {
+        position: 'relative',
+        left: 80,
+        top: 10,
+        height: 25,
+        width: 20,
+        borderLeft: '2px solid #f0f0f0',
+        backgroundColor: '#fff',
+      }
+    },
+    '& .MuiSlider-markLabel': {
+      fontSize: 14,
+      fontWeight: 'normal',
+      transform: 'translate(-90px, 10px)',
+    },
+    '& .MuiSlider-track': {
+      backgroundColor: '#597E9D',
+      width: 8,
+    },
+    '& .MuiSlider-rail': {
+      opacity: 1,
+      backgroundColor: '#597E9D',
+      width: 8,
+    },
+    '& .MuiSlider-mark': {
+      backgroundColor: '#484C51',
+      height: 2,
+      width: 30,
+      '&.MuiSlider-markActive': {
+        opacity: 1,
+        backgroundColor: '#484C51',
+      },
+    },
+  }));
+
   return (
     <Box sx={{ height: 430 }}>
-      <Slider
+      <PlanSlider
         getAriaLabel={() => 'Plan'}
         orientation="vertical"
         getAriaValueText={valuetext}
@@ -40,7 +84,6 @@ const EducationSlider = () => {
         defaultValue={70}
         marks={marks}
         step={null}
-        // color="#597E9D"
       />
     </Box>
   )

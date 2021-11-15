@@ -1,0 +1,9 @@
+.contacts__input-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contacts__input-item span {
+  font-size: 20px;
+  font-family: 'Intro', serif;
+}

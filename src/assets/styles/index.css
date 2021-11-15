@@ -1,6 +1,6 @@
 :root {
   --main: #484C51;
-  --secondary: #597E9D;
+  --secondary: #2183aa;
   --secondary-light: #7AB5CC;
   --border-line: #A0A6B1;
   --border-line-light: #e5e5e5;
@@ -8,7 +8,7 @@
 h1 {
   color: var(--main);
   text-align: center;
-  font-size: 36px;
+  font-size: 26px;
   font-weight: 700;
   font-family: 'Intro', Serif;
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import Button from '../../components/Form/Button/Button'
 import EducationSlider from './EducationSlider/EducationSlider'
 import './EducationPlan.css';
+import store from '../../store/store'
 
 const EducationPlan = () => {
   return (
@@ -11,6 +12,7 @@ const EducationPlan = () => {
       <div className="education-plan__plan">
         <div className="education-plan__slider">
           <EducationSlider />
+          <hr className="education-plan__line" />
         </div>
         <div className="education-plan__info">
           <div className="education-plan__hours">
@@ -39,7 +41,7 @@ const EducationPlan = () => {
           height="50px"
           fontSize="24px"
           borderRadius="10px"
-          onClick={() => {}}
+          onClick={() => store.setIsNext()}
         />
       </div>
     </div>
