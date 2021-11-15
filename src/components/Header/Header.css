@@ -29,7 +29,7 @@
   justify-content: center;
   gap: 40px;
 
-  margin: 5px 0 0 70px;
+  margin-left: 60px;
 }
 .header__nav-item a {
   font-family: 'Intro', sans-serif;

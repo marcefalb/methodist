@@ -16,16 +16,16 @@ const Header = () => {
         <nav className="header__nav">
           <ul className="header__nav-list">
             <li className="header__nav-item">
-              <a href="https://">Обучение</a>
-            </li>
-            <li className="header__nav-item">
               <a href="https://">Вакансии</a>
             </li>
             <li className="header__nav-item">
               <a href="https://">Резюме</a>
             </li>
             <li className="header__nav-item">
-              <a href="https://">О нас</a>
+              <a href="https://">Заявка на обучение</a>
+            </li>
+            <li className="header__nav-item">
+              <a href="https://">Корпоративный стандарт</a>
             </li>
           </ul>
         </nav>
