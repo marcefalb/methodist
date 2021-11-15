@@ -30,7 +30,6 @@ const Select = observer(({options, onChange, currentOption}) => {
       borderRadius: 0,
       margin: 0,
       padding: 0,
-      // border: '1px solid #777777'
     }),
     menuList: (provided) => ({
       ...provided,
@@ -55,11 +54,9 @@ const Select = observer(({options, onChange, currentOption}) => {
       backgroundColor: state.isSelected ?
         'var(--secondary)'
         : state.isFocused ?
-        'rgba(33, 131, 170, .5)'
+        '#f0f0f0'
         : '#fff',
       color: state.isSelected ?
-        '#fff'
-        : state.isFocused ?
         '#fff'
         : 'var(--main)',
       transition: 'all .2s'

@@ -47,6 +47,32 @@ h1 {
   background-color: #fff;
   border-radius: 10px;
 }
+.main__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+.main__header-btn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  position: absolute;
+  left: 0;
+
+  cursor: pointer;
+  background: inherit;
+}
+.main__header-btn span {
+  font-size: 18px;
+  font-family: 'Intro', serif;
+  color: var(--secondary);
+}
+.main__header-btn svg {
+  transform: rotateY(180deg);
+}
 .main__content {
   display: flex;
   flex-direction: column;

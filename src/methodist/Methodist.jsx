@@ -1,6 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
+import { ReactComponent as IcArrow } from "../assets/icons/ic_arrow-right.svg";
 import store from "../store/store";
 import skills from "../store/skills";
 import Select from "../components/Form/Select/Select";
@@ -26,7 +27,14 @@ const Methodist = observer(() => {
   return (
     <main className="main">
       <div className="wrapper main__wrapper">
-        <h1>Образовательная программа подготовки специалистов</h1>
+        <div className="main__header">
+          {store.isNext && (<button className="main__header-btn" onClick={() => store.setIsNext()}>
+            <IcArrow />
+            <span>Вернуться</span>
+          </button>
+          )}
+          <h1>Образовательная программа подготовки специалистов</h1>
+        </div>
         {!store.isNext && (
           <div className="main__content">
             <Select

@@ -52,11 +52,9 @@ const Select = observer(({options, name, title, onChange, isDisabled, selectValu
       backgroundColor: state.isSelected ?
         'var(--secondary)'
         : state.isFocused ?
-        'rgba(33, 131, 170, .5)'
+        '#f0f0f0'
         : '#fff',
       color: state.isSelected ?
-        '#fff'
-        : state.isFocused ?
         '#fff'
         : 'var(--main)',
       transition: 'all .2s'
@@ -77,12 +75,16 @@ const Select = observer(({options, name, title, onChange, isDisabled, selectValu
       return 'По данному запросу специальностей не найдено'
     else if (selectName === 'direction')
       return 'По данному запросу направлений не найдено'
+    else if (selectName === 'city')
+      return 'По данному запросу городов не найдено'
   } 
   const placeholder = selectName => {
     if (selectName === 'speciality')
       return 'Токарь'
     else if (selectName === 'direction')
       return 'Выбрать...'
+    else if (selectName === 'city')
+      return 'Москва'
   }
   const optionsList = options.map(option => {
     return { label: option.name, value: option.id };

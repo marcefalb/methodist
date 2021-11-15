@@ -36,7 +36,7 @@ const EducationSlider = () => {
     '& .MuiSlider-thumb': {
       height: 40,
       width: 40,
-      backgroundColor: '#597E9D',
+      backgroundColor: 'var(--secondary)',
       border: '4px solid #fff',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       '&:after': {
@@ -55,12 +55,12 @@ const EducationSlider = () => {
       transform: 'translate(-90px, 10px)',
     },
     '& .MuiSlider-track': {
-      backgroundColor: '#597E9D',
+      backgroundColor: 'var(--secondary)',
       width: 8,
     },
     '& .MuiSlider-rail': {
       opacity: 1,
-      backgroundColor: '#597E9D',
+      backgroundColor: 'var(--secondary)',
       width: 8,
     },
     '& .MuiSlider-mark': {

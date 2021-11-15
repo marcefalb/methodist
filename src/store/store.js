@@ -52,7 +52,7 @@ class Store {
   }
 
   setIsNext() {
-    this.isNext = true
+    this.isNext = !this.isNext
   }
 
   setSelectedDirectionValue(option) {
