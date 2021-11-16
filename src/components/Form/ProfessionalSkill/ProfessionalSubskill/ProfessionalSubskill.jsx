@@ -33,7 +33,7 @@ const ProfessionalSubskill = observer(({ subskill, onAcceptClick, isAdditional }
       {isOpen && (
         <Modal
           header={<IcAlert />}
-          label={subskill.name}
+          label={isAdditional ? "Вы уверены, что хотите удалить компетенцию \"" + subskill.name + "\"?" : "Вы уверены, что хотите добавить компетенцию \"" + subskill.name + "\"?"}
           onAcceptClick={onAcceptClick}
           onCancelClick={() => cancelBtnOnClick()}
         />

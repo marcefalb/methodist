@@ -13,7 +13,7 @@ const Modal = observer(({ header, label, onAcceptClick, onCancelClick, onClick, 
       >
         <span className="modal__header">{header}</span>
         <p className="modal__text">
-          {!isHelp ? "Вы уверены, что хотите удалить предмет " + label + "?" : label}
+          {label}
         </p>
         {!isHelp && (<div className="modal__btns">
           <Button
