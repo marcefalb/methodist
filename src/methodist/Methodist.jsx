@@ -70,7 +70,15 @@ const Methodist = observer(() => {
               <div className="skills">
                 <PersonalSkillsList />
                 <ProfessionalSkillsList />
-                <FormButtons onClick={() => store.setIsFormed()}/>
+                <FormButtons onClick={() => {
+                  store.setIsFormed()
+                  setTimeout((() => {
+                    window.scroll({
+                      top: 1200,
+                      behavior: "smooth"
+                      })
+                  }), 100)
+                }}/>
               </div>
             )}
             {(store.isFormed && (
