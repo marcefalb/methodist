@@ -19,6 +19,8 @@ const Table = observer(() => {
   const getValueByPercent = percent => Math.ceil((hours * percent))
 
   const percents = store.selectedSpecialityValue === 'Токарь' ? tokar : frezer
+  const secondCol = store.selectedSpecialityValue === 'Токарь' ? 'Раздел 1. Изготовление изделий на токарных станках по стадиям технологического процесса в соответствии с требованиями охраны труда и экологической безопасности' : 'Раздел 1. Выполнение работ на зуборезных станках'
+  const firstCol = store.selectedSpecialityValue === 'Токарь' ? 'ПК.1.1 – ПК.1.4, ОК1-ОК7, ОК9, ОК10' : 'ПК 1.1 – ПК 1.4, ОК1.1-1.5, ОК1.7-1.11'
   const hours = store.currentSliderValue
 
   return (
@@ -62,8 +64,8 @@ const Table = observer(() => {
             <td className='table__cell'>9</td>
           </tr>
           <tr className='table__row'>
-            <td className='table__cell'>ПК 1.1 - ПК 1.4, ОК1.1-1.5, ОК1.7-1.11</td>
-            <td className='table__cell'>Раздел 1. Выполнение работ на зуборезных станках</td>
+            <td className='table__cell'>{firstCol}</td>
+            <td className='table__cell'>{secondCol}</td>
             <td className='table__cell'>{getValueByPercent(percents[0][0])}</td>
             <td className='table__cell'>{getValueByPercent(percents[0][1])}</td>
             <td className='table__cell'>{getValueByPercent(percents[0][2])}</td>
