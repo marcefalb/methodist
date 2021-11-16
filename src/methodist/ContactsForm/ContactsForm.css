@@ -10,3 +10,9 @@
   justify-content: center;
   margin-top: 10px;
 }
+.contacts__validation-message {
+  text-align: center;
+  font-size: 18px;
+  color: red;
+  opacity: .5;
+}
