@@ -11,7 +11,7 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import AdditionalSkills from "../Additional/Additional";
 
-const ProfessionalSkill = observer(({ skillObj, isAdditional }, key) => {
+const ProfessionalSkill = observer(({ skillObj, isAdditional, isDemo }, key) => {
   const [isOpen, setIsOpen] = useState(false);
   const deleteBtnOnClick = (event) => {
     event.stopPropagation();
@@ -56,7 +56,7 @@ const ProfessionalSkill = observer(({ skillObj, isAdditional }, key) => {
           <IcDropdownTop />
         </div>
         <span className="professional-skills__label">{skillObj.label}</span>
-        <Button
+        {!isDemo && <Button
           text={isAdditional ? "Добавить" : "Удалить"}
           theme={isAdditional ? "default" : "outlined"}
           width="100px"
@@ -65,6 +65,7 @@ const ProfessionalSkill = observer(({ skillObj, isAdditional }, key) => {
           borderRadius="5px"
           onClick={(event) => deleteBtnOnClick(event)}
         />
+        }
         {isOpen && (
           <Modal
             header={<IcAlert />}

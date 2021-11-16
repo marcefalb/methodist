@@ -1,11 +1,13 @@
 .btn-next__container {
-  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 
+  width: 100%;
+  
   margin-top: auto;
 }
-.btn-next {
+.btn-next,
+.btn-corp {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,11 +20,13 @@
   pointer-events: none;
   transition: opacity .4s;
 }
-.btn-next_active {
+.btn-next_active,
+.btn-corp_active {
   opacity: 1;
   pointer-events: visible;
 }
-.btn-next svg path {
+.btn-next svg path,
+.btn-corp svg path {
   transition: all .3s;
 }
 .btn-next:hover span {
@@ -31,9 +35,13 @@
 .btn-next:hover svg path {
   stroke: var(--secondary);
 }
-.btn-next span {
+.btn-next span,
+.btn-corp span {
   margin-bottom: 4px;
   color: var(--secondary);
   font-size: 24px;
   transition: all .3s;
+}
+.btn-corp svg {
+  transform: rotateZ(180deg);
 }

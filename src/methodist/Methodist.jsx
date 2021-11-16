@@ -49,7 +49,7 @@ const Methodist = observer(() => {
           <div className="main__content">
             <Select
               name={"speciality"}
-              title={"Специальность"}
+              title={"Профессия"}
               options={store.specialitiesList}
               onChange={(event) => specialityOnChange(event)}
             />

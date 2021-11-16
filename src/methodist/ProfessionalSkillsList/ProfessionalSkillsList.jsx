@@ -13,9 +13,15 @@ const ProfessionalSkillsList = observer(() => {
         Профессиональные компетенции
       </span>
       <ul className="professional-skills__list">
-        {skills.professionalSkillsList.map((el) => {
-          return <ProfessionalSkill skillObj={el} key={el.id} />;
-        })}
+        {skills.professionalSkills.size !== 0 && (
+          skills.professionalSkillsList.map((el) => {
+            return <ProfessionalSkill skillObj={el} key={el.id} />;
+          })          
+        ) || (
+          skills.demoProfessionalSkillsList.map((skill) => {
+            return <ProfessionalSkill skillObj={skill} key={skill.id} isDemo={true} />
+          }
+        ))}
         {skills.additionalProfessionalSkills.size !== 0 && (
           <AdditionalSkills
             arrayMap={skills.professionalAdditionalSkillsList}
