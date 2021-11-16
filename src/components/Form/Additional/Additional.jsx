@@ -15,7 +15,7 @@ const Additional = observer(({ arrayMap, parentSkill}) => {
         className="professional-skills__additional-body"
         aria-expanded={!ariaExpanded}
       >
-        <ul className="professional-skills__additional-list">
+        <ul className={parentSkill ? "professional-skills__additional-list" : "professional-skills__accordion-list_group"}>
           {arrayMap.map(skill => {
             if (skill.subskills) return <ProfessionalSkill skillObj={skill} key={skill.id} isAdditional={true} />
             else return (

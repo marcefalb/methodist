@@ -64,6 +64,11 @@
   flex-direction: column;
   gap: 20px;
 }
+.professional-skills__accordion-list_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
 .professional-skills__accordion-item,
 .professional-skills__additional {
   display: flex;
