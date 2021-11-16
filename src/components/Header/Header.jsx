@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from 'react-router-dom'
+
 import { ReactComponent as IcLogo } from "../../assets/icons/ic_logo.svg";
 import { ReactComponent as IcLike } from "../../assets/icons/ic_header-like.svg";
 import { ReactComponent as IcBell } from "../../assets/icons/ic_header-bell.svg";
@@ -10,22 +12,22 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__wrapper wrapper">
-        <a href="/" className="header__logo">
+        <Link to="/" className="header__logo">
           <IcLogo />
-        </a>
+        </Link>
         <nav className="header__nav">
           <ul className="header__nav-list">
             <li className="header__nav-item">
-              <a href="https://">Вакансии</a>
+              <Link to="/page">Вакансии</Link>
             </li>
             <li className="header__nav-item">
-              <a href="https://">Резюме</a>
+              <Link to="/page">Резюме</Link>
             </li>
             <li className="header__nav-item">
-              <a href="https://">Заявка на обучение</a>
+              <Link to="/">Запрос на специалиста</Link>
             </li>
             <li className="header__nav-item">
-              <a href="https://">Корпоративный стандарт</a>
+              <Link to="/page">Корпоративный стандарт</Link>
             </li>
           </ul>
         </nav>

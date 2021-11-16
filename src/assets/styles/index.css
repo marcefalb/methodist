@@ -135,3 +135,13 @@ h1 {
   width: 24px;
   height: 24px;
 }
+.page__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 500px;
+}
+.page__wrapper h1 {
+  font-size: 36px;
+}
