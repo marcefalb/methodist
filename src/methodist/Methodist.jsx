@@ -8,13 +8,13 @@ import store from "../store/store";
 import skills from "../store/skills";
 import Select from "../components/Form/Select/Select";
 import Modal from "../components/Form/Modal/Modal";
-import BtnNext from "./BtnNext/BtnNext";
-import EducationPlan from "./EducationPlan/EducationPlan";
+import BtnNext from "./StartPage/BtnNext/BtnNext";
+import EducationPlan from "./StartPage/EducationPlan/EducationPlan";
 import ContactsForm from "./ContactsForm/ContactsForm";
-import FormButtons from "./FormButtons/FormButtons";
-import PersonalSkillsList from "./PersonalSkillsList/PersonalSkillsList";
-import ProfessionalSkillsList from "./ProfessionalSkillsList/ProfessionalSkillsList";
-import Table from "./Table/Table"
+import FormButtons from "./StartPage/FormButtons/FormButtons";
+import PersonalSkillsList from "./StartPage/PersonalSkillsList/PersonalSkillsList";
+import ProfessionalSkillsList from "./StartPage/ProfessionalSkillsList/ProfessionalSkillsList";
+import RUP from "./RUP/RUP"
 
 const Methodist = observer(() => {
   const specialityOnChange = (event) => {
@@ -115,7 +115,7 @@ const Methodist = observer(() => {
             )}
           </div>
           <h2>Предварительный РУП</h2>
-          <Table />
+          <RUP />
         </div>
       )}
     </main>

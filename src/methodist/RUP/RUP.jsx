@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import store from '../../store/store';
-import './Table.css';
+import './RUP.css';
 
-const Table = observer(() => {
+const RUP = observer(() => {
   const frezer = [
     [0.578125,     0.3984375, 0.234375,  0.1171875, 0.28125,  0,        0.0625],
     [0.421875,     0.421875,  0,         0,         0,        0.421875, 0],
@@ -113,4 +113,4 @@ const Table = observer(() => {
   )
 })
 
-export default Table;
+export default RUP;

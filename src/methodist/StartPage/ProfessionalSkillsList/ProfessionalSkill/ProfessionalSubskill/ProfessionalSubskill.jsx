@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 import { observer } from "mobx-react-lite";
 
-import { ReactComponent as IcAlert } from "../../../../assets/icons/ic_alert.svg";
-import Button from "../../Button/Button";
-import Modal from "../../Modal/Modal";
+import { ReactComponent as IcAlert } from "assets/icons/ic_alert.svg";
+import Button from "components/Form/Button/Button";
+import Modal from "components/Form/Modal/Modal";
 
 const ProfessionalSubskill = observer(({ subskill, onAcceptClick, isAdditional }, key) => {
   const [isOpen, setIsOpen] = useState(false);

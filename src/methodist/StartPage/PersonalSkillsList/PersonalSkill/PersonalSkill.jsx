@@ -1,7 +1,8 @@
 import React from 'react';
-import {ReactComponent as IcClose} from "../../../assets/icons/ic_close.svg";
+
+import {ReactComponent as IcClose} from "assets/icons/ic_close.svg";
 import './PersonalSkill.css'
-import skills from "../../../store/skills";
+import skills from "store/skills";
 
 const PersonalSkill = ({skill}, key) => {
   return (

@@ -1,10 +1,10 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import Button from "../../components/Form/Button/Button";
+import Button from "components/Form/Button/Button";
 import EducationSlider from "./EducationSlider/EducationSlider";
 import "./EducationPlan.css";
-import store from "../../store/store";
+import store from "store/store";
 
 const EducationPlan = observer(() => {
   return (

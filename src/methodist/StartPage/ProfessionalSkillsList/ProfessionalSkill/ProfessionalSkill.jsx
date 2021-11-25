@@ -1,14 +1,14 @@
 import { React, useState } from "react";
 import { observer } from "mobx-react-lite";
 
-import { ReactComponent as IcDropdownTop } from "../../../assets/icons/ic_dropdown-indicator_top.svg";
-import { ReactComponent as IcAlert } from "../../../assets/icons/ic_alert.svg";
+import { ReactComponent as IcDropdownTop } from "assets/icons/ic_dropdown-indicator_top.svg";
+import { ReactComponent as IcAlert } from "assets/icons/ic_alert.svg";
 import "./ProfessionalSkill.css";
-import "../Modal/Modal";
-import skills from "../../../store/skills";
+import "components/Form/Modal/Modal";
+import skills from "store/skills";
 import ProfessionalSubskill from "./ProfessionalSubskill/ProfessionalSubskill";
-import Button from "../Button/Button";
-import Modal from "../Modal/Modal";
+import Button from "components/Form/Button/Button";
+import Modal from "components/Form/Modal/Modal";
 import AdditionalSkills from "../Additional/Additional";
 
 const ProfessionalSkill = observer(({ skillObj, isAdditional, isDemo }, key) => {

@@ -1,9 +1,9 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import PersonalSkill from "../../components/Form/PersonalSkill/PersonalSkill";
+import PersonalSkill from "./PersonalSkill/PersonalSkill";
 import SkillsSelect from "./SkillsSelect/SkillsSelect";
-import skills from "../../store/skills";
+import skills from "store/skills";
 import "./PersonalSkillsList.css";
 
 const PersonalSkillsList = observer(() => {

@@ -2,9 +2,9 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 import {Link} from "react-router-dom"
 
-import { ReactComponent as IcArrowRight } from "../../assets/icons/ic_arrow-right.svg";
+import { ReactComponent as IcArrowRight } from "assets/icons/ic_arrow-right.svg";
 import "./BtnNext.css";
-import store from "../../store/store";
+import store from "store/store";
 
 const BtnNext = observer(({ isShow }) => {
   return (

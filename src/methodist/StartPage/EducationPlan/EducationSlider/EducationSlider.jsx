@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 import { observer } from "mobx-react-lite";
-import store from "../../../store/store";
+import store from "store/store";
 
 const EducationSlider = observer(({ onChange, sliderValue }) => {
   function valuetext(value) {
