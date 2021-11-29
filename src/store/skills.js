@@ -51,21 +51,6 @@ class Skills {
     });
   }
 
-  // removeProfessionalSkill(skillId) {
-  //   this.professionalSkills.forEach((skill) => {
-  //     if (skillId === skill.id) this.professionalSkills.delete(skill.id);
-  //   });
-  // }
-
-  // removeProfessionalSubskill(parentSkillId, skillId) {
-  //   this.professionalSkills.forEach((parentSkill) => {
-  //     if (parentSkillId === parentSkill.id)
-  //       parentSkill.subskills.forEach((skill) => {
-  //         if (skillId === skill.id) parentSkill.subskills.remove(skill);
-  //       });
-  //   });
-  // }
-
   setIsActive(skillObjId) {
     this.professionalSkills.forEach((skill) => {
       if (skill.id === skillObjId) skill.setIsActive();

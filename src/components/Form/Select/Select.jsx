@@ -70,6 +70,7 @@ const Select = observer(({options, name, title, onChange, isDisabled, selectValu
       fontSize: 20,
     }),
   }
+  
   const noOptionsMessage = selectName => {
     if (selectName === 'speciality')
       return 'По данному запросу специальностей не найдено'
@@ -78,6 +79,7 @@ const Select = observer(({options, name, title, onChange, isDisabled, selectValu
     else if (selectName === 'city')
       return 'По данному запросу городов не найдено'
   } 
+
   const placeholder = selectName => {
     if (selectName === 'speciality')
       return 'Токарь'
@@ -86,9 +88,11 @@ const Select = observer(({options, name, title, onChange, isDisabled, selectValu
     else if (selectName === 'city')
       return 'Москва'
   }
+
   const optionsList = options.map(option => {
     return { label: option.name, value: option.id };
   });
+
   return (
     <div className="select">
       <span className="select__title title">{title}</span>

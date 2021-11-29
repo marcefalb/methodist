@@ -3,22 +3,21 @@ import { observer } from "mobx-react-lite";
 import {Link} from "react-router-dom"
 
 import { ReactComponent as IcArrowRight } from "assets/icons/ic_arrow-right.svg";
-import "./BtnNext.css";
-import store from "store/store";
+import "./BtnBuildContinue.css";
 
-const BtnNext = observer(({ isShow }) => {
+const BtnNext = observer(({ onClick }) => {
   return (
     <div className="btn-next__container">
       <Link
-        className={(isShow && "btn-corp btn-corp_active") || ("btn-corp")}
+        className="btn-corp btn-next_active"
         to="/page"
       >
         <IcArrowRight />
         <span>Корпоративный стандарт</span>
       </Link>
       <button
-        className={(isShow && "btn-next btn-next_active") || ("btn-next")}
-        onClick={() => store.setIsContinue()}
+        className="btn-next btn-next_active"
+        onClick={onClick}
       >
         <span>Сборка запроса самостоятельно</span>
         <IcArrowRight />

@@ -46,6 +46,14 @@ h1 {
 
   background-color: #fff;
   border-radius: 10px;
+
+  transition: height 1s;
+  transition-duration: .3s;
+}
+.main__content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 .main__table-wrapper {
   max-width: 1200px;
@@ -88,18 +96,6 @@ h1 {
 }
 .main__header-btn svg {
   transform: rotateY(180deg);
-}
-.main__content {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  
-  min-height: 400px;
-
-  padding: 0 20px;
-
-  transition: height 1s;
-  transition-duration: .3s;
 }
 .title {
   font-size: 20px;
