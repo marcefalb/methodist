@@ -11,7 +11,7 @@ class Selects {
     this.specialitiesSelect = observable.array()
     this.directionsSelect = observable.array()
     this.selectedSpecialityValue = null
-    this.selectedDirection = {}
+    this.selectedDirectionOption = null
 
     this.fetchToSpecialities()
   }
@@ -25,9 +25,10 @@ class Selects {
   }
 
   async fetchToDirections(currentSpecialityId) {
-    this.directionsSelect.clear()
+    if (this.directionsSelect) this.directionsSelect.clear()
+    // if (this.selectedDirectionOption) this.setSelectValue('selectedDirectionOption', null)
+
     const response = await fetchDirections.fetchToDirections(currentSpecialityId)
-    this.setSelectedDirectionValue(null)
     if (!response) return null
     response.data.directions.forEach(direction => {
       this.directionsSelect.push(direction)
@@ -35,16 +36,7 @@ class Selects {
   }
 
   setSelectValue(select, value) {
-    console.log('select: ', select, 'value: ', value)
-    select = value
-  }
-
-  setSelectedDirectionValue(option) {
-    this.selectedDirectionValue = option
-  }
-
-  setSelectedSpecialityValue(option) {
-    this.selectedSpecialityValue = option
+    this[select] = value
   }
 
   get specialitiesList() {

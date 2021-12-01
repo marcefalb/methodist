@@ -10,19 +10,23 @@ import skills from 'store/skills';
 import './SelectProfession.css'
 
 const SelectProfession = observer(() => {
-  const specialityOnChange = (event) => {
-    store.pageStates.setPageState(store.pageStates.isProfessionSelected, true)
+  const selects = store.selects
+  const pageStates = store.pageStates
+  
 
-    store.selects.setSelectValue(store.selects.selectedSpecialityValue, event.label)
-    store.selects.fetchToDirections(event.value)
+  const specialityOnChange = (event) => {
+    pageStates.setPageState('isProfessionSelected', true)
+
+    selects.setSelectValue('selectedSpecialityValue', event)
+    selects.fetchToDirections(event.value)
 
     skills.professionalSkills.clear()
   };
 
   const directionOnChange = (event) => {
-    store.pageStates.setPageState(store.pageStates.isCompetencySelected)
+    pageStates.setPageState('isCompetencySelected', true)
 
-    store.selects.setSelectValue(store.selects.selectedDirection, event)
+    selects.setSelectValue('selectedDirectionOption', event)
 
     skills.professionalSkills.clear()
     skills.fetchToProfessionalSkills(event.value)
@@ -34,21 +38,22 @@ const SelectProfession = observer(() => {
         name={"speciality"}
         title={"Профессия"}
 
-        options={store.selects.specialitiesList}
+        options={selects.specialitiesList}
         onChange={event => specialityOnChange(event)}
       />
       <Select
         name={"direction"}
         title={"Компетенция"}
 
-        options={store.selects.directionsList}
-        isDisabled={store.pageStates.isDirectionSelected}
-        selectValue={store.selects.selectedDirection}
         onChange={event => directionOnChange(event)}
+        isDisabled={!pageStates.isProfessionSelected}
+        options={selects.directionsList}
+        selectValue={selects.selectedDirectionOption}
+
       />
       <BtnBuildContinue
         onClick={() => {
-          store.pageStates.setPageState(store.pageStates.isCompetencySelected, true)
+          pageStates.setPageState(pageStates.isCompetencySelected, true)
         }}
       />
     </section>

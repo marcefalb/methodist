@@ -5,15 +5,15 @@ class PageStates {
     makeAutoObservable(this)
 
     this.isProfessionSelected = false
-    this.isShowBtn = false
     this.isCompetencySelected = false
+    this.isShowBtn = false
     this.isFormed = false
     this.isNext = false
     this.isSend = false
   }
 
-  setPageState(pageState, booleanValue) {
-    pageState = booleanValue
+  setPageState(state, booleanValue) {
+    this[state] = booleanValue
   }
 }
 

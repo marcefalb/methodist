@@ -15,7 +15,6 @@ class Store {
 
   setCurrentSliderValue(sliderValue) {
     this.currentSliderValue = sliderValue
-    console.log(this.currentSliderValue)
   }
 }
 
