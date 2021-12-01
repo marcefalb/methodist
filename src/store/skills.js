@@ -10,6 +10,7 @@ class Skills {
   professionalSkills = observable.map();
   demoProfessionalSkills = observable.map();
   additionalProfessionalSkills = observable.map();
+  professionalFetchSkillsId = observable.array()
   isMainAdditionalActive = false;
   currentOption = null;
 
@@ -38,7 +39,13 @@ class Skills {
     if (!response) return null;
     response.data.professional_qualities_groups.forEach((skill) => {
       const skillItem = new professionalSkill(skill);
-      this.professionalSkills.set(skill.id, skillItem);
+      if (skillItem.isRecommended) {
+        this.professionalSkills.set(skill.id, skillItem);
+        this.professionalFetchSkillsId.push(skillItem.subskillsId)
+        skillItem.subskillsId.forEach(subskillId => console.log('123'))
+        console.log(this.professionalFetchSkillsIdList)
+      }
+      else this.additionalProfessionalSkills.set(skill.id, skillItem)
     });
   }
 
@@ -51,20 +58,6 @@ class Skills {
     });
   }
 
-  // removeProfessionalSkill(skillId) {
-  //   this.professionalSkills.forEach((skill) => {
-  //     if (skillId === skill.id) this.professionalSkills.delete(skill.id);
-  //   });
-  // }
-
-  // removeProfessionalSubskill(parentSkillId, skillId) {
-  //   this.professionalSkills.forEach((parentSkill) => {
-  //     if (parentSkillId === parentSkill.id)
-  //       parentSkill.subskills.forEach((skill) => {
-  //         if (skillId === skill.id) parentSkill.subskills.remove(skill);
-  //       });
-  //   });
-  // }
 
   setIsActive(skillObjId) {
     this.professionalSkills.forEach((skill) => {
@@ -92,6 +85,10 @@ class Skills {
 
   get personalSkillsList() {
     return values(this.personalSkills);
+  }
+
+  get professionalFetchSkillsIdList() {
+    return values(this.professionalFetchSkillsId)
   }
 
   get professionalSkillsList() {

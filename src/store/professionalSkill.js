@@ -5,14 +5,17 @@ import fetchProfessionalSubskills from "../API/fetchProfessionalSubskills";
 class professionalSkill {
   id = 1
   label = ''
+  isRecommended = true
   isActive = false
   additionalIsActive = false
   subskills = observable.map()
+  subskillsId = observable.array()
   additionalSubskills = observable.map()
   
   constructor(skill) {
     makeAutoObservable(this)
-
+    
+    this.isRecommended = skill?.is_recommended
     this.id = skill?.id
     this.label = skill?.name
     this.fetchToProfessionalSubskills(skill.id)
@@ -23,7 +26,11 @@ class professionalSkill {
     const response = await fetchProfessionalSubskills.fetchToProfessionalSubskills(professionalSkillId)
     if (!response) return null
     response.data.professional_qualities.forEach(skill => {
-      this.subskills.set(skill.id, skill)
+      if (skill.is_recommended) {
+        this.subskills.set(skill.id, skill)
+        this.subskillsId.push(skill.id)
+      }
+      else this.additionalSubskills.set(skill.id, skill)
     })
   }
 
