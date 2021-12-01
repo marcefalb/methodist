@@ -7,10 +7,10 @@ class Store {
   currentSliderValue = 256
 
   constructor() {
-    makeAutoObservable(this)
-
     this.pageStates = new pageStates()
     this.selects    = new selects()
+    
+    makeAutoObservable(this)
   }
 
   setCurrentSliderValue(sliderValue) {

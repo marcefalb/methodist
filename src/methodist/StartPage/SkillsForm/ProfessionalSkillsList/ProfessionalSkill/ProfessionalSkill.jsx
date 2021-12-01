@@ -4,12 +4,11 @@ import { observer } from "mobx-react-lite";
 import { ReactComponent as IcDropdownTop } from "assets/icons/ic_dropdown-indicator_top.svg";
 import { ReactComponent as IcAlert } from "assets/icons/ic_alert.svg";
 import "./ProfessionalSkill.css";
-import "components/Form/Modal/Modal";
 import skills from "store/skills";
 import ProfessionalSubskill from "./ProfessionalSubskill/ProfessionalSubskill";
 import Button from "components/Form/Button/Button";
 import Modal from "components/Form/Modal/Modal";
-import AdditionalSkills from "../Additional/Additional";
+import AdditionalSkills from "methodist/StartPage/SkillsForm/ProfessionalSkillsList/AdditionalSkill/Additional";
 
 const ProfessionalSkill = observer(({ skillObj, isAdditional, isDemo }, key) => {
   const [isOpen, setIsOpen] = useState(false);

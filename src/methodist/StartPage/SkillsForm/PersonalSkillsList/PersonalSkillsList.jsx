@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import PersonalSkill from "./PersonalSkill/PersonalSkill";
-import SkillsSelect from "./SkillsSelect/SkillsSelect";
+import SkillsSelect from "./PersonalSkillsSelect/PersonalSkillsSelect";
 import skills from "store/skills";
 import "./PersonalSkillsList.css";
 

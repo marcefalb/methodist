@@ -6,14 +6,14 @@ import fetchDirections from "API/fetchDirections";
 class Selects {
 
   constructor() {
-    makeAutoObservable(this)
-
     this.specialitiesSelect = observable.array()
     this.directionsSelect = observable.array()
     this.selectedSpecialityValue = null
     this.selectedDirectionOption = null
-
+    
     this.fetchToSpecialities()
+
+    makeAutoObservable(this)
   }
 
   async fetchToSpecialities() {
@@ -23,10 +23,10 @@ class Selects {
       this.specialitiesSelect.push(speciality)
     })
   }
-
+  
   async fetchToDirections(currentSpecialityId) {
     if (this.directionsSelect) this.directionsSelect.clear()
-    // if (this.selectedDirectionOption) this.setSelectValue('selectedDirectionOption', null)
+    if (this.selectedDirectionOption) this.setSelectValue('selectedDirectionOption', null)
 
     const response = await fetchDirections.fetchToDirections(currentSpecialityId)
     if (!response) return null

@@ -24,13 +24,18 @@ const SelectProfession = observer(() => {
   };
 
   const directionOnChange = (event) => {
-    pageStates.setPageState('isCompetencySelected', true)
+    pageStates.setPageState('isContinueBtnVisible', true)
 
     selects.setSelectValue('selectedDirectionOption', event)
 
     skills.professionalSkills.clear()
     skills.fetchToProfessionalSkills(event.value)
   };
+
+  const btnBuildContinueOnClick = () => {
+    pageStates.setPageState('isContinueBtnClicked', true)
+    store.pageStates.setPageState('isContinueBtnVisible', false)
+  }
 
   return (
     <section className="main__content select-profession">
@@ -43,7 +48,7 @@ const SelectProfession = observer(() => {
       />
       <Select
         name={"direction"}
-        title={"Компетенция"}
+        title={"Квалификация"}
 
         onChange={event => directionOnChange(event)}
         isDisabled={!pageStates.isProfessionSelected}
@@ -52,9 +57,7 @@ const SelectProfession = observer(() => {
 
       />
       <BtnBuildContinue
-        onClick={() => {
-          pageStates.setPageState(pageStates.isCompetencySelected, true)
-        }}
+        onClick={() => btnBuildContinueOnClick()}
       />
     </section>
   )

@@ -1,32 +1,14 @@
-import {React, useState} from "react";
+import React from "react";
 import { observer } from "mobx-react-lite";
 
-import SelectProfession from "methodist/StartPage/SelectProfession/SelectProfession";
+import StartPage from "./StartPage/StartPage";
 
-import { ReactComponent as IcArrow } from "../assets/icons/ic_arrow-right.svg";
-import { ReactComponent as IcRestart } from "../assets/icons/ic_restart.svg";
-import { ReactComponent as IcAlert } from "../assets/icons/ic_alert.svg";
-import store from "../store/store";
-import skills from "../store/skills";
-import Select from "../components/Form/Select/Select";
-import Modal from "../components/Form/Modal/Modal";
-import EducationPlan from "./StartPage/EducationPlan/EducationPlan";
-import ContactsForm from "./ContactsForm/ContactsForm";
-import FormButtons from "./StartPage/FormButtons/FormButtons";
-import PersonalSkillsList from "./StartPage/PersonalSkillsList/PersonalSkillsList";
-import ProfessionalSkillsList from "./StartPage/ProfessionalSkillsList/ProfessionalSkillsList";
-import RUP from "./RUP/RUP"
 
 const Methodist = observer(() => {
-  const onClick = () => {
-    document.documentElement.style.overflow = "auto";
-    setIsOpen(false);
-  };
-  const [isOpen, setIsOpen] = useState(false);
   return (
     <main className="main">
       <div className="wrapper main__wrapper">
-        <SelectProfession />
+        <StartPage />
       </div>
     </main>
     // <main className="main">

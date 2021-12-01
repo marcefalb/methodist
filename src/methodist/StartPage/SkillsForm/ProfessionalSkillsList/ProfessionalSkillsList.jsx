@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 
 import skills from "store/skills";
 import ProfessionalSkill from "./ProfessionalSkill/ProfessionalSkill";
-import AdditionalSkills from "./Additional/Additional";
+import AdditionalSkills from "./AdditionalSkill/Additional";
 import "./ProfessionalSkillsList.css";
 
 const ProfessionalSkillsList = observer(() => {

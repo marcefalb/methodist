@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { ReactComponent as IcPlus } from "assets/icons/ic_plus.svg";
 
 import skills from "store/skills";
-import ProfessionalSkill from "methodist/StartPage/ProfessionalSkillsList/ProfessionalSkill/ProfessionalSkill";
+import ProfessionalSkill from "../ProfessionalSkill/ProfessionalSkill";
 import ProfessionalSubskill from "../ProfessionalSkill/ProfessionalSubskill/ProfessionalSubskill";
 
 const Additional = observer(({ arrayMap, parentSkill}) => { 

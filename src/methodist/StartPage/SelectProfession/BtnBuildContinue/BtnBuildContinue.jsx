@@ -3,11 +3,12 @@ import { observer } from "mobx-react-lite";
 import {Link} from "react-router-dom"
 
 import { ReactComponent as IcArrowRight } from "assets/icons/ic_arrow-right.svg";
+import store from "store/store";
 import "./BtnBuildContinue.css";
 
 const BtnNext = observer(({ onClick }) => {
   return (
-    <div className="btn-next__container">
+    <div className={store.pageStates.isContinueBtnVisible ? "btn-next__container btn-next__container_active" : "btn-next__container"}>
       <Link
         className="btn-corp btn-next_active"
         to="/page"

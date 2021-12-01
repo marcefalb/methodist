@@ -5,7 +5,17 @@
   width: 100%;
   
   margin-top: auto;
+
+  opacity: 0;
+
+  pointer-events: none;
+  transition: opacity .4s;
 }
+.btn-next__container_active {
+  opacity: 1;
+  pointer-events: visible;
+}
+.btn-next__container_active
 .btn-next,
 .btn-corp {
   display: flex;
@@ -15,19 +25,6 @@
 
   background-color: inherit;
   cursor: pointer;
-  opacity: 0;
-
-  pointer-events: none;
-  transition: opacity .4s;
-}
-.btn-next_active,
-.btn-corp_active {
-  opacity: 1;
-  pointer-events: visible;
-}
-.btn-next svg path,
-.btn-corp svg path {
-  transition: all .3s;
 }
 .btn-next:hover span {
   color: var(--secondary);
@@ -40,7 +37,6 @@
   margin-bottom: 4px;
   color: var(--secondary);
   font-size: 24px;
-  transition: all .3s;
 }
 .btn-corp svg {
   transform: rotateZ(180deg);

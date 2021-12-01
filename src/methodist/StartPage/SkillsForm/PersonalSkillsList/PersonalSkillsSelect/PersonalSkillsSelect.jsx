@@ -3,7 +3,7 @@ import {observer} from "mobx-react-lite"
 import AsyncSelect from 'react-select'
 
 import { ReactComponent as IcSearch } from "assets/icons/ic_search.svg";
-import './SkillsSelect.css'
+import './PersonalSkillsSelect.css'
 
 const Select = observer(({options, onChange, currentOption}) => {
   const customStyles = {
