@@ -2,7 +2,9 @@ import { makeAutoObservable, observable, values } from "mobx";
 
 import fetchPersonalSkills from "../API/fetchPersonalSkills";
 import fetchProfessionalSkills from "../API/fetchProfessionalSkills";
+import fetchProfessionalSubskills from "../API/fetchProfessionalSubskills";
 import professionalSkill from "./professionalSkill";
+
 
 class Skills {
   personalSkills = observable.map();
@@ -15,15 +17,16 @@ class Skills {
   currentOption = null;
 
   constructor() {
-    makeAutoObservable(this);
-
+    
     this.fetchToPersonalSkills();
     this.demoProfessionalSkills.set(1, {id: 1, label: "Группа профессиональных компетенций 1", isAcive: false, subskills: observable.map(), additionalSubskills: observable.map()})
     this.demoProfessionalSkills.set(2, {id: 2, label: "Группа профессиональных компетенций 2", isAcive: false, subskills: observable.map(), additionalSubskills: observable.map()})
     this.demoProfessionalSkills.set(3, {id: 3, label: "Группа профессиональных компетенций 3", isAcive: false, subskills: observable.map(), additionalSubskills: observable.map()})
     this.demoProfessionalSkills.set(4, {id: 4, label: "Группа профессиональных компетенций 4", isAcive: false, subskills: observable.map(), additionalSubskills: observable.map()})
-  }
 
+    makeAutoObservable(this);
+  }
+  
   async fetchToPersonalSkills() {
     const response = await fetchPersonalSkills.fetchToPersonalSkills();
     if (!response) return null;
@@ -37,16 +40,27 @@ class Skills {
       directionId
     );
     if (!response) return null;
-    response.data.professional_qualities_groups.forEach((skill) => {
-      const skillItem = new professionalSkill(skill);
+    response.data.professional_qualities_groups.forEach(async (skill) => {
+      const subskills = await this.fetchToProfessionalSubskills(skill.id)
+      const skillItem = new professionalSkill(skill, subskills);
       if (skillItem.isRecommended) {
         this.professionalSkills.set(skill.id, skillItem);
-        this.professionalFetchSkillsId.push(skillItem.subskillsId)
-        skillItem.subskillsId.forEach(subskillId => console.log('123'))
-        console.log(this.professionalFetchSkillsIdList)
       }
       else this.additionalProfessionalSkills.set(skill.id, skillItem)
     });
+  }
+
+  async fetchToProfessionalSubskills(skillId) {
+    const response = await fetchProfessionalSubskills.fetchToProfessionalSubskills(skillId)
+
+    const qualities = response?.data?.professional_qualities
+    if (qualities) {
+      qualities.forEach(quality => {
+        if (quality.is_recommended) this.professionalFetchSkillsId.push(quality.id)
+      })
+      return qualities
+    }
+    else return []
   }
 
   toggleSkill(skillId, arrayFrom, arrayTo) {
