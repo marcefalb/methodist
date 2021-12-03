@@ -1,20 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import {ReactComponent as IcClose} from "assets/icons/ic_close.svg";
-import './PersonalSkill.css'
-import skills from "store/skills";
+import { ReactComponent as IcClose } from "assets/icons/ic_close.svg";
 
-const PersonalSkill = ({skill}, key) => {
+import "./PersonalSkill.css";
+
+const PersonalSkill = ({ skill, onBtnDeleteClick }, key) => {
   return (
     <li className="personal-skills__item skills__item_selected" key={key}>
       <span>{skill.name}</span>
-      <button onClick={() => 
-          skills.toggleSkill(skill.id, skills.selectedPersonalSkills, skills.personalSkills
-        )}>
-          <IcClose />
+      <button onClick={onBtnDeleteClick}>
+        <IcClose />
       </button>
     </li>
-  )
+  );
 };
 
 export default PersonalSkill;

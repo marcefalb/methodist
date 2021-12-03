@@ -11,10 +11,10 @@ const SkillsForm = observer(() => {
   if (!store.pageStates.isContinueBtnClicked) return null
   else 
   return (
-    <div>
+    <div className="main__content skills-container">
       <PersonalSkillsList />
-      <ProfessionalSkillsList />
-      <FormButtons />
+      {/* <ProfessionalSkillsList /> */}
+      {/* <FormButtons /> */}
     </div>
   )
 });

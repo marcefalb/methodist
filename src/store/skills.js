@@ -1,12 +1,11 @@
 import { makeAutoObservable, observable, values } from "mobx";
 
-import fetchPersonalSkills from "../API/fetchPersonalSkills";
 import fetchProfessionalSkills from "../API/fetchProfessionalSkills";
 import professionalSkill from "./professionalSkill";
 
+import personalSkillsList from 'store/personalSkillsList'
+
 class Skills {
-  personalSkills = observable.map();
-  selectedPersonalSkills = observable.map();
   professionalSkills = observable.map();
   demoProfessionalSkills = observable.map();
   additionalProfessionalSkills = observable.map();
@@ -14,23 +13,17 @@ class Skills {
   currentOption = null;
 
   constructor() {
-    makeAutoObservable(this);
-
-    this.fetchToPersonalSkills();
+    
     this.demoProfessionalSkills.set(1, {id: 1, label: "Группа профессиональных компетенций 1", isAcive: false, subskills: observable.map(), additionalSubskills: observable.map()})
     this.demoProfessionalSkills.set(2, {id: 2, label: "Группа профессиональных компетенций 2", isAcive: false, subskills: observable.map(), additionalSubskills: observable.map()})
     this.demoProfessionalSkills.set(3, {id: 3, label: "Группа профессиональных компетенций 3", isAcive: false, subskills: observable.map(), additionalSubskills: observable.map()})
     this.demoProfessionalSkills.set(4, {id: 4, label: "Группа профессиональных компетенций 4", isAcive: false, subskills: observable.map(), additionalSubskills: observable.map()})
-  }
 
-  async fetchToPersonalSkills() {
-    const response = await fetchPersonalSkills.fetchToPersonalSkills();
-    if (!response) return null;
-    response.data.personal_qualities.forEach((skill) => {
-      this.personalSkills.set(skill.id, skill);
-    });
-  }
+    this.personalSkillsList = new personalSkillsList()
 
+    makeAutoObservable(this);
+  }
+  
   async fetchToProfessionalSkills(directionId) {
     const response = await fetchProfessionalSkills.fetchToProfessionalSkills(
       directionId
@@ -67,18 +60,6 @@ class Skills {
     this.isMainAdditionalActive = !this.isMainAdditionalActive;
   }
 
-  setCurrentOption(option) {
-    this.currentOption = option;
-  }
-
-  get selectedPersonalSkillsList() {
-    return values(this.selectedPersonalSkills);
-  }
-
-  get personalSkillsList() {
-    return values(this.personalSkills);
-  }
-
   get professionalSkillsList() {
     return values(this.professionalSkills);
   }
@@ -92,4 +73,4 @@ class Skills {
   }
 }
 
-export default new Skills();
+export default Skills

@@ -12,7 +12,7 @@ import './SelectProfession.css'
 const SelectProfession = observer(() => {
   const selects = store.selects
   const pageStates = store.pageStates
-  
+  const skills = store.skills
 
   const specialityOnChange = (event) => {
     pageStates.setPageState('isProfessionSelected', true)
@@ -27,8 +27,7 @@ const SelectProfession = observer(() => {
     pageStates.setPageState('isContinueBtnVisible', true)
 
     selects.setSelectValue('selectedDirectionOption', event)
-
-    skills.professionalSkills.clear()
+    
     skills.fetchToProfessionalSkills(event.value)
   };
 
@@ -58,6 +57,7 @@ const SelectProfession = observer(() => {
       />
       <BtnBuildContinue
         onClick={() => btnBuildContinueOnClick()}
+        state={pageStates.isContinueBtnVisible}
       />
     </section>
   )
