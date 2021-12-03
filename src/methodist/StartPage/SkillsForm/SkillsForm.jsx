@@ -13,7 +13,7 @@ const SkillsForm = observer(() => {
   return (
     <div className="main__content skills-container">
       <PersonalSkillsList />
-      {/* <ProfessionalSkillsList /> */}
+      <ProfessionalSkillsList />
       {/* <FormButtons /> */}
     </div>
   )

@@ -2,23 +2,21 @@ import {makeAutoObservable, observable, values} from "mobx";
 
 import fetchProfessionalSubskills from "../API/fetchProfessionalSubskills";
 
-class professionalSkill {
-  id = 1
-  label = ''
-  isActive = false
-  additionalIsActive = false
-  subskills = observable.map()
-  additionalSubskills = observable.map()
-  
+class professionalSkill {  
   constructor(skill) {
-    makeAutoObservable(this)
+    this.subskills = observable.map()
+    this.additionalSubskills = observable.map()
 
     this.id = skill?.id
     this.label = skill?.name
+    this.isActive = false
+    this.additionalIsActive = false
+
     this.fetchToProfessionalSubskills(skill.id)
+
+    makeAutoObservable(this)
   }
 
-  
   async fetchToProfessionalSubskills(professionalSkillId) {
     const response = await fetchProfessionalSubskills.fetchToProfessionalSubskills(professionalSkillId)
     if (!response) return null

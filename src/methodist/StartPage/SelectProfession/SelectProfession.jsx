@@ -5,7 +5,6 @@ import Select from 'components/Form/Select/Select'
 import BtnBuildContinue from './BtnBuildContinue/BtnBuildContinue'
 
 import store from 'store/store';
-import skills from 'store/skills';
 
 import './SelectProfession.css'
 
@@ -19,8 +18,6 @@ const SelectProfession = observer(() => {
 
     selects.setSelectValue('selectedSpecialityValue', event)
     selects.fetchToDirections(event.value)
-
-    skills.professionalSkills.clear()
   };
 
   const directionOnChange = (event) => {
@@ -28,12 +25,12 @@ const SelectProfession = observer(() => {
 
     selects.setSelectValue('selectedDirectionOption', event)
     
-    skills.fetchToProfessionalSkills(event.value)
+    skills.professionalSkillsList.fetchToProfessionalSkills(event.value)
   };
 
   const btnBuildContinueOnClick = () => {
     pageStates.setPageState('isContinueBtnClicked', true)
-    store.pageStates.setPageState('isContinueBtnVisible', false)
+    pageStates.setPageState('isContinueBtnVisible', false)
   }
 
   return (

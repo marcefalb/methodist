@@ -23,6 +23,7 @@ const PersonalSkillsList = observer(() => {
 
   return (
     <div className="personal-skills">
+
       <span className="personal-skills__title title">
         Личностные компетенции
       </span>
@@ -52,6 +53,7 @@ const PersonalSkillsList = observer(() => {
           })}
         </ul>
       )}
+      
     </div>
   );
 });
