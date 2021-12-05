@@ -1,6 +1,6 @@
 import {makeAutoObservable, observable, values} from "mobx";
 
-import fetchProfessionalSubskills from "../API/fetchProfessionalSubskills";
+import fetchProfessionalSubskills from "API/fetchProfessionalSubskills";
 
 class professionalSkill {  
   constructor(skill) {

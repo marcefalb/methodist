@@ -1,7 +1,7 @@
-import { makeAutoObservable, observable, values } from "mobx";
+import { makeAutoObservable } from "mobx";
 
-import personalSkillsList from 'store/personalSkillsList'
-import professionalSkillsList from 'store/professionalSkillsList'
+import personalSkillsList from 'store/skills/personalSkillsList'
+import professionalSkillsList from 'store/skills/professionalSkillsList'
 
 class Skills {
   constructor() {

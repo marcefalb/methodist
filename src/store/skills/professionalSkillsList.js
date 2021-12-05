@@ -2,7 +2,7 @@ import { makeAutoObservable, observable, values } from "mobx";
 
 import fetchProfessionalSkills from "API/fetchProfessionalSkills";
 
-import professionalSkill from "store/professionalSkill";
+import professionalSkill from "store/skills/professionalSkill";
 
 class ProfessionalSkillsList {
   constructor() {

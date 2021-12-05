@@ -1,4 +1,4 @@
-import {makeAutoObservable, observable, toJS} from "mobx";
+import {makeAutoObservable} from "mobx";
 
 import pageStates from "store/pageStates";
 import selects from "store/selects";
