@@ -1,14 +1,14 @@
 import { makeAutoObservable } from "mobx";
 
 class PageStates {
-  constructor() {
-    this.isProfessionSelected = false
-    this.isContinueBtnVisible = false
-    this.isContinueBtnClicked = false
-    this.isFormed = false
-    this.isNext = false
-    this.isSend = false
+  isProfessionSelected = false
+  isContinueBtnVisible = false
+  isContinueBtnClicked = false
+  isFormed = false
+  isNext = false
+  isSend = false
 
+  constructor() {
     makeAutoObservable(this)
   }
 

@@ -10,15 +10,6 @@ class Skills {
 
     makeAutoObservable(this);
   }
-
-  toggleSkill(skillId, arrayFrom, arrayTo) {
-    arrayFrom.forEach((skillItem) => {
-      if (skillItem.id === skillId) {
-        arrayTo.set(skillItem.id, skillItem);
-        arrayFrom.delete(skillItem.id);
-      }
-    });
-  }
 }
 
 export default Skills

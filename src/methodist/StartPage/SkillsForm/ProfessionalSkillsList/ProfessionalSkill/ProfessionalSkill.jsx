@@ -5,15 +5,14 @@ import { ReactComponent as IcDropdownTop } from "assets/icons/ic_dropdown-indica
 import { ReactComponent as IcAlert } from "assets/icons/ic_alert.svg";
 import Button from "components/Form/Button/Button";
 import Modal from "components/Form/Modal/Modal";
-import ProfessionalSubskill from "./ProfessionalSubskill/ProfessionalSubskill";
 import AdditionalSkills from "../AdditionalSkill/AdditionalSkill";
 
 import store from "store/store";
 
 import "./ProfessionalSkill.css";
+import ProfessionalSubskillsMap from "./ProfessionalSubskillsMap/ProfessionalSubskillsMap";
 
-const ProfessionalSkill = observer(({ skillObj, isAdditional, isDemo }, key) => {
-  const skills = store.skills
+const ProfessionalSkill = observer(({ profSkill, isAdditional, isDemo }, key) => {
   const professionalSkillsList = store.skills.professionalSkillsList
 
   const [isOpen, setIsOpen] = useState(false);
@@ -31,21 +30,10 @@ const ProfessionalSkill = observer(({ skillObj, isAdditional, isDemo }, key) => 
 
   const acceptBtnOnClick = () => {
     document.documentElement.style.overflow = "auto";
-    skillObj.isActive = false
+    profSkill.isActive = false
     setIsOpen(false);
-    if (isAdditional) 
-      skills.toggleSkill(
-        skillObj.id,
-        professionalSkillsList.additionalSkills,
-        professionalSkillsList.professionalSkills
-      );
-    else 
-      skills.toggleSkill(
-        skillObj.id,
-        professionalSkillsList.professionalSkills,
-        professionalSkillsList.additionalSkills
-      );
-    if (skillObj.additionalIsActive) skills.setAdditionalIsActive(skillObj.id);
+    professionalSkillsList.toggleSkill(profSkill.id, isAdditional)
+    if (profSkill.additionalIsActive) professionalSkillsList.setAdditionalIsActive(profSkill.id);
   };
 
   return (
@@ -53,16 +41,16 @@ const ProfessionalSkill = observer(({ skillObj, isAdditional, isDemo }, key) => 
       <div
         className="professional-skills__accordion-header"
         onClick={() => {
-          professionalSkillsList.setIsActive(skillObj.id);
+          professionalSkillsList.setIsActive(profSkill.id);
         }}
       >
         <div
           className="professional-skills__dropdown-indicator"
-          aria-expanded={!skillObj.isActive}
+          aria-expanded={!profSkill.isActive}
         >
           <IcDropdownTop />
         </div>
-        <span className="professional-skills__label">{skillObj.label}</span>
+        <span className="professional-skills__label">{profSkill.label}</span>
         {!isDemo && <Button
           text={isAdditional ? "Добавить" : "Удалить"}
           theme={isAdditional ? "default" : "outlined"}
@@ -76,7 +64,7 @@ const ProfessionalSkill = observer(({ skillObj, isAdditional, isDemo }, key) => 
         {isOpen && (
           <Modal
             header={<IcAlert />}
-            label={isAdditional ? "Вы уверены, что хотите добавить компетенцию \"" + skillObj.label + "\"?" : "Вы уверены, что хотите удалить компетенцию \"" + skillObj.label + "\"?"}
+            label={isAdditional ? "Вы уверены, что хотите добавить компетенцию \"" + profSkill.label + "\"?" : "Вы уверены, что хотите удалить компетенцию \"" + profSkill.label + "\"?"}
             onAcceptClick={() => acceptBtnOnClick()}
             onCancelClick={() => cancelBtnOnClick()}
           />
@@ -84,38 +72,10 @@ const ProfessionalSkill = observer(({ skillObj, isAdditional, isDemo }, key) => 
       </div>
       <div
         className="professional-skills__accordion-body"
-        aria-expanded={!skillObj.isActive}
+        aria-expanded={!profSkill.isActive}
       >
-        <ul className="professional-skills__accordion-list">
-          {(skillObj.subskills.size !== 0 &&
-            skillObj.subskillsList.map((subskill) => {
-              return (
-                <ProfessionalSubskill
-                  subskill={subskill}
-                  isAdditional={true}
-                  onAcceptClick={() => {
-                    document.documentElement.style.overflow = "auto";
-                    skills.toggleSkill(
-                      subskill.id,
-                      skillObj.subskills,
-                      skillObj.additionalSubskills
-                    );
-                  }}
-                  key={subskill.id}
-                />
-              );
-            })) || (
-            <li className="professional-skills__accordion-item">
-              <span>Компетенции отсутствуют</span>
-            </li>
-          )}
-          {skillObj.additionalSubskills.size !== 0 && (
-            <AdditionalSkills
-              arrayMap={skillObj.additionalSubskillsList}
-              parentSkill={skillObj}
-            />
-          )}
-        </ul>
+        <ProfessionalSubskillsMap profSkill={profSkill} type="Default"/>
+        <ProfessionalSubskillsMap profSkill={profSkill} type="Additional" />
       </div>
     </li>
   );

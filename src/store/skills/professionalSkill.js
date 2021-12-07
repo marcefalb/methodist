@@ -3,14 +3,16 @@ import {makeAutoObservable, observable, values} from "mobx";
 import fetchProfessionalSubskills from "API/fetchProfessionalSubskills";
 
 class professionalSkill {  
-  constructor(skill) {
-    this.subskills = observable.map()
-    this.additionalSubskills = observable.map()
+  subskills = observable.map()
+  additionalSubskills = observable.map()
+  isDemo = false
+  isActive = false
+  additionalIsActive = false
 
+  constructor(skill, isDemo) {
     this.id = skill?.id
     this.label = skill?.name
-    this.isActive = false
-    this.additionalIsActive = false
+    this.isDemo = isDemo
 
     this.fetchToProfessionalSubskills(skill.id)
 
@@ -23,6 +25,15 @@ class professionalSkill {
     response.data.professional_qualities.forEach(skill => {
       this.subskills.set(skill.id, skill)
     })
+  }
+  
+  toggleSkill(skillId, arrayFrom, arrayTo) {
+    arrayFrom.forEach((skillItem) => {
+      if (skillItem.id === skillId) {
+        arrayTo.set(skillItem.id, skillItem);
+        arrayFrom.delete(skillItem.id);
+      }
+    });
   }
 
   setIsActive() {

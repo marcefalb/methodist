@@ -4,13 +4,12 @@ import fetchSpecialities from "API/fetchSpecialities";
 import fetchDirections from "API/fetchDirections";
 
 class Selects {
-
+  specialitiesSelect = observable.array()
+  directionsSelect = observable.array()
+  selectedSpecialityValue = null
+  selectedDirectionOption = null
+  
   constructor() {
-    this.specialitiesSelect = observable.array()
-    this.directionsSelect = observable.array()
-    this.selectedSpecialityValue = null
-    this.selectedDirectionOption = null
-    
     this.fetchToSpecialities()
 
     makeAutoObservable(this)

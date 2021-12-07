@@ -5,44 +5,30 @@ import fetchProfessionalSkills from "API/fetchProfessionalSkills";
 import professionalSkill from "store/skills/professionalSkill";
 
 class ProfessionalSkillsList {
+  professionalSkills = observable.map();
+  additionalSkills = observable.map();
+
   constructor() {
-    this.professionalSkills = observable.map();
-    this.additionalSkills = observable.map();
     this.professionalSkillsDemo = observable.map([
       {
         id: 1,
         label: "Группа профессиональных компетенций 1",
-        isAcive: false,
-        subskills: observable.map(),
-        additionalSubskills: observable.map(),
       },
       {
         id: 2,
         label: "Группа профессиональных компетенций 2",
-        isAcive: false,
-        subskills: observable.map(),
-        additionalSubskills: observable.map(),
       },
       {
         id: 3,
         label: "Группа профессиональных компетенций 3",
-        isAcive: false,
-        subskills: observable.map(),
-        additionalSubskills: observable.map(),
       },
       {
         id: 4,
         label: "Группа профессиональных компетенций 4",
-        isAcive: false,
-        subskills: observable.map(),
-        additionalSubskills: observable.map(),
       },
       {
         id: 5,
         label: "Группа профессиональных компетенций 5",
-        isAcive: false,
-        subskills: observable.map(),
-        additionalSubskills: observable.map(),
       },
     ]);
       
@@ -61,6 +47,23 @@ class ProfessionalSkillsList {
       const skillItem = new professionalSkill(skill);
       this.professionalSkills.set(skill.id, skillItem);
     });
+  }
+
+  toggleSkill(skillId, isAdditional) {
+    if (isAdditional)
+      this.additionalSkills.forEach((skillItem) => {
+        if (skillItem.id === skillId) {
+          this.professionalSkills.set(skillItem.id, skillItem);
+          this.additionalSkills.delete(skillItem.id);
+        }
+      });
+    else
+      this.professionalSkills.forEach((skillItem) => {
+        if (skillItem.id === skillId) {
+          this.additionalSkills.set(skillItem.id, skillItem);
+          this.professionalSkills.delete(skillItem.id);
+        }
+      });
   }
 
   setIsActive(skillObjId) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import PersonalSkill from "./PersonalSkill/PersonalSkill";
+import PersonalSkillsMap from "./PersonalSkillsMap/PersonalSkillsMap";
 import SkillsSelect from "./PersonalSkillsSelect/PersonalSkillsSelect";
 
 import store from "store/store";
@@ -10,20 +10,14 @@ import "./PersonalSkillsList.css";
 
 const PersonalSkillsList = observer(() => {
   const personalSkillsList = store.skills.personalSkillsList;
-  const skills = store.skills;
 
   const selectOnChange = (event) => {
-    skills.toggleSkill(
-      event.value,
-      personalSkillsList.personalSkills,
-      personalSkillsList.selectedPersonalSkills
-    );
+    personalSkillsList.toggleSkill(event.value, false);
     personalSkillsList.setCurrentSelectOption(null);
   };
 
   return (
     <div className="personal-skills">
-
       <span className="personal-skills__title title">
         Личностные компетенции
       </span>
@@ -36,24 +30,9 @@ const PersonalSkillsList = observer(() => {
         />
       </div>
 
-      {personalSkillsList.selectedPersonalSkillsList.length !== 0 && (
-        <ul className="personal-skills__apply-list">
-          {personalSkillsList.selectedPersonalSkillsList.map((skill) => {
-            return (
-              <PersonalSkill
-                skill={skill}
-                key={skill.id}
-                onBtnDeleteClick={() => skills.toggleSkill(
-                  skill.id,
-                  personalSkillsList.selectedPersonalSkills,
-                  personalSkillsList.personalSkills
-                )}
-              />
-            );
-          })}
-        </ul>
-      )}
-      
+      <div>
+        <PersonalSkillsMap />
+      </div>   
     </div>
   );
 });
