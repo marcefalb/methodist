@@ -14,7 +14,7 @@ const SkillsForm = observer(() => {
     <div className="main__content skills-container">
       <PersonalSkillsList />
       <ProfessionalSkillsList />
-      {/* <FormButtons /> */}
+      <FormButtons />
     </div>
   )
 });

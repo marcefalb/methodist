@@ -30,7 +30,6 @@ const SelectProfession = observer(() => {
 
   const btnBuildContinueOnClick = () => {
     pageStates.setPageState('isContinueBtnClicked', true)
-    pageStates.setPageState('isContinueBtnVisible', false)
   }
 
   return (
@@ -54,7 +53,8 @@ const SelectProfession = observer(() => {
       />
       <BtnBuildContinue
         onClick={() => btnBuildContinueOnClick()}
-        state={pageStates.isContinueBtnVisible}
+        visibilityState={pageStates.isContinueBtnVisible}
+        existState={pageStates.isContinueBtnClicked}
       />
     </section>
   )

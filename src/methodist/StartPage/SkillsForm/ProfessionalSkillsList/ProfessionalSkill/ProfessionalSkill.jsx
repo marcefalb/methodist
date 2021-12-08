@@ -75,7 +75,7 @@ const ProfessionalSkill = observer(({ profSkill, isAdditional, isDemo }, key) =>
         aria-expanded={!profSkill.isActive}
       >
         <ProfessionalSubskillsMap profSkill={profSkill} type="Default"/>
-        <ProfessionalSubskillsMap profSkill={profSkill} type="Additional" />
+        <AdditionalSkills profSkill={profSkill} type="Additional" />
       </div>
     </li>
   );

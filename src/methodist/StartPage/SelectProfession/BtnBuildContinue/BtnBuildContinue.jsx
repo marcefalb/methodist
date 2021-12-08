@@ -6,9 +6,10 @@ import { ReactComponent as IcArrowRight } from "assets/icons/ic_arrow-right.svg"
 
 import "./BtnBuildContinue.css";
 
-const BtnNext = observer(({ onClick, state }) => {
+const BtnNext = observer(({ onClick, visibilityState, existState }) => {
+  if (existState) return null
   return (
-    <div className={state ? "btn-next__container btn-next__container_active" : "btn-next__container"}>
+    <div className={visibilityState ? "btn-next__container btn-next__container_active" : "btn-next__container"}>
       <Link
         className="btn-corp btn-next_active"
         to="/page"

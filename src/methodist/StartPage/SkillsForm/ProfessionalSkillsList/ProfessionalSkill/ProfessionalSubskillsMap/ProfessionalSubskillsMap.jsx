@@ -25,7 +25,7 @@ const ProfessionalSubskillsMap = observer(({type, profSkill}) => {
             isAdditional={isAdditional}
             onAcceptClick={() => {
               document.documentElement.style.overflow = "auto";
-              professionalSkillsList.toggleSkill(subskill.id, false)
+              professionalSkillsList.toggleSkill(subskill.id, isAdditional)
             }}
             key={subskill.id}
           />

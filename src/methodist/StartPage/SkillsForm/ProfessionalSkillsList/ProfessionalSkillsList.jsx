@@ -14,6 +14,7 @@ const ProfessionalSkillsList = observer(() => {
 
       <div>
         <ProfessionalSkillsMap type="Default"/>
+        
         <ProfessionalSkillsMap type="Additional"/>
       </div>
     </div>
