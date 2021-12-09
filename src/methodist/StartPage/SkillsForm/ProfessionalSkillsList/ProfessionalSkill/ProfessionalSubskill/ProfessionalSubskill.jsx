@@ -28,6 +28,7 @@ const ProfessionalSubskill = observer(({ subskill, isAdditional, toggleSubskill 
     setIsOpen(false);
   };
 
+  console.log(subskill.name);
   return (
     <li className="professional-skills__accordion-item" key={key}>
       <span>{subskill.name}</span>
@@ -39,7 +40,7 @@ const ProfessionalSubskill = observer(({ subskill, isAdditional, toggleSubskill 
       />
       <Modal
         header={<IcAlert />}
-        label={`Вы уверены, что хотите ${btnLabel} компетенцию ${subskill.label}`}
+        label={`Вы уверены, что хотите ${btnLabel} компетенцию "${subskill.name}"?`}
         isOpen={isOpen}
         onAcceptClick={() => acceptBtnOnClick()}
         onCancelClick={() => cancelBtnOnClick()}

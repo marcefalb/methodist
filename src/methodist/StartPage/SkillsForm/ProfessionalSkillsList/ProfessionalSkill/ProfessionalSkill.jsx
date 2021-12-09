@@ -68,7 +68,7 @@ const ProfessionalSkill = observer(({ profSkill, isAdditional, isDemo }, key) =>
         <Modal
           isOpen={isOpen}
           header={<IcAlert />}
-          label={`Вы уверены, что хотите ${btnLabel} компетенцию "${profSkill.label}"`}
+          label={`Вы уверены, что хотите ${btnLabel} группу компетенций "${profSkill.label}"?`}
           onAcceptClick={() => acceptBtnOnClick()}
           onCancelClick={() => cancelBtnOnClick()}
         />
