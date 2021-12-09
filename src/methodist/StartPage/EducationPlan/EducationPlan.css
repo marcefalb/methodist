@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 80px;
+
+  margin: 0 20px;
 }
 .education-plan__plan {
   display: flex;

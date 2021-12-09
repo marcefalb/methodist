@@ -7,30 +7,30 @@ import professionalSkill from "store/skills/professionalSkill";
 class ProfessionalSkillsList {
   professionalSkills = observable.map();
   additionalSkills = observable.map();
+  professionalSkillsDemo = observable.map([
+    {
+      id: 1,
+      label: "Группа профессиональных компетенций 1",
+    },
+    {
+      id: 2,
+      label: "Группа профессиональных компетенций 2",
+    },
+    {
+      id: 3,
+      label: "Группа профессиональных компетенций 3",
+    },
+    {
+      id: 4,
+      label: "Группа профессиональных компетенций 4",
+    },
+    {
+      id: 5,
+      label: "Группа профессиональных компетенций 5",
+    },
+  ]);
 
   constructor() {
-    this.professionalSkillsDemo = observable.map([
-      {
-        id: 1,
-        label: "Группа профессиональных компетенций 1",
-      },
-      {
-        id: 2,
-        label: "Группа профессиональных компетенций 2",
-      },
-      {
-        id: 3,
-        label: "Группа профессиональных компетенций 3",
-      },
-      {
-        id: 4,
-        label: "Группа профессиональных компетенций 4",
-      },
-      {
-        id: 5,
-        label: "Группа профессиональных компетенций 5",
-      },
-    ]);
       
     this.isMainAdditionalActive = false;
 
@@ -57,6 +57,7 @@ class ProfessionalSkillsList {
           this.additionalSkills.delete(skillItem.id);
         }
       });
+      
     else
       this.professionalSkills.forEach((skillItem) => {
         if (skillItem.id === skillId) {
@@ -64,6 +65,27 @@ class ProfessionalSkillsList {
           this.professionalSkills.delete(skillItem.id);
         }
       });
+  }
+
+  toggleSubskill(profSkill, skillId, isAdditional) {
+    if (isAdditional) {
+      profSkill.additionalSubskills.forEach((skillItem) => {
+        if (skillItem.id === skillId) {
+          profSkill.subskills.set(skillItem.id, skillItem);
+          profSkill.additionalSubskills.delete(skillItem.id);
+        }
+      })
+    }
+
+    else {
+      profSkill.subskills.forEach((skillItem) => {
+        console.log(skillItem.id, skillId)
+        if (skillItem.id === skillId) {
+          profSkill.additionalSubskills.set(skillItem.id, skillItem);
+          profSkill.subskills.delete(skillItem.id);
+        }
+      })
+    }
   }
 
   setIsActive(skillObjId) {

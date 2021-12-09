@@ -1,8 +1,8 @@
 :root {
-  --main: #484C51;
+  --main: #3b3b3b;
   --secondary: #2183aa;
   --secondary-light: #7AB5CC;
-  --border-line: #A0A6B1;
+  --border-line: #5b5b5b;
   --border-line-light: #e5e5e5;
 }
 h1 {
@@ -42,7 +42,7 @@ h1 {
   flex-direction: column;
   gap: 50px;
 
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 
   background-color: #fff;
   border-radius: 10px;

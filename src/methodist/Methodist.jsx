@@ -2,6 +2,8 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import StartPage from "./StartPage/StartPage";
+import ContactsForm from "./ContactsForm/ContactsForm";
+import RUP from "./RUP/RUP";
 
 
 const Methodist = observer(() => {
@@ -9,6 +11,8 @@ const Methodist = observer(() => {
     <main className="main">
       <div className="wrapper main__wrapper">
         <StartPage />
+        <ContactsForm />
+        <RUP />
       </div>
     </main>
     // <main className="main">

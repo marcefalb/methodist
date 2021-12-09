@@ -4,9 +4,9 @@ class PageStates {
   isProfessionSelected = false
   isContinueBtnVisible = false
   isContinueBtnClicked = false
-  isFormed = false
-  isNext = false
-  isSend = false
+  isSkillsSelected = false
+  isRequestFormed = false
+  isFormSended = false
 
   constructor() {
     makeAutoObservable(this)

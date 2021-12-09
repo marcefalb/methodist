@@ -5,6 +5,17 @@
 
   width: 100%;
 }
+.contacts__header .link svg {
+  transform: rotate(180deg);
+}
+.contacts__header {
+  position: relative;
+}
+.contacts__header .link {
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
 .contacts__send-btn {
   display: flex;
   justify-content: center;

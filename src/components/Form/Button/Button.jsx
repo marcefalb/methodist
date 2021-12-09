@@ -2,18 +2,17 @@ import React from 'react'
 
 import './Button.css'
 
-const Button = ({text, theme, width, height, fontSize, borderRadius, onClick}) => {
-  const customStyles = {
-    minWidth: width,
-    height: height,
-    fontSize: fontSize,
-    borderRadius: borderRadius,
-  }
+const Button = ({text, theme, size, onClick}) => {
+  let btnClassList = "btn "
+  if (theme === 'filled') btnClassList += "btn-filled "
+  else btnClassList += "btn-outlined "
+  if (size === "small") btnClassList += "btn-small "
+  else btnClassList += "btn-normal "
+
   return (
     <button
-      className={theme === 'default' ? 'btn btn-default' : 'btn btn-outlined'}
+      className={btnClassList}
       onClick={onClick}
-      style={customStyles}
     >
       {text}
     </button>

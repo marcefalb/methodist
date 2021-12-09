@@ -26,15 +26,6 @@ class professionalSkill {
       this.subskills.set(skill.id, skill)
     })
   }
-  
-  toggleSkill(skillId, arrayFrom, arrayTo) {
-    arrayFrom.forEach((skillItem) => {
-      if (skillItem.id === skillId) {
-        arrayTo.set(skillItem.id, skillItem);
-        arrayFrom.delete(skillItem.id);
-      }
-    });
-  }
 
   setIsActive() {
     this.isActive = !this.isActive

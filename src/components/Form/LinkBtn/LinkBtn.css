@@ -1,0 +1,19 @@
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  background-color: inherit;
+  cursor: pointer;
+}
+.link:hover span {
+  color: var(--secondary);
+}
+.link:hover svg path {
+  stroke: var(--secondary);
+}
+.link span {
+  color: var(--secondary);
+  font-size: 18px;
+}

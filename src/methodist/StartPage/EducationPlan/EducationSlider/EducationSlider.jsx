@@ -85,19 +85,22 @@ const EducationSlider = observer(({ onChange, sliderValue }) => {
   }));
 
   return (
-    <Box sx={{ height: 430 }}>
-      <PlanSlider
-        max={620}
-        getAriaLabel={() => "Plan"}
-        orientation="vertical"
-        getAriaValueText={valuetext}
-        valueLabelFormat={valueLabelFormat}
-        marks={marks}
-        step={null}
-        defaultValue={sliderValue}
-        onChangeCommitted={(e, newValue) => onChange(newValue)}
-      />
-    </Box>
+    <div className="education-plan__slider">
+      <Box sx={{ height: 430 }}>
+        <PlanSlider
+          max={620}
+          getAriaLabel={() => "Plan"}
+          orientation="vertical"
+          getAriaValueText={valuetext}
+          valueLabelFormat={valueLabelFormat}
+          marks={marks}
+          step={null}
+          defaultValue={sliderValue}
+          onChangeCommitted={(e, newValue) => onChange(newValue)}
+        />
+      </Box>
+      <hr className="education-plan__line" />
+    </div>
   );
 });
 

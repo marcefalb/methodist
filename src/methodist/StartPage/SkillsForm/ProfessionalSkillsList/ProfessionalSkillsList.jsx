@@ -1,9 +1,10 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import ProfessionalSkillsMap from "./ProfessionalSkillsMap/ProfessionalSkillsMap";
+import ProfessionalSkillsMap from "./SkillsMap/ProfessionalSkillsMap";
 
 import "./ProfessionalSkillsList.css";
+import AdditionalSkillsMap from "./SkillsMap/AdditionalSkillsMap";
 
 const ProfessionalSkillsList = observer(() => {
   return (
@@ -12,10 +13,9 @@ const ProfessionalSkillsList = observer(() => {
         Профессиональные компетенции
       </span>
 
-      <div>
-        <ProfessionalSkillsMap type="Default"/>
-        
-        <ProfessionalSkillsMap type="Additional"/>
+      <div className="professional-skills__maps">
+        <ProfessionalSkillsMap /> 
+        <AdditionalSkillsMap />
       </div>
     </div>
   );

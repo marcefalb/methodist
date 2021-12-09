@@ -9,7 +9,6 @@ import store from 'store/store';
 
 const SkillsForm = observer(() => {
   if (!store.pageStates.isContinueBtnClicked) return null
-  else 
   return (
     <div className="main__content skills-container">
       <PersonalSkillsList />

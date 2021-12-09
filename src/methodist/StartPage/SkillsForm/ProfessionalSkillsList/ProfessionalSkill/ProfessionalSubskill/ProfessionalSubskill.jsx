@@ -5,8 +5,20 @@ import { ReactComponent as IcAlert } from "assets/icons/ic_alert.svg";
 import Button from "components/Form/Button/Button";
 import Modal from "components/Form/Modal/Modal";
 
-const ProfessionalSubskill = observer(({ subskill, onAcceptClick, isAdditional }, key) => {
+import store from "store/store"
+
+const ProfessionalSubskill = observer(({ subskill, isAdditional, toggleSubskill }, key) => {
+  const professionalSkillsList = store.skills.professionalSkillsList
+  const btnLabel = isAdditional ? "добавить" : "удалить"
+
   const [isOpen, setIsOpen] = useState(false);
+  const acceptBtnOnClick = () => {
+    document.documentElement.style.overflow = "auto";
+    setIsOpen(false);
+    subskill.isActive = false
+    toggleSubskill()
+    if (subskill.additionalIsActive) professionalSkillsList.setAdditionalIsActive(subskill.id);
+  };
   const deleteBtnOnClick = () => {
     document.documentElement.style.overflow = "hidden"
     setIsOpen(true);
@@ -20,24 +32,18 @@ const ProfessionalSubskill = observer(({ subskill, onAcceptClick, isAdditional }
     <li className="professional-skills__accordion-item" key={key}>
       <span>{subskill.name}</span>
       <Button
-        text={isAdditional ? "Удалить" : "Добавить"}
-        theme={isAdditional ? "outlined" : "default"}
-        width="100px"
-        height="25px"
-        fontSize="16px"
-        borderRadius="5px"
-        onClick={() => {
-          deleteBtnOnClick()
-        }}
+        text={isAdditional ? "Добавить" : "Удалить"}
+        theme={isAdditional ? "filled" : "outlined"}
+        size="small"
+        onClick={() => deleteBtnOnClick()}
       />
-      {isOpen && (
-        <Modal
-          header={<IcAlert />}
-          label={isAdditional ? "Вы уверены, что хотите удалить компетенцию \"" + subskill.name + "\"?" : "Вы уверены, что хотите добавить компетенцию \"" + subskill.name + "\"?"}
-          onAcceptClick={onAcceptClick}
-          onCancelClick={() => cancelBtnOnClick()}
-        />
-      )}
+      <Modal
+        header={<IcAlert />}
+        label={`Вы уверены, что хотите ${btnLabel} компетенцию ${subskill.label}`}
+        isOpen={isOpen}
+        onAcceptClick={() => acceptBtnOnClick()}
+        onCancelClick={() => cancelBtnOnClick()}
+      />
     </li>
   );
 });

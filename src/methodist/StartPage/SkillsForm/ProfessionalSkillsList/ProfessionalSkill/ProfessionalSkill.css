@@ -35,6 +35,7 @@
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), padding .3s;
 }
 .professional-skills__dropdown-indicator {
+  width: 14px;
   margin: 0 0 3px 0;
   transform: rotateX(0);
   transition: margin .5s, transform .5s;
