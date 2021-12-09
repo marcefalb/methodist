@@ -1,5 +1,5 @@
 import {React} from "react";
-import { Formik, Field, Form } from 'formik';
+import { Formik, Form } from 'formik';
 
 import InputItem from "./InputItem/InputItem";
 import Button from "components/Form/Button/Button"
@@ -20,20 +20,32 @@ const ContactsForm = observer(() => {
         <LinkBtn type="button" text="Вернуться" onClick={() => pageStates.setPageState('isRequestFormed', false)} />
         <h1>Образовательная программа подготовки специалистов</h1>
       </div>
-      {/* <InputItem title="Имя" name="name" placeholder="Иван" value={nameValue} onChange={(event) => setNameValue(event.target.value)} />
-      <InputItem title="Фамилия" name="surname" placeholder="Иванов" value={surnameValue} onChange={(event) => setSurnameValue(event.target.value)} />
-      <InputItem title="Отчество" name="secondName" placeholder="Иванович" value={secondName} onChange={(event) => setSecondName(event.target.value)} />
-      <Select options={citiesList} name="city" title="Город" selectValue={selectValue} onChange={(event) => setSelectValue(event)} />
-      <InputItem title="Компания" name="company" placeholder="МГОК" value={companyValue} onChange={(event) => setCompanyValue(event.target.value)} /> 
-      }*/}
-      <div className="contacts__send-btn">
-        <Button
-          text="Отправить"
-          theme="outlined"
-          size="normal"
-          onClick={() => pageStates.setPageState('isFormSended', true)}
-        />
-      </div>
+      <Formik
+        initialValues={{
+          name: '',
+          surname: '',
+          secondname: '',
+          city: '',
+          company: '',
+        }}
+      >
+        <Form className="contacts__form">
+          <InputItem title="Имя" name="name" placeholder="Иван" />
+          <InputItem title="Фамилия" name="surname" placeholder="Александров" />
+          <InputItem title="Отчество" name="secondname" placeholder="Алексеевич" />
+          <InputItem title="Город" name="city" placeholder="Москва" />
+          <InputItem title="Компания" name="company" placeholder="МГОК" />
+          
+          <div className="contacts__send-btn">
+            <Button
+              text="Отправить"
+              theme="outlined"
+              size="normal"
+              onClick={() => pageStates.setPageState('isFormSended', true)}
+            />
+          </div>
+        </Form>
+      </Formik>
     </section>
   );
 });

@@ -3,7 +3,12 @@
   flex-direction: column;
   gap: 20px;
 }
-.contacts__input-item span {
+.contacts__input-item input {
+  padding: 17px 20px;
+  border: 1px solid #A0A6B1 !important;
+  font-size: 20px;
+}
+.contacts__input-item label {
   font-size: 20px;
   font-family: 'Intro', serif;
 }

@@ -1,17 +1,17 @@
 import React from "react";
+import { Field } from 'formik';
 
-import Input from "components/Form/Input/Input";
 import "./InputItem.css";
 
-const InputItem = ({ title, name, placeholder, value, onChange }) => {
+const InputItem = ({ title, name, placeholder, value }) => {
   return (
     <div className="contacts__input-item">
-      <span>{title}</span>
-      <Input
+      <label htmlFor={name}>{title}</label>
+      <Field
         name={name}
         placeholder={placeholder}
         value={value}
-        onChange={onChange}
+        id={name}
       />
     </div>
   );
