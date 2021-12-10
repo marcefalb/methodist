@@ -31,21 +31,17 @@ class ProfessionalSkillsList {
   ]);
 
   constructor() {
-      
-    this.isMainAdditionalActive = false;
-
     makeAutoObservable(this);
   }
 
   async fetchToProfessionalSkills(directionId) {
-    const response = await fetchProfessionalSkills.fetchToProfessionalSkills(
-      directionId
-    );
+    const response = await fetchProfessionalSkills.fetchToProfessionalSkills(directionId);
 
     if (!response) return null;
     response.data.professional_qualities_groups.forEach((skill) => {
       const skillItem = new professionalSkill(skill);
-      this.professionalSkills.set(skill.id, skillItem);
+      if (skill.is_recommended) this.professionalSkills.set(skill.id, skillItem);
+      else this.additionalSkills.set(skill.id, skillItem)
     });
   }
 
@@ -100,8 +96,9 @@ class ProfessionalSkillsList {
     });
   }
 
-  setMainAdditionalIsActive() {
-    this.isMainAdditionalActive = !this.isMainAdditionalActive;
+  clearSkills() {
+    this.professionalSkills.clear()
+    this.additionalSkills.clear()
   }
 
   get professionalSkillsList() {

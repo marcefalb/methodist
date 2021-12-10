@@ -11,21 +11,20 @@ import './SelectProfession.css'
 const SelectProfession = observer(() => {
   const selects = store.selects
   const pageStates = store.pageStates
-  const skills = store.skills
+  const professionalSkillsList = store.skills.professionalSkillsList
 
   const specialityOnChange = (event) => {
     pageStates.setPageState('isProfessionSelected', true)
-
     selects.setSelectValue('selectedSpecialityValue', event)
+    professionalSkillsList.clearSkills()
     selects.fetchToDirections(event.value)
   };
 
   const directionOnChange = (event) => {
     pageStates.setPageState('isContinueBtnVisible', true)
-
     selects.setSelectValue('selectedDirectionOption', event)
-    
-    skills.professionalSkillsList.fetchToProfessionalSkills(event.value)
+    professionalSkillsList.clearSkills()
+    professionalSkillsList.fetchToProfessionalSkills(event.value)
   };
 
   const btnBuildContinueOnClick = () => {

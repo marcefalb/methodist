@@ -23,7 +23,8 @@ class professionalSkill {
     const response = await fetchProfessionalSubskills.fetchToProfessionalSubskills(professionalSkillId)
     if (!response) return null
     response.data.professional_qualities.forEach(skill => {
-      this.subskills.set(skill.id, skill)
+      if (skill.is_recommended) this.subskills.set(skill.id, skill)
+      else this.additionalSubskills.set(skill.id, skill)
     })
   }
 
