@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  margin-top: 35px;
 }
 .contacts__input-item input {
   padding: 17px 20px;
