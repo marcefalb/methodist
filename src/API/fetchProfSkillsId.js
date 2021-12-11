@@ -4,7 +4,7 @@ class FetchProfSkillsId {
   async fetchProfSkillsId(idsArray) {
     return (
       await axios.post(
-        `https://elmetod-backend.herokuapp.com/api/professional_qualities/calculate_number_of_hours`,
+        `http://jn.mgok.moscow/public/api/professional_qualities/calculate_number_of_hours`,
         {
           professional_qualities_ids: idsArray
         },

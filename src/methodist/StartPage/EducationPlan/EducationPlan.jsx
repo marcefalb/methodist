@@ -12,6 +12,11 @@ import "./EducationPlan.css";
 const EducationPlan = observer(() => {
   const pageStates = store.pageStates
   const educationPlan = store.educationPlan
+  const professionalSkillsList = store.skills.professionalSkillsList
+
+  const sliderOnChange = (value) => {
+    educationPlan.setCurrentSliderValue(value)
+  }
 
   if (!pageStates.isSkillsSelected) return null
   return (

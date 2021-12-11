@@ -1,14 +1,28 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react';
+import {React, useState} from 'react';
 
+import {ReactComponent as IcRefresh} from 'assets/icons/ic_restart.svg'
+import {ReactComponent as IcAlert} from 'assets/icons/ic_alert.svg'
 import LinkBtn from "components/Form/LinkBtn/LinkBtn"
+import Modal from 'components/Form/Modal/Modal';
 
-import store from '../../store/store';
+import store from 'store/store';
 
 import './RUP.css';
 
 const RUP = observer(() => {
   const pageStates = store.pageStates
+  const [isOpen, setIsOpen] = useState(false)
+
+  const onHelpBtnClick = () => {
+    document.documentElement.style.overflow = "hidden";
+    setIsOpen(true)
+  }
+
+  const modalAccept = () => {
+    document.documentElement.style.overflow = "auto";
+    setIsOpen(false);
+  }
 
   const frezer = [
     [0.578125,     0.3984375, 0.234375,  0.1171875, 0.28125,  0,        0.0625],
@@ -33,9 +47,11 @@ const RUP = observer(() => {
   return (
     <section className="rup">
       <div className="rup__header">
-        <LinkBtn type="button" text="Начать сначала" />
-        <h1>Предварительный РУП</h1>
+        <LinkBtn text="Начать сначала" icon={<IcRefresh />} place="left" onClick={() => window.location.reload()} />
+        <LinkBtn text="Помощь" icon={<IcAlert />} place="left" onClick={() => onHelpBtnClick()} />
+        <Modal header="Возникли вопросы?" isOpen={isOpen} onClick={() => modalAccept()} label="Свяжитесь с нами по почте: mgok@edu.mos.ru" isHelp={true} />
       </div>
+        <h1>Предварительный РУП</h1>
       <div className='table__wrapper'>
         <table className='table'>
           <thead className='table__header'>

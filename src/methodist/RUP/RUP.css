@@ -4,6 +4,21 @@
   overflow: auto;
 }
 
+.rup {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.rup__header {
+  display: flex;
+  justify-content: space-between;
+}
+.rup__header .link svg {
+  transform: rotate(180deg);
+  width: 24px;
+  height: 24px;
+}
+
 .table {
   border-top: 2px solid #484C51;  
   border-collapse: collapse;  

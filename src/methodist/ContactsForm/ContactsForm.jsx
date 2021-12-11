@@ -2,6 +2,7 @@ import {React} from "react";
 import { Formik, Form, ErrorMessage  } from 'formik';
 import * as Yup from "yup";
 
+import { ReactComponent as IcArrowRight } from "assets/icons/ic_arrow-right.svg";
 import InputItem from "./InputItem/InputItem";
 import Button from "components/Form/Button/Button"
 import LinkBtn from "components/Form/LinkBtn/LinkBtn"
@@ -30,7 +31,7 @@ const ContactsForm = observer(() => {
   return (
     <section className="contacts">
       <div className="contacts__header">
-        <LinkBtn type="button" text="Вернуться" onClick={() => pageStates.setPageState('isRequestFormed', false)} />
+        <LinkBtn text="Вернуться" icon={<IcArrowRight />} place="left" onClick={() => pageStates.setPageState('isRequestFormed', false)} />
         <h1>Образовательная программа подготовки специалистов</h1>
       </div>
       <Formik

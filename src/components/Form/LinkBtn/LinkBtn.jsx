@@ -1,27 +1,17 @@
 import React from 'react';
 import {Link} from "react-router-dom"
 
-import { ReactComponent as IcArrowRight } from "assets/icons/ic_arrow-right.svg";
-
 import './LinkBtn.css'
 
-const LinkBtn = ({type, text, href, onClick}) => {
-  if (type === 'link') return (
-    <Link
-      className="link"
-      to={href}
-    >
-      <IcArrowRight />
-      <span>{text}</span>
-    </Link>
-  )
+const LinkBtn = ({text, icon, place, onClick}) => {
   return (
     <button
       className="link"
       onClick={onClick}
     >
-      <IcArrowRight />
+      {place === "left" && icon}
       <span>{text}</span>
+      {place === "right" && icon}
     </button>
   )
 };
