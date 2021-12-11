@@ -24,7 +24,6 @@ const AdditionalSubskillsMap = observer(({profSkill}) => {
 
         <ul className="professional-skills__additional-list">
           {profSkill.additionalSubskillsList.map(subskill => {
-            console.log(subskill);
             return (
               <ProfessionalSubskill
                 subskill={subskill}

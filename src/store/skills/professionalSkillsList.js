@@ -1,34 +1,15 @@
-import { makeAutoObservable, observable, values } from "mobx";
+import { makeAutoObservable, observable, toJS, values } from "mobx";
 
 import fetchProfessionalSkills from "API/fetchProfessionalSkills";
+import fetchProfSkillsId from "API/fetchProfSkillsId";
 
 import professionalSkill from "store/skills/professionalSkill";
 
 class ProfessionalSkillsList {
   professionalSkills = observable.map();
   additionalSkills = observable.map();
-  professionalSkillsDemo = observable.map([
-    {
-      id: 1,
-      label: "Группа профессиональных компетенций 1",
-    },
-    {
-      id: 2,
-      label: "Группа профессиональных компетенций 2",
-    },
-    {
-      id: 3,
-      label: "Группа профессиональных компетенций 3",
-    },
-    {
-      id: 4,
-      label: "Группа профессиональных компетенций 4",
-    },
-    {
-      id: 5,
-      label: "Группа профессиональных компетенций 5",
-    },
-  ]);
+  professionalSkillsId = observable.array();
+  hoursNumber = 0
 
   constructor() {
     makeAutoObservable(this);
@@ -43,6 +24,13 @@ class ProfessionalSkillsList {
       if (skill.is_recommended) this.professionalSkills.set(skill.id, skillItem);
       else this.additionalSkills.set(skill.id, skillItem)
     });
+  }
+
+  async fetchProfessionalSkillsId(idsArray) {
+    const response = await fetchProfSkillsId.fetchProfSkillsId(idsArray)
+
+    if (!response) this.hoursNumber = 0
+    else this.hoursNumber = response.data
   }
 
   toggleSkill(skillId, isAdditional) {
@@ -61,27 +49,40 @@ class ProfessionalSkillsList {
           this.professionalSkills.delete(skillItem.id);
         }
       });
+
+    this.renderSkillsId()
   }
 
   toggleSubskill(profSkill, skillId, isAdditional) {
-    if (isAdditional) {
-      profSkill.additionalSubskills.forEach((skillItem) => {
-        if (skillItem.id === skillId) {
-          profSkill.subskills.set(skillItem.id, skillItem);
-          profSkill.additionalSubskills.delete(skillItem.id);
-        }
-      })
-    }
+    if (isAdditional) 
+    profSkill.additionalSubskills.forEach((skillItem) => {
+      if (skillItem.id === skillId) {
+        profSkill.subskills.set(skillItem.id, skillItem);
+        profSkill.additionalSubskills.delete(skillItem.id);
+      }
+    })
+    
+    else 
+    profSkill.subskills.forEach((skillItem) => {
+      if (skillItem.id === skillId) {
+        profSkill.additionalSubskills.set(skillItem.id, skillItem);
+        profSkill.subskills.delete(skillItem.id);
+      }
+    })
 
-    else {
-      profSkill.subskills.forEach((skillItem) => {
-        console.log(skillItem.id, skillId)
-        if (skillItem.id === skillId) {
-          profSkill.additionalSubskills.set(skillItem.id, skillItem);
-          profSkill.subskills.delete(skillItem.id);
-        }
+  this.renderSkillsId()
+  }
+
+  renderSkillsId() {
+    this.professionalSkillsId.clear()
+
+    this.professionalSkills.forEach(skill => {
+      skill.subskills.forEach(subskill => {
+        this.professionalSkillsId.push(subskill.id)
       })
-    }
+    })
+
+    this.fetchProfessionalSkillsId(this.professionalSkillsIdList)
   }
 
   setIsActive(skillObjId) {
@@ -109,8 +110,8 @@ class ProfessionalSkillsList {
     return values(this.additionalSkills);
   }
 
-  get professionalSkillsListDemo() {
-    return values(this.professionalSkillsDemo);
+  get professionalSkillsIdList() {
+    return toJS(this.professionalSkillsId)
   }
 }
 
