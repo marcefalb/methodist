@@ -36,6 +36,17 @@ class professionalSkill {
     this.additionalIsActive = !this.additionalIsActive
   }
 
+  setSubskills(subskills) {
+    subskills.forEach(subskill => {
+      if (subskill.is_recommended) {
+        this.subskills.set(subskill.id, subskill)
+      }
+      else {
+        this.additionalSubskills.set(subskill.id, subskill)
+      }
+    })
+  }
+
   get subskillsList() {
     return values(this.subskills)
   }
