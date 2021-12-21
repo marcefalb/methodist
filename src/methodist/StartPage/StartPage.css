@@ -1,0 +1,5 @@
+.skills-container {
+  gap: 0 !important;
+  margin: 0 20px;
+  border: 1px solid var(--border-line) !important;
+}

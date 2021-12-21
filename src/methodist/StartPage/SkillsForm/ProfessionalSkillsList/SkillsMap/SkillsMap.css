@@ -1,0 +1,60 @@
+.professional-skills__additional {
+  flex-direction: column;
+  align-items: flex-start !important;
+
+  padding-left: 40px;
+}
+.professional-skills__additional_subskills {
+  margin-top: 10px;
+  padding: 0;
+}
+.professional-skills__additional-body {
+  max-height: 1000px;
+  padding: 15px 0;
+  width: 100%;
+  overflow: hidden;
+  transition: max-height 1s ease-in-out, padding .3s;
+}
+.professional-skills__additional-body[aria-expanded="true"] {
+  padding: 0;
+  max-height: 0px;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), padding .3s;
+}
+.professional-skills__additional-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.professional-skills__additional-map {
+  display: flex;
+  flex-direction: column;
+}
+.professional-skills__additional {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.professional-skills__additional-header span {
+  width: 100%;
+  font-size: 20px;
+  line-height: 20px;
+}
+.professional-skills__additional-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+  margin-top: 20px;
+
+  background-color: inherit;
+  cursor: pointer;
+}
+.professional-skills__additional-header span {
+  color: var(--secondary-light);
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.professional-skills__additional-header svg path {
+  stroke: var(--secondary-light);
+}

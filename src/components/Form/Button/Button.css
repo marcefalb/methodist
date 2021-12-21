@@ -5,11 +5,26 @@
   
   cursor: pointer;
 
+  line-height: 16px;
+
   transition: all .3s;
 }
-.btn-default {
+.btn-filled {
   background-color: var(--secondary);
   color: #fff;
+}
+.btn-small {
+  font-size: 16px;
+  padding: 4px 20px 4px 20px;
+  border-radius: 5px;
+  max-width: 100px;
+  height: 24px;
+}
+.btn-normal {
+  font-size: 24px;
+  padding: 16px 30px;
+  border-radius: 10px;
+  min-width: 200px;
 }
 .btn-outlined {
   background-color: inherit;

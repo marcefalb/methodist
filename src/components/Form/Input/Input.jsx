@@ -1,11 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import './Input.css'
+import "./Input.css";
 
-const Input = ({placeholder, name, value, onChange}) => {
+const Input = ({ placeholder, name, value, onChange }) => {
   return (
-    <input type="text" placeholder={placeholder} name={name} className="contacts__input" value={value} onChange={onChange} />
-  )
+    <input
+      type="text"
+      className="contacts__input"
+      placeholder={placeholder}
+      name={name}
+      value={value}
+      onChange={onChange}
+    />
+  );
 };
 
-export default Input
+export default Input;

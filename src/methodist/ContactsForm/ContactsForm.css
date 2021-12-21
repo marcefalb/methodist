@@ -1,18 +1,36 @@
 .contacts {
   display: flex;
   flex-direction: column;
-  gap: 35px;
 
   width: 100%;
+}
+.contacts__header .link svg {
+  transform: rotate(180deg);
+}
+.contacts__header {
+  position: relative;
+}
+.contacts__header .link {
+  position: absolute;
+  top: 5px;
+  left: 0;
 }
 .contacts__send-btn {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 35px;
 }
 .contacts__validation-message {
-  text-align: center;
-  font-size: 18px;
+  margin-top: 5px;
+
   color: red;
   opacity: .5;
+
+  font-size: 18px;
+}
+.contacts__form {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 20px;
 }

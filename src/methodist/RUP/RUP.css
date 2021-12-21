@@ -1,0 +1,108 @@
+.table__wrapper {
+  margin: 0 40px;
+  max-width: calc(100%);
+  overflow: auto;
+}
+
+.rup {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.rup__header {
+  display: flex;
+  justify-content: space-between;
+}
+.rup__header .link svg {
+  transform: rotate(180deg);
+  width: 24px;
+  height: 24px;
+}
+
+.table {
+  border-top: 2px solid #484C51;  
+  border-collapse: collapse;  
+}
+
+.table:focus, .table:active {
+  border-top: 2px solid #484C51;  
+}
+
+.table__row {
+  border-bottom: 2px solid #484C51;
+}
+
+.table__row:focus, .table__row:active {
+  border-bottom: 2px solid #484C51;
+}
+
+.table__cell {
+  border-left: 2px solid #484C51;
+  vertical-align: top;
+  padding: 10px 5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  font-family: Intro;
+  word-break: break-all;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table__cell:focus, .table__cell:active {
+  border-left: 2px solid #484C51;
+}
+
+.cell__index,
+.cell__index:focus,
+.cell__index:active {
+  border: none;
+}
+
+.cell__laboratory-and-practice, .cell__laboratory-and-practice:active, .cell__laboratory-and-practice:focus,
+.cell__industry, .cell__industry:active, .cell__industry:focus {
+  border-left: 1px solid #484C51;
+}
+
+.cell__index,
+.cell__name {
+  vertical-align: middle;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+
+
+.cell__index {min-width: 130px;}
+.cell__name {min-width: 190px;}
+.cell__total-load {min-width: 82px;}
+.cell__practical-training {min-width: 70px;}
+.cell__total-lessons {min-width: 60px;}
+.cell__laboratory-and-practice {min-width: 150px;}
+.cell__education {min-width: 70px;}
+.cell__industry {min-width: 120px;}
+.cell__self-work {min-width: 120px;}
+
+
+
+
+.table__body .table__row .table__cell:first-child {
+  border-left: none;
+}
+
+.table__body .table__row:last-child {
+  border-bottom: none;
+}
+
+.table__body .table__cell:nth-child(6),
+.table__body .table__cell:nth-child(8)
+{ border-left: 1px solid #484C51;}
+
+.table__body .table__row:first-child .table__cell {background-color: rgba(0,0,0, 0) !important;}
+.table__body .table__row:last-child { background-color: #2183AA; }
+.table__body .table__row:last-child .table__cell { color: #fff; }
+
+.table__body .table__cell:nth-child(3) { background-color: #F6EB65; color: #484C51 !important; }
